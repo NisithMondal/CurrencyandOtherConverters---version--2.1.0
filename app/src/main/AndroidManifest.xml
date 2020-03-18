@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nisith.currencyandotherconverters">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".GeneralHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".PressureConverterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".FrequencyConverterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".TimeConverterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".SpeedConverterActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".NumberSystemConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".WeightConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".AngleConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".TemperatureConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".VolumeConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".AreaConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".LengthConverterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".CurrencyHistoryActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".AllCurrencyNameActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".CurrencyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

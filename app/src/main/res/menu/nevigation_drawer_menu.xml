@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single"
+        >
+
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/ic_home"
+            />
+
+        <item
+            android:id="@+id/length"
+            android:title="Length  Converter"
+            android:icon="@drawable/ic_length"
+            />
+
+        <item
+            android:id="@+id/area"
+            android:title="Area  Converter"
+            android:icon="@drawable/ic_area"
+            />
+
+        <item
+            android:id="@+id/volume"
+            android:title="Volume  Converter"
+            android:icon="@drawable/ic_volume"
+            />
+
+        <item
+            android:id="@+id/pressure"
+            android:title="Pressure Converter"
+            android:icon="@drawable/ic_pressure"
+            />
+
+        <item
+            android:id="@+id/angle"
+            android:title="Angle  Converter"
+            android:icon="@drawable/ic_angle"
+            />
+
+
+        <item
+            android:id="@+id/weight"
+            android:title="Weight  Converter"
+            android:icon="@drawable/ic_weight"
+            />
+
+
+
+        <item
+            android:id="@+id/temperature"
+            android:title="Temperature  Converter"
+            android:icon="@drawable/ic_temperature_icon"
+            />
+
+        <item
+            android:id="@+id/number_system"
+            android:title="Number  System Converter"
+            android:icon="@drawable/ic_number"
+            />
+
+
+        <item
+            android:id="@+id/speed"
+            android:title="Speed Converter"
+            android:icon="@drawable/ic_speed"
+            />
+
+
+        <item
+            android:id="@+id/time"
+            android:title="Time Converter"
+            android:icon="@drawable/ic_clock"
+            />
+
+        <item
+            android:id="@+id/frequency"
+            android:title="Frequency Converter"
+            android:icon="@drawable/ic_frequency"
+            />
+
+
+    </group>
+
+    <item
+        android:title=""
+        >
+
+        <menu>
+            <item
+                android:id="@+id/setting"
+                android:title="Setting"
+                android:icon="@drawable/ic_settings"/>
+
+            <item
+                android:id="@+id/about_app"
+                android:title="About App"
+                android:icon="@drawable/ic_information"/>
+
+        </menu>
+    </item>
+
+
+
+</menu>
