@@ -1,20 +1,23 @@
 package com.nisith.currencyandotherconverters;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Filter;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,11 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
     private int clickedCurrencyLayoutId;
     private ArrayList<CountryAndCurrency> allCountryAndCurrenciesArrayList;
     private AllcurrencyRecyclerViewAdapter allcurrencyRecyclerViewAdapter;
+    private TextSpeaker textSpeaker;
+    private SoundStateSharedPreference soundStateSharedPreference;
+    private ToolbarSoundIconHandaler toolbarSoundIconHandaler;
+    private ImageView toolbarSoundIconImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         setContentView(R.layout.activity_all_currency_name);
         Toolbar appToolbar = findViewById(R.id.app_toolbar);
         TextView toolbarTitle = appToolbar.findViewById(R.id.app_toolbar_title);
+        toolbarSoundIconImageView = appToolbar.findViewById(R.id.audio_enable_image_view);
         RecyclerView allCurrencyRecyclerView = findViewById(R.id.recycler_view);
         setSupportActionBar(appToolbar);
         setTitle("");
@@ -50,8 +59,24 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         allCurrencyRecyclerView.setAdapter(allcurrencyRecyclerViewAdapter);
         Intent requestIntent = getIntent();//this intent object came from CurrencyActivity
         clickedCurrencyLayoutId = requestIntent.getIntExtra("clicked_currency_layout_id",-1);
+        textSpeaker = new TextSpeaker(getApplicationContext());
+        soundStateSharedPreference = new SoundStateSharedPreference(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
+        toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
+        //To show Banner Ad
+        showSmallBannerAd();
 
 
+    }
+
+
+    private void showSmallBannerAd(){
+        //For showing Small Banner Ads
+        //For AdMob Ads
+        //For Banner Ads
+        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
+        smallBannedAdView.loadAd(new AdRequest.Builder().build());
     }
 
 
@@ -61,7 +86,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.search_bar_menu,menu);
         MenuItem menuItem = menu.findItem(R.id.search_bar);
-        final SearchView searchView = (android.support.v7.widget.SearchView)menuItem.getActionView();
+        final SearchView searchView = (androidx.appcompat.widget.SearchView)menuItem.getActionView();
         searchView.setQueryHint("Enter Country name");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -73,11 +98,20 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
             public boolean onQueryTextChange(String s) {
                 Filter filter = allcurrencyRecyclerViewAdapter.getFilter();
                 filter.filter(searchView.getQuery());
+                /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
+                  edit text Field */
+                String soundState = soundStateSharedPreference.getSoundState();
+                if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
+                    //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
+                    textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                }
                 return true;
             }
         });
         return true;
     }
+
+
 
 
 
@@ -98,4 +132,16 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         }
         return mallCountryAndCurrenciesArrayList;
     }
+
+
+    @Override
+    protected void onDestroy() {
+        if (textSpeaker != null) {
+            //this will release memory of textSpeaker object from Ram. This is Important
+            textSpeaker.closeTextSpeaker();
+        }
+        super.onDestroy();
+
+    }
+
 }

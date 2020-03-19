@@ -1,19 +1,16 @@
 package com.nisith.currencyandotherconverters;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AllcurrencyRecyclerViewAdapter extends RecyclerView.Adapter<AllcurrencyRecyclerViewAdapter.MyViewHolder> implements Filterable {
 

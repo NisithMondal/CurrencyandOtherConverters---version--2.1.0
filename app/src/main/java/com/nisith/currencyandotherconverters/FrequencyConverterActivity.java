@@ -2,9 +2,9 @@ package com.nisith.currencyandotherconverters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -44,6 +46,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
     private SoundStateSharedPreference soundStateSharedPreference;
     private ToolbarSoundIconHandaler toolbarSoundIconHandaler;
     private ImageView toolbarSoundIconImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,9 +95,32 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
         textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
+        //To show Ads
+        showSmallBannerAd();
+        showLargeBannerAd();
 
 
     }
+
+
+
+    private void showSmallBannerAd(){
+        //For showing Small Banner Ads
+        //For AdMob Ads
+        //For Banner Ads
+        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
+        smallBannedAdView.loadAd(new AdRequest.Builder().build());
+    }
+
+
+    private void showLargeBannerAd(){
+        //For showing Large Banner Ads
+        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
+        largeBannerAdView.loadAd(new AdRequest.Builder().build());
+    }
+
+
+
 
 
     private void closeKeyBoard(){
@@ -139,7 +165,6 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                 marqueTextView.setText("Frequency   is   Converted    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
 
                 //I call performFrequencyConvertion() method here because I want to perform Frequency Convertion when ArrowImageView is Clicked
-
                 performFrequencyConvertion();
                 //this is for audio speech when one click arrowImageView
                   playAudioSound();
@@ -248,6 +273,13 @@ public class FrequencyConverterActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String soundState = soundStateSharedPreference.getSoundState();
+            if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
+                //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
+                 /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
+                  edit text Field */
+                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+            }
             if (frequencyValueEditText.getText().toString().length()==0){
                 //If the edit text has no number i.e. empty then hide result text view
                 resultTextView.setVisibility(View.INVISIBLE);

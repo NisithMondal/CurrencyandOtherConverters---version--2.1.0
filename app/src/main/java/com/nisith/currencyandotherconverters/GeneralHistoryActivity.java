@@ -3,16 +3,19 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class GeneralHistoryActivity extends AppCompatActivity implements GeneralHistoryRecyclerViewAdapter.OnDeleteIconClickListener, GeneralHistoryRecyclerViewAdapter.OnSpeakerIconClickListener {
     private GeneralHistoryRecyclerViewAdapter adapter;
@@ -26,7 +29,7 @@ public class GeneralHistoryActivity extends AppCompatActivity implements General
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_frequency_history);
+        setContentView(R.layout.activity_general_history);
         Toolbar appToolbar = findViewById(R.id.app_toolbar);
         TextView toolbarTitle = findViewById(R.id.app_toolbar_title);
         toolbarSoundIconImageView = appToolbar.findViewById(R.id.audio_enable_image_view);
@@ -65,8 +68,18 @@ public class GeneralHistoryActivity extends AppCompatActivity implements General
         textSpeaker = new TextSpeaker(getApplicationContext());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
 
+        //To show Banner Ad
+        showSmallBannerAd();
+
+    }
 
 
+    private void showSmallBannerAd(){
+        //For showing Small Banner Ads
+        //For AdMob Ads
+        //For Banner Ads
+        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
+        smallBannedAdView.loadAd(new AdRequest.Builder().build());
     }
 
 

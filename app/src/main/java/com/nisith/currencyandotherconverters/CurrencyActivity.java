@@ -1,20 +1,26 @@
 package com.nisith.currencyandotherconverters;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +44,16 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     private int mRequestCode = 123;
     private TextView marqueTextView;
     private SoundStateSharedPreference soundStateSharedPreference;//this is use to store the state(Enable or dissable) of the audio sound of text to speech
+    private TextSpeaker textSpeaker;
+    // I used sharedPreference to store sound icon state (enable or dissable) instead of using database
+    private ToolbarSoundIconHandaler toolbarSoundIconHandaler;
+    private ImageView toolbarSoundIconImageView;
+
+
+    //For InterstitialAd
+    private MyInterstitialAd myInterstitialAd;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +63,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         setSupportActionBar(appToolbar);
         setTitle("");
         TextView appToolbarTitle = appToolbar.findViewById(R.id.app_toolbar_title);
+        toolbarSoundIconImageView = appToolbar.findViewById(R.id.audio_enable_image_view);
         appToolbarTitle.setText("Currency Converter");
         drawerLayout = findViewById(R.id.drawer_layout);
         enterAmountEditText = findViewById(R.id.amount_edit_text);
@@ -65,21 +82,50 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
             //at the first time when this app in installed then this condition will true only for once
             soundStateSharedPreference.setSoundState("enable");
         }
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
+
         addNavigationDrawer();
         attachAnimationToViews();
         leftCurrencyLayout.setOnClickListener(new MyCurrencyLayoutClickListener());
         rightCurrencyLayout.setOnClickListener(new MyCurrencyLayoutClickListener());
         currencyConvertButton.setOnClickListener(new MyCurrencyButtonClickListener());
         currencyHistoryButton.setOnClickListener(new MyCurrencyButtonClickListener());
+        toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
+
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
 
 
 
-
+        //To show Ads
+        showSmallBannerAd();
+        showLargeBannerAd();
+//        showInterstitialAd(30000);
 
 
 
     }
 
+
+    private void showSmallBannerAd(){
+        //For showing Small Banner Ads
+        //For AdMob Ads
+        //For Banner Ads
+        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
+        smallBannedAdView.loadAd(new AdRequest.Builder().build());
+    }
+
+
+    private void showLargeBannerAd(){
+        //For showing Large Banner Ads
+        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
+        largeBannerAdView.loadAd(new AdRequest.Builder().build());
+    }
+    private void showInterstitialAd(long adIntervalTime){
+        //For showing Large Banner Ads
+        myInterstitialAd = new MyInterstitialAd(this);
+        myInterstitialAd.showInterstitialAd(adIntervalTime);//ad interval time in millisecond
+    }
 
     @Override
     public void onBackPressed() {
@@ -90,16 +136,29 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         }
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //To stop the Thread of InterstitialAd when this Activity is Destroyed
+        if (myInterstitialAd != null) {
+            myInterstitialAd.stopThread();
+        }
+        if (textSpeaker != null) {
+            //this will release memory of textSpeaker object from Ram. This is Important
+            textSpeaker.closeTextSpeaker();
+        }
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         switch(menuItem.getItemId()){
+
+
+
             case R.id.home:
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.setting:
-                Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.length:
@@ -149,6 +208,9 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                 Intent frequencyIntent = new Intent(CurrencyActivity.this,FrequencyConverterActivity.class);
                 startActivity(frequencyIntent);
                 break;
+            case R.id.about_app:
+                Intent aboutAppIntent = new Intent(CurrencyActivity.this,AboutAppActivity.class);
+                startActivity(aboutAppIntent);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -156,7 +218,20 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void addNavigationDrawer(){
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,appToolbar,R.string.open_drawer,R.string.close_drawer);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,appToolbar,R.string.open_drawer,R.string.close_drawer){
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                //when nevagitation drawer is opened
+
+            }
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                //when nevagitation drawer is Closed
+            }
+        };
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         navigationDrawerView.setNavigationItemSelectedListener(this);
@@ -164,7 +239,6 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void attachAnimationToViews(){
-
 
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,6 +265,10 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
 
                 rightCurrencyTextView.setText(leftCurrencyTextViewValue);
                 marqueTextView.setText("Currency   is   Converted    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                  ");
+
+                //this is for audio speech when one click arrowImageView
+                playAudioSound();
+
             }
         });
     }
@@ -247,16 +325,44 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                     break;
             }
             marqueTextView.setText("Currency   is   Converted    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                 ");
+            //this is for audio speech when one select leftSpinnerItem or right itemSpinner
+            playAudioSound();
         }
 
 
     }
+
+
+
+
+    private void playAudioSound(){
+        //this function convert text to audio sound
+        String leftTextViewValue = leftCurrencyTextView.getText().toString();
+        String rightTextViewValue = rightCurrencyTextView.getText().toString();
+        String text = "Currency is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String soundState = soundStateSharedPreference.getSoundState();
+        if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
+            //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
+            textSpeaker.speak(text);
+        }
+    }
+
+
+
+
 
     @Override
     protected void onStart() {
         if (navigationDrawerView != null){
             navigationDrawerView.setCheckedItem(R.id.home);
         }
+        //To changed the state of sound Image Icon in toolbar.Because when we back to our frequency converter Activity from frequency history Activity
+        //this is Important
+        toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);
         super.onStart();
     }
+
+
+
+
 }

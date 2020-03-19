@@ -93,11 +93,6 @@
 
         <menu>
             <item
-                android:id="@+id/setting"
-                android:title="Setting"
-                android:icon="@drawable/ic_settings"/>
-
-            <item
                 android:id="@+id/about_app"
                 android:title="About App"
                 android:icon="@drawable/ic_information"/>

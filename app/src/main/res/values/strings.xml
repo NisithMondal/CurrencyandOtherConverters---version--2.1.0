@@ -5,6 +5,45 @@
     <string name="enable">enable</string>
     <string name="dissable">dissable</string>
 
+    <string name="small_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="large_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_frequency">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_frequency">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_length">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_length">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_area">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_area">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_volume">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_volume">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_pressure">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_pressure">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_temperature">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_temperature">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_weight">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_weight">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_number_system">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_number_system">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_time">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_time">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_angle">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_angle">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="s_banner_ad_unit_speed">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="l_banner_ad_unit_speed">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="small_banner_ad_unit_general_history_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="small_banner_ad_unit_all_currency_name_activity">ca-app-pub-3940256099942544/6300978111</string>
+
 
     <string-array name="countries_name">
 
