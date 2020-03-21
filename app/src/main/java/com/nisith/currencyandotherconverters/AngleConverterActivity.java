@@ -3,6 +3,9 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
@@ -232,12 +235,37 @@ public class AngleConverterActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            performAngleConvertion();
-            if (angleValueEditText.getText().toString().length()==0){
-                Toast.makeText(AngleConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+            //I call perform angleConvertion() method here because I want to perform angle Convertion when angleConvertButton is selected
+            //Check if Internet is Available or Not
+            if (isInternetAvailable()) {
+                //Check if Edit text field is empty or not
+                if (angleValueEditText.getText().toString().length()>0){
+                    //Some Value in edit text
+                    performAngleConvertion();
+                    closeKeyBoard();
+
+                }else {
+                    //if Empty
+                    Toast.makeText(AngleConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                closeKeyBoard();
+                //Internet not Available
+                AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+                dialog.show(getSupportFragmentManager(),"angle");
             }
+        }
+    }
+
+
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -275,7 +303,10 @@ public class AngleConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                if (count==1) {
+                    //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                    textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                }
             }
             if (angleValueEditText.getText().toString().length()==0){
                 resultTextView.setVisibility(View.INVISIBLE);
@@ -333,11 +364,12 @@ public class AngleConverterActivity extends AppCompatActivity {
         if (angleValueEditText.getText().toString().length()>0){
             String leftAngleTextViewValue = leftAngleTextView.getText().toString();
             String rightAngleTextViewValue = rightAngleTextView.getText().toString();
-            double userInputData = Double.parseDouble(angleValueEditText.getText().toString());
+            String editTextSting = angleValueEditText.getText().toString();
+            double userInputData = Double.parseDouble(editTextSting);
             AngleConverter angleConverter = new AngleConverter();
             double result = angleConverter.getLengthConvertResult(leftAngleTextViewValue,rightAngleTextViewValue,userInputData);
             resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftAngleTextViewValue+"  =  "+result+"  "+rightAngleTextViewValue);
+            resultTextView.setText(editTextSting+"  "+leftAngleTextViewValue+"  =  "+result+"  "+rightAngleTextViewValue);
         }
 
     }

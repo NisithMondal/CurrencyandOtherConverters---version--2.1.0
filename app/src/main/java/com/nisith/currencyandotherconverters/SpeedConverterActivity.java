@@ -3,6 +3,9 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
@@ -233,13 +236,37 @@ public class SpeedConverterActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            performSpeedConvertion();
-            if (speedValueEditText.getText().toString().length()==0){
-                Toast.makeText(SpeedConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+            //I call perform speedConvertion() method here because I want to perform Speed Convertion when speedConvertButton is selected
+            //Check if Internet is Available or Not
+            if (isInternetAvailable()) {
+                //Check if Edit text field is empty or not
+                if (speedValueEditText.getText().toString().length()>0){
+                    //Some Value in edit text
+                    performSpeedConvertion();
+                    closeKeyBoard();
+
+                }else {
+                    //if Empty
+                    Toast.makeText(SpeedConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                closeKeyBoard();
+                //Internet not Available
+                AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+                dialog.show(getSupportFragmentManager(),"speed");
             }
 
+        }
+    }
+
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -274,7 +301,10 @@ public class SpeedConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                if (count==1) {
+                    //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                    textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                }
             }
             if (speedValueEditText.getText().toString().length()==0){
                 resultTextView.setVisibility(View.INVISIBLE);
@@ -332,11 +362,12 @@ public class SpeedConverterActivity extends AppCompatActivity {
         if (speedValueEditText.getText().toString().length()>0){
             String leftSpeedTextViewValue = leftSpeedTextView.getText().toString();
             String rightSpeedTextViewValue = rightSpeedTextView.getText().toString();
-            double userInputData = Double.parseDouble(speedValueEditText.getText().toString());
+            String editTextSting = speedValueEditText.getText().toString();
+            double userInputData = Double.parseDouble(editTextSting);
             SpeedConverter speedConverter = new SpeedConverter();
             double result = speedConverter.getWeightConvertResult(leftSpeedTextViewValue,rightSpeedTextViewValue,userInputData);
             resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftSpeedTextViewValue+"  =  "+result+"  "+rightSpeedTextViewValue);
+            resultTextView.setText(editTextSting+"  "+leftSpeedTextViewValue+"  =  "+result+"  "+rightSpeedTextViewValue);
         }
 
     }

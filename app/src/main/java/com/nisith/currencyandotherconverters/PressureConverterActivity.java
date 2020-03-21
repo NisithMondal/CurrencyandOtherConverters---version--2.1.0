@@ -3,6 +3,9 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
@@ -228,12 +231,36 @@ public class PressureConverterActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            performPressureConvertion();
-            if (pressureValueEditText.getText().toString().length()==0){
-                Toast.makeText(PressureConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+            //I call perform pressureConvertion() method here because I want to perform pressure Convertion when pressureConvertButton is selected
+            //Check if Internet is Available or Not
+            if (isInternetAvailable()) {
+                //Check if Edit text field is empty or not
+                if (pressureValueEditText.getText().toString().length()>0){
+                    //Some Value in edit text
+                    performPressureConvertion();
+                    closeKeyBoard();
+
+                }else {
+                    //if Empty
+                    Toast.makeText(PressureConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                closeKeyBoard();
+                //Internet not Available
+                AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+                dialog.show(getSupportFragmentManager(),"pressure");
             }
+        }
+    }
+
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -268,7 +295,10 @@ public class PressureConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                if (count==1) {
+                    //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                    textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                }
             }
             if (pressureValueEditText.getText().toString().length()==0){
                 resultTextView.setVisibility(View.INVISIBLE);
@@ -327,11 +357,12 @@ public class PressureConverterActivity extends AppCompatActivity {
         if (pressureValueEditText.getText().toString().length()>0){
             String leftPressureTextViewValue = leftPressureTextView.getText().toString();
             String rightPressureTextViewValue = rightPressureTextView.getText().toString();
-            double userInputData = Double.parseDouble(pressureValueEditText.getText().toString());
+            String editTextSting = pressureValueEditText.getText().toString();
+            double userInputData = Double.parseDouble(editTextSting);
             PressureConverter pressureConverter = new PressureConverter();
             double result = pressureConverter.getLengthConvertResult(leftPressureTextViewValue,rightPressureTextViewValue,userInputData);
             resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftPressureTextViewValue+"  =  "+result+"  "+rightPressureTextViewValue);
+            resultTextView.setText(editTextSting+"  "+leftPressureTextViewValue+"  =  "+result+"  "+rightPressureTextViewValue);
         }
 
     }

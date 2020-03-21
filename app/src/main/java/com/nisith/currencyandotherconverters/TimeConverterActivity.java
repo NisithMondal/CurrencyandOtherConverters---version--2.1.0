@@ -3,6 +3,9 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
@@ -229,12 +232,35 @@ public class TimeConverterActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            performTimeConvertion();
-            if (timeValueEditText.getText().toString().length()==0){
-                Toast.makeText(TimeConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+            //I call perform timeConvertion() method here because I want to perform Frequency Convertion when frequencyConvertButton is selected
+            //Check if Internet is Available or Not
+            if (isInternetAvailable()) {
+                //Check if Edit text field is empty or not
+                if (timeValueEditText.getText().toString().length()>0){
+                    //Some Value in edit text
+                    performTimeConvertion();
+                    closeKeyBoard();
+
+                }else {
+                    //if Empty
+                    Toast.makeText(TimeConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                closeKeyBoard();
+                //Internet not Available
+                AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+                dialog.show(getSupportFragmentManager(),"time");
             }
+        }
+    }
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -269,7 +295,10 @@ public class TimeConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                if (count==1) {
+                    //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                    textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                }
             }
             if (timeValueEditText.getText().toString().length()==0){
                 resultTextView.setVisibility(View.INVISIBLE);
@@ -327,11 +356,12 @@ public class TimeConverterActivity extends AppCompatActivity {
         if (timeValueEditText.getText().toString().length()>0){
             String leftTimeTextViewValue = leftTimeTextView.getText().toString();
             String rightTimeTextViewValue = rightTimeTextView.getText().toString();
-            double userInputData = Double.parseDouble(timeValueEditText.getText().toString());
+            String editTextSting = timeValueEditText.getText().toString();
+            double userInputData = Double.parseDouble(editTextSting);
             TimeConverter timeConverter = new TimeConverter();
             double result = timeConverter.getWeightConvertResult(leftTimeTextViewValue,rightTimeTextViewValue,userInputData);
             resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftTimeTextViewValue+"  =  "+result+"  "+rightTimeTextViewValue);
+            resultTextView.setText(editTextSting+"  "+leftTimeTextViewValue+"  =  "+result+"  "+rightTimeTextViewValue);
         }
 
     }

@@ -3,6 +3,9 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
@@ -228,15 +231,39 @@ public class VolumeConverterActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            performVolumeConvertion();
-            if (volumeValueEditText.getText().toString().length()==0){
-                Toast.makeText(VolumeConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+            //I call perform volumeConvertion() method here because I want to perform Frequency Convertion when frequencyConvertButton is selected
+            //Check if Internet is Available or Not
+            if (isInternetAvailable()) {
+                //Check if Edit text field is empty or not
+                if (volumeValueEditText.getText().toString().length()>0){
+                    //Some Value in edit text
+                    performVolumeConvertion();
+                    closeKeyBoard();
+
+                }else {
+                    //if Empty
+                    Toast.makeText(VolumeConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                closeKeyBoard();
+                //Internet not Available
+                AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+                dialog.show(getSupportFragmentManager(),"volume");
             }
         }
     }
 
+
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     private class MyVolumeHistoryButtonClick implements View.OnClickListener{
@@ -271,7 +298,10 @@ public class VolumeConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                if (count==1) {
+                    //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                    textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                }
             }
             if (volumeValueEditText.getText().toString().length()==0){
                 resultTextView.setVisibility(View.INVISIBLE);
@@ -333,11 +363,12 @@ public class VolumeConverterActivity extends AppCompatActivity {
         if (volumeValueEditText.getText().toString().length()>0){
             String leftVolumeTextViewValue = leftVolumeTextView.getText().toString();
             String rightVolumeTextViewValue = rightVolumeTextView.getText().toString();
-            double userInputData = Double.parseDouble(volumeValueEditText.getText().toString());
+            String editTextSting = volumeValueEditText.getText().toString();
+            double userInputData = Double.parseDouble(editTextSting);
             VolumeConverter volumeConverter = new VolumeConverter();
             double result = volumeConverter.getVolumeConvertResult(leftVolumeTextViewValue,rightVolumeTextViewValue,userInputData);
             resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftVolumeTextViewValue+"  =  "+result+"  "+rightVolumeTextViewValue);
+            resultTextView.setText(editTextSting+"  "+leftVolumeTextViewValue+"  =  "+result+"  "+rightVolumeTextViewValue);
         }
 
     }

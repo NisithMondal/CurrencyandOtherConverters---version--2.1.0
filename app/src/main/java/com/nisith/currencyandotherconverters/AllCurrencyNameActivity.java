@@ -103,7 +103,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
                 String soundState = soundStateSharedPreference.getSoundState();
                 if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
                     //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
-                    textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                    textSpeaker.speakLastCharacterOfSearchView(String.valueOf(s));
                 }
                 return true;
             }

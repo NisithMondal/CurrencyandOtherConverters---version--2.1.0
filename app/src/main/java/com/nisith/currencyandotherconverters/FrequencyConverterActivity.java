@@ -3,10 +3,14 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -193,7 +197,6 @@ public class FrequencyConverterActivity extends AppCompatActivity {
             leftFrequencyTextView.setText(parent.getItemAtPosition(position).toString());
             marqueTextView.setText("Frequency   is   Converted    From   " + leftFrequencyTextView.getText().toString() + "       To     " + rightFrequencyTextView.getText().toString() + "                                  ");
             //I call performFrequencyConvertion() method here because I want to perform Frequency Convertion when leftSpinner Item is selected
-
             performFrequencyConvertion();
             //Here Edit text hint is hanged when left Spinner item is changed
             frequencyValueEditText.setHint("Enter Value (" + leftFrequencyTextView.getText().toString() + ")");
@@ -233,14 +236,22 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //I call performFrequencyConvertion() method here because I want to perform Frequency Convertion when frequencyConvertButton is selected
-            performFrequencyConvertion();
-            if (frequencyValueEditText.getText().toString().length()==0){
-                Toast.makeText(FrequencyConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
-            }else {
-                //After frequencyConvertButton click the keyBoard will dissappeare if in edit text have some number not blank
-                closeKeyBoard();
-            }
+           if (isInternetAvailable()) {
+               //Check if Edit text field is empty or not
+               if (frequencyValueEditText.getText().toString().length()>0){
+                   //Some Value in edit text
+                   performFrequencyConvertion();
+                   closeKeyBoard();
 
+               }else {
+                   //if Empty
+                   Toast.makeText(FrequencyConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+               }
+           }else {
+               //Internet not Available
+               AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+               dialog.show(getSupportFragmentManager(),"frequency");
+           }
         }
     }
 
@@ -278,7 +289,10 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                 if (count==1) {
+                     //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                     textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                 }
             }
             if (frequencyValueEditText.getText().toString().length()==0){
                 //If the edit text has no number i.e. empty then hide result text view
@@ -304,6 +318,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+
         }
 
         @Override
@@ -321,19 +336,35 @@ public class FrequencyConverterActivity extends AppCompatActivity {
 
     private void performFrequencyConvertion(){
         //This method perform Frequency Convertion
-        if (frequencyValueEditText.getText().toString().length()>0){
-            //If edit text is not Empty
-            String leftFrequencyTextViewValue = leftFrequencyTextView.getText().toString();
-            String rightFrequencyTextViewValue = rightFrequencyTextView.getText().toString();
-            //whatever Inserted by User in Edit Text Field
-            double userInputData = Double.parseDouble(frequencyValueEditText.getText().toString());
-            //FrequencyConvert class's methods are responsible to perform frequency Convertion. For more Information Go to that class
-            FrequencyConverter frequencyConverter = new FrequencyConverter();
-            double result = frequencyConverter.getFrequencyConvertResult(leftFrequencyTextViewValue,rightFrequencyTextViewValue,userInputData);
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftFrequencyTextViewValue+"  =  "+result+"  "+rightFrequencyTextViewValue);
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (frequencyValueEditText.getText().toString().length() > 0) {
+                //If edit text is not Empty
+                String leftFrequencyTextViewValue = leftFrequencyTextView.getText().toString();
+                String rightFrequencyTextViewValue = rightFrequencyTextView.getText().toString();
+                //whatever Inserted by User in Edit Text Field
+                String editTextSting = frequencyValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                //FrequencyConvert class's methods are responsible to perform frequency Convertion. For more Information Go to that class
+                FrequencyConverter frequencyConverter = new FrequencyConverter();
+                double result = frequencyConverter.getFrequencyConvertResult(leftFrequencyTextViewValue, rightFrequencyTextViewValue, userInputData);
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftFrequencyTextViewValue + "  =  " + result + "  " + rightFrequencyTextViewValue);
+            }
         }
 
+    }
+
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void storeDataInDatabase(String convertionText){
@@ -344,7 +375,6 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("hh:mm aa");
         Date date = new Date();
         String currentTime = format.format(date);
-
         myDatabaseHelper.insertDataToDatabase(convertionText,currentDate,currentTime,AllTables.ConvertionType.frequency);
     }
 

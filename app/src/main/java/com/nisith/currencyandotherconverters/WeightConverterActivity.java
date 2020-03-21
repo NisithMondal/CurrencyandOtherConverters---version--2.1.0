@@ -3,6 +3,9 @@ package com.nisith.currencyandotherconverters;
 import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
@@ -224,14 +227,40 @@ public class WeightConverterActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            performWeightConvertion();
-            if (weightValueEditText.getText().toString().length()==0){
-                Toast.makeText(WeightConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+            //I call perform weightConvertion() method here because I want to perform Frequency Convertion when frequencyConvertButton is selected
+           //Check if Internet is Available or Not
+            if (isInternetAvailable()) {
+                //Check if Edit text field is empty or not
+                if (weightValueEditText.getText().toString().length()>0){
+                    //Some Value in edit text
+                    performWeightConvertion();
+                    closeKeyBoard();
+
+                }else {
+                    //if Empty
+                    Toast.makeText(WeightConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                }
             }else {
-                closeKeyBoard();
+                //Internet not Available
+                AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
+                dialog.show(getSupportFragmentManager(),"weight");
             }
         }
     }
+
+
+
+    private boolean isInternetAvailable() {
+        //This method check if the internet is available or not
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     private class MyWeightHistoryButtonClick implements View.OnClickListener{
         public void onClick(View view){
@@ -263,7 +292,10 @@ public class WeightConverterActivity extends AppCompatActivity {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
                  /*This Method will tells the last enter Character in search View or Edit text. But it will not speak anything when character is removed from
                   edit text Field */
-                textSpeaker.speakLastCharacterOfEditText(String.valueOf(s));
+                if (count==1) {
+                    //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                    textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
+                }
             }
             if (weightValueEditText.getText().toString().length()==0){
                 resultTextView.setVisibility(View.INVISIBLE);
@@ -320,11 +352,12 @@ public class WeightConverterActivity extends AppCompatActivity {
         if (weightValueEditText.getText().toString().length()>0){
             String leftWeightTextViewValue = leftWeightTextView.getText().toString();
             String rightWeightTextViewValue = rightWeightTextView.getText().toString();
-            double userInputData = Double.parseDouble(weightValueEditText.getText().toString());
+            String editTextSting = weightValueEditText.getText().toString();
+            double userInputData = Double.parseDouble(editTextSting);
             WeightConvert weightConvert = new WeightConvert();
             double result = weightConvert.getWeightConvertResult(leftWeightTextViewValue,rightWeightTextViewValue,userInputData);
             resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+"  "+leftWeightTextViewValue+"  =  "+result+"  "+rightWeightTextViewValue);
+            resultTextView.setText(editTextSting+"  "+leftWeightTextViewValue+"  =  "+result+"  "+rightWeightTextViewValue);
         }
 
     }
