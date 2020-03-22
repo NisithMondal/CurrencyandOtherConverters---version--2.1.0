@@ -170,6 +170,7 @@
                         android:hint="Enter Amount (USD)"
                         android:inputType="numberDecimal"
                         android:textSize="20sp"
+                        android:imeOptions="actionDone"
                         android:textColor="@android:color/black"
                         />
 

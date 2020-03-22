@@ -121,7 +121,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         //To show Ads
         showSmallBannerAd();
         showLargeBannerAd();
-//        showInterstitialAd(30000);
+//        showInterstitialAd(20000);
 
 
 
@@ -189,8 +189,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
 
 
 
-            case R.id.home:
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+            case R.id.currency:
                 break;
 
             case R.id.length:
@@ -267,7 +266,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         navigationDrawerView.setNavigationItemSelectedListener(this);
-        navigationDrawerView.setCheckedItem(R.id.home);
+        navigationDrawerView.setCheckedItem(R.id.currency);
     }
 
     private void attachAnimationToViews(){
@@ -605,7 +604,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     @Override
     protected void onStart() {
         if (navigationDrawerView != null){
-            navigationDrawerView.setCheckedItem(R.id.home);
+            navigationDrawerView.setCheckedItem(R.id.currency);
         }
         //To changed the state of sound Image Icon in toolbar.Because when we back to our frequency converter Activity from frequency history Activity
         //this is Important

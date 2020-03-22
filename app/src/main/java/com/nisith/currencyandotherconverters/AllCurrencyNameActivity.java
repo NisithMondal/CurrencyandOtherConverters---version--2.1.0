@@ -1,5 +1,6 @@
 package com.nisith.currencyandotherconverters;
 
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,6 +49,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         appToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                closeKeyBoard();
                 finish();
             }
         });
@@ -68,6 +71,14 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         showSmallBannerAd();
 
 
+    }
+
+    private void closeKeyBoard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+        }
     }
 
 
@@ -122,6 +133,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         resultIntent.putExtra("currency_name",selectedCurrencyName);
         resultIntent.putExtra("clicked_currency_layout_id",clickedCurrencyLayoutId);
         setResult(RESULT_OK,resultIntent);
+        closeKeyBoard();
         finish();
     }
 

@@ -161,7 +161,6 @@
         <item>Jordan</item>
         <item>Kazakhstan</item>
         <item>Kenya</item>
-        <item>Kiribati</item>
         <item>Kuwait</item>
         <item>Kyrgyz Republic</item>
         <item>Laos</item>
@@ -171,7 +170,6 @@
         <item>Liberia</item>
         <item>Libya</item>
         <item>Liechtenstein</item>
-        <item>Lithuania</item>
         <item>Luxembourg</item>
         <item>Macau</item>
         <item>Macedonia</item>
@@ -246,7 +244,6 @@
         <item>South Africa</item>
         <item>South Georgia and South Sandwich Islands</item>
         <item>South Korea</item>
-        <item>South Sudan</item>
         <item>Soviet Union</item>
         <item>Spain</item>
         <item>Sri Lanka</item>
@@ -412,7 +409,6 @@
         <item>JOD</item>
         <item>KZT</item>
         <item>KES</item>
-        <item>KID</item>
         <item>KWD</item>
         <item>KGS</item>
         <item>LAK</item>
@@ -422,7 +418,6 @@
         <item>LRD</item>
         <item>LYD</item>
         <item>CHF</item>
-        <item>LTL</item>
         <item>EUR</item>
         <item>MOP</item>
         <item>MKD</item>
@@ -497,7 +492,6 @@
         <item>ZAR</item>
         <item>GBP</item>
         <item>KRW</item>
-        <item>SSP</item>
         <item>RUB</item>
         <item>EUR</item>
         <item>LKR</item>
@@ -804,10 +798,8 @@
 
 
     <string-array name="number_system_units_left">
-
-
-        <item>Binary</item>
         <item>Decimal</item>
+        <item>Binary</item>
         <item>Octal</item>
         <item>HexaDecimal</item>
 
@@ -815,9 +807,8 @@
 
 
     <string-array name="number_system_units_right">
-
-        <item>Decimal</item>
         <item>Binary</item>
+        <item>Decimal</item>
         <item>Octal</item>
         <item>HexaDecimal</item>
 

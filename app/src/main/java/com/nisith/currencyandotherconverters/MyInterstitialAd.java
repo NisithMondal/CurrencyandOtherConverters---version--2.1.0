@@ -1,6 +1,8 @@
 package com.nisith.currencyandotherconverters;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.SystemClock;
 import android.util.Log;
 
@@ -21,9 +23,18 @@ public class MyInterstitialAd {
         preparedInterstitialAd(appCompatActivity);
         mInterstitialAd.setAdListener(new AdListener(){
             @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+            }
+
+            @Override
             public void onAdClosed() {
                 super.onAdClosed();
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                if (mInterstitialAd != null) {
+                    if (! mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                    }
+                }
             }
         });
 
@@ -43,9 +54,13 @@ public class MyInterstitialAd {
                     appCompatActivity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //if ad is Loaded then show the Ads
-                            if (mInterstitialAd.isLoaded()) {
-                                mInterstitialAd.show();
+                            if (mInterstitialAd != null) {
+                                if (mInterstitialAd.isLoaded()) {
+                                    //if ad is Loaded then show the Ads
+                                    mInterstitialAd.show();
+                                } else {
+                                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                                }
                             }
                         }
                     });
@@ -56,6 +71,7 @@ public class MyInterstitialAd {
 
 
     }
+
 
     public void stopThread(){
         //This method is used to stop the Thread

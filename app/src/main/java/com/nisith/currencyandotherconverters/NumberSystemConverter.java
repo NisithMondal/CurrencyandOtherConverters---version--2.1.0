@@ -441,7 +441,7 @@ public class NumberSystemConverter {
         //This method convert Octal number to Decimal number
 
         String digitsBeforePoint,digitsAfterPoint;
-        String resultBeforePointDigits="",resultAfterPointDigits = "";
+        double resultBeforePointDigits=0.0,resultAfterPointDigits = 0.0;
         String result = "";
         if (octalNumber.contains(".")){
             if(octalNumber.indexOf(".") == octalNumber.length()-1){
@@ -459,12 +459,12 @@ public class NumberSystemConverter {
             digitsAfterPoint = "0";
         }
 
-        resultBeforePointDigits = octalToDecimalBeforePoint(digitsBeforePoint);
+        resultBeforePointDigits = Double.parseDouble(octalToDecimalBeforePoint(digitsBeforePoint));
         if (!digitsAfterPoint.equals("0")){
-            resultAfterPointDigits = octalToDecimalAfterPoint(digitsAfterPoint);
+            resultAfterPointDigits = Double.parseDouble(octalToDecimalAfterPoint(digitsAfterPoint));
         }
 
-        result = resultBeforePointDigits + resultAfterPointDigits;
+        result = String.valueOf(resultBeforePointDigits + resultAfterPointDigits);
         return result;
 
     }

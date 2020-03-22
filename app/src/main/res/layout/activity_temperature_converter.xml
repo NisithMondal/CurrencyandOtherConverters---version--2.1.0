@@ -152,6 +152,7 @@
                         android:hint="Enter Value (m)"
                         android:inputType="numberDecimal"
                         android:textSize="20sp"
+                        android:imeOptions="actionDone"
                         android:textColor="@android:color/black"
                         />
 

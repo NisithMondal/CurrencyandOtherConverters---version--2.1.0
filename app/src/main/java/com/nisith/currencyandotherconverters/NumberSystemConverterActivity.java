@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -134,8 +135,6 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
 
     private void setConvertionFromXmlToJavaObject(){
-
-
         appToolbar = findViewById(R.id.app_toolbar);
         toolbarTitle = findViewById(R.id.app_toolbar_title);
         toolbarSoundIconImageView = appToolbar.findViewById(R.id.audio_enable_image_view);
@@ -187,12 +186,14 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
                 rightNumberSystemTextView.setText(leftCurrencyTextViewValue);
                 marqueTextView.setText("Number System   is   Converted    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
-                performNumberSystemConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
                 //The following code is because if anybody click arrow image view the both keypad will invisible
                 closeKeyBoard();
-                frameLayoutForKeypad.setVisibility(View.GONE);
+//                frameLayoutForKeypad.setVisibility(View.GONE);
+                numberSystemValueEditText.setText("");
+                numberSystemKeyPadCotroller();
+//                performNumberSystemConvertion();
 
 
             }
@@ -225,14 +226,14 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
             leftNumberSystemTextView.setText(parent.getItemAtPosition(position).toString());
             marqueTextView.setText("Number System   is   Converted    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
-            performNumberSystemConvertion();
             numberSystemValueEditText.setHint("Enter Value ("+leftNumberSystemTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
             playAudioSound();
-
             //The following code is because if anybody select an item in left spinner ,then both keypad will invisible.
             closeKeyBoard();
-            frameLayoutForKeypad.setVisibility(View.GONE);
+//            frameLayoutForKeypad.setVisibility(View.GONE);
+            numberSystemValueEditText.setText("");
+            numberSystemKeyPadCotroller();
 
         }
 
@@ -326,7 +327,6 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         @Override
@@ -348,7 +348,6 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
         @Override
         public void afterTextChanged(Editable s) {
-
         }
     }
 
@@ -463,7 +462,8 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
             frameLayoutForKeypad.addView(hexaDecimalObjectForKeypad);
 
         }else {
-            numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL);//////////////////////////////////////////debug////////
+            numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL | EditorInfo.TYPE_CLASS_NUMBER);//////////////////////////////////////////debug////////
+            openKeyBoard();
             //If left number system Text view is selected as Decimal then......
             if (frameLayoutForKeypad.getVisibility() == View.VISIBLE)
             {
@@ -472,6 +472,18 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
             }
         }
     }
+
+
+
+    private void openKeyBoard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.showSoftInput(view,0);
+        }
+    }
+
+
 
 
 

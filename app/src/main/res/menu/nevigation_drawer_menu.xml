@@ -8,9 +8,9 @@
         >
 
         <item
-            android:id="@+id/home"
-            android:title="Home"
-            android:icon="@drawable/ic_home"
+            android:id="@+id/currency"
+            android:title="Currency Converter"
+            android:icon="@drawable/ic_doller_currency"
             />
 
         <item

@@ -155,6 +155,8 @@
                         android:layout_height="wrap_content"
                         android:hint="Enter Value (Decimal)"
                         android:textSize="20sp"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal"
                         android:textColor="@android:color/black"
                         />
 

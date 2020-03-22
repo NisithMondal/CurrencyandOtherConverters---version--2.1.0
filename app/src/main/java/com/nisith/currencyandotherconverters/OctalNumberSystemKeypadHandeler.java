@@ -64,7 +64,7 @@ public class OctalNumberSystemKeypadHandeler {
                     break;
                 case R.id.button_two:
                     //To Insert Two at the current Cursor Position
-                    numberSystemValueEditText.getText().insert(editTextCursorPosition,"0");
+                    numberSystemValueEditText.getText().insert(editTextCursorPosition,"2");
                     break;
                 case R.id.button_three:
                     //To Insert Three at the current Cursor Position
