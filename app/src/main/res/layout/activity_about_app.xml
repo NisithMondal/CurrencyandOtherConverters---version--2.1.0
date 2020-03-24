@@ -8,16 +8,95 @@
 
 
     <include
+        android:id="@+id/app_toolbar"
         layout="@layout/app_toolbar"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About App"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@android:color/holo_orange_dark"
-        />
+
+    <ScrollView
+        android:layout_below="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/small_banner_ad"
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                android:layout_marginTop="3dp"
+                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity"
+                >
+            </com.google.android.gms.ads.AdView>
+
+
+
+        <TextView
+            android:id="@+id/heading_text_view"
+            android:layout_below="@+id/small_banner_ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UNITS  AND  CURRENCY  CONVERTER"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:padding="15dp"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:background="#EE00AA"
+            android:textColor="@android:color/white"
+            />
+
+        <TextView
+            android:id="@+id/description_text_view"
+            android:layout_below="@+id/heading_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="This is an application Which Converts Different types of Mathematics Units as well as it Convert Different Country's Currencies."
+            android:textAlignment="textStart"
+            android:textSize="16dp"
+            android:textStyle="italic"
+            android:textColor="@android:color/black"
+            />
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_below="@+id/description_text_view"
+                android:layout_width="200dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/user"
+                android:layout_height="200dp" />
+
+            <TextView
+                android:id="@+id/description1_text_view"
+                android:layout_below="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="In This App You Can Get About 149 Contries Currencies. This App Supports Total 15 Types of Converters At The Current Version. But In Future More Converters are Added In This Application. This is a very Simple Appliaction To Use and Granneted You That You Will Get a Better User Exprience in This  Application.
+So Thanks For Downloading Our Application. Take Care.
+In This App You Can Get About 149 Contries Currencies. This App Supports Total 15 Types of Converters At The Current Version. But In Future More Converters are Added In This Application. This is a very Simple Appliaction To Use and Granneted You That You Will Get a Better User Exprience in This  Application
+In This App You Can Get About 149 Contries Currencies. This App Supports Total 15 Types of Converters At The Current Version. But In Future More Converters are Added In This Application. This is a very Simple Appliaction To Use and Granneted You That You Will Get a Better User Exprience in This  Application
+"
+                android:textAlignment="textStart"
+                android:textStyle="italic"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                />
+
+        </RelativeLayout>
+
+
+
+
+    </ScrollView>
+
+
 
 </RelativeLayout>

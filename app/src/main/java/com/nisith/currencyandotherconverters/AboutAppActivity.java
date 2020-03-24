@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class AboutAppActivity extends AppCompatActivity {
 
     @Override
@@ -28,5 +31,20 @@ public class AboutAppActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        //show Banner Ads
+        showSmallBannerAd();
+
     }
+
+    private void showSmallBannerAd(){
+        //For showing Small Banner Ads
+        //For AdMob Ads
+        //For Banner Ads
+        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
+        smallBannedAdView.loadAd(new AdRequest.Builder().build());
+    }
+
+
 }

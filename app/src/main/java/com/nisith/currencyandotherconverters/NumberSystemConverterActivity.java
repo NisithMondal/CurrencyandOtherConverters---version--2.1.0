@@ -190,10 +190,10 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
                 playAudioSound();
                 //The following code is because if anybody click arrow image view the both keypad will invisible
                 closeKeyBoard();
-//                frameLayoutForKeypad.setVisibility(View.GONE);
+                //To Clear all input user data from edit text
                 numberSystemValueEditText.setText("");
+                //To show Left Spinner Specified number System Keyboard
                 numberSystemKeyPadCotroller();
-//                performNumberSystemConvertion();
 
 
             }
@@ -231,8 +231,9 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
             playAudioSound();
             //The following code is because if anybody select an item in left spinner ,then both keypad will invisible.
             closeKeyBoard();
-//            frameLayoutForKeypad.setVisibility(View.GONE);
+            //To Clear all input user data from edit text
             numberSystemValueEditText.setText("");
+            //To show Left Spinner Specified number System Keyboard
             numberSystemKeyPadCotroller();
 
         }
@@ -324,13 +325,75 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
     private class MyTextWatcher implements TextWatcher {
 
         //text watcher for Edit Text
+        String beforeTextChangedValue = "";
+        CustomKeypadValueChecking customKeypadValueChecking = new CustomKeypadValueChecking();
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            //Store edit Text Value before text Changed
+            beforeTextChangedValue = s.toString();
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
+            //Call decimalNumberKeypadTotalEnteringCharacterChecking() method
+            boolean isOK = decimalNumberKeypadTotalEnteringCharacterChecking(beforeTextChangedValue,s);
+            if (! isOK){
+                //if is not ok then return i.e. finish this method here.
+                return;
+            }
+            //To get editText String
+            String editTextText = s.toString();
+            //To get leftNumberSystemTextViewValue selected value.
+            String leftNumberSystemTextViewValue = leftNumberSystemTextView.getText().toString();
+            if (leftNumberSystemTextViewValue.equalsIgnoreCase("BINARY") && editTextText.length()>0 && count==1){
+                //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                //To Get the recent Entered Character in EditText.
+                String enteredCharacter = String.valueOf(s.charAt(start));
+                boolean isOk = customKeypadValueChecking.isBinaryKeypadEnteringValueOK(enteredCharacter);
+                if (! isOk) {
+                    //If Entered Character is Not Ok, then do the following
+                    //Set the edit text whatever was before editText text changed i.e. the set the value of beforeEditTextChangeString.
+                    numberSystemValueEditText.setText(beforeTextChangedValue);
+                    Toast.makeText(NumberSystemConverterActivity.this, "Enter Only Binary Number i.e. '1' or '0'", Toast.LENGTH_SHORT).show();
+                    //if is not ok then return ,i.e. finish this method here.
+                    return;
+                }
+
+            }else if (leftNumberSystemTextViewValue.equalsIgnoreCase("OCTAL") && editTextText.length()>0 && count==1){
+                //if count=1 means user enter value in edit text. If count=0 means character is removed from edit text.
+                //To Get the recent Entered Character in EditText.
+                String enteredCharacter = String.valueOf(s.charAt(start));
+                boolean isOk = customKeypadValueChecking.isOctalKeypadEnteringValueOK(enteredCharacter);
+                if (! isOk) {
+                    //If Entered Character is Not Ok, then do the following
+                    //Set the edit text whatever was before editText text changed i.e. the set the value of beforeEditTextChangeString.
+                    numberSystemValueEditText.setText(beforeTextChangedValue);
+                    Toast.makeText(NumberSystemConverterActivity.this, "Enter Only Octal Numbers i.e. from '0' To '7'", Toast.LENGTH_SHORT).show();
+                    //if is not ok then return ,i.e. finish this method here.
+                    return;
+                }
+            }else if (leftNumberSystemTextViewValue.equalsIgnoreCase("HexaDecimal") && editTextText.length()>0 && count==1){
+                //To Get the recent Entered Character in EditText.
+                String enteredCharacter = String.valueOf(s.charAt(start));
+                //Check If the entered character is equal to point(.) and the EditText does not contains any point before Edit Text Text changed
+                if (enteredCharacter.equalsIgnoreCase(".") && beforeTextChangedValue.contains(".")){
+                    //Set the edit text whatever was before editText text changed i.e. set the value of beforeEditTextChangeString.
+                    numberSystemValueEditText.setText(beforeTextChangedValue);
+                    return;
+                }
+                //Check the entered Character in EditText isOk or not
+                boolean isOk = customKeypadValueChecking.isHexaDecimalKeypadEnteringValueOK(enteredCharacter);
+                if (! isOk) {
+                    //If Entered Character is Not Ok, then do the following
+                    //Set the edit text whatever was before editText text changed i.e. set the value of beforeEditTextChangeString.
+                    numberSystemValueEditText.setText(beforeTextChangedValue);
+                    Toast.makeText(NumberSystemConverterActivity.this, "Enter Only HexaDecimal Numbers i.e. from '0' To '9' and 'A','B','C','D','E','F'", Toast.LENGTH_SHORT).show();
+                    //if is not ok then return ,i.e. finish this method here.
+                    return;
+                }
+            }
+
             String soundState = soundStateSharedPreference.getSoundState();
             if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
                 //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
@@ -349,6 +412,40 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         @Override
         public void afterTextChanged(Editable s) {
         }
+    }
+
+
+    private boolean decimalNumberKeypadTotalEnteringCharacterChecking(String beforeEditTextChangeString,CharSequence s){
+        /*If the leftNumberSystemTextView selected value is "DECIMAL" ,then this Method checked
+          if  total number of Character before Point in EditText is more than 16 or not. This Restriction is Because in Decimal to Other Converter
+          can handel maximum 16 digits before point otherwise it will arise an error. After point There is no Digits Limits. That's why we only
+          handel before point digits.This Method will return false only when the Total Number of Digits before Point will greater than 16.  */
+        boolean isOk = true;
+        String editTextText = s.toString();
+        /* Checked if the leftNumberSystemTextView selected value is "DECIMAL" and if EditText total Digits is more than 15 ,then This condition will true
+           Here we use editTextText.length() >15 because if total number of Digits is less than 15 or less, there is no meaning of checking
+           this Condition. */
+        if (leftNumberSystemTextView.getText().toString().equalsIgnoreCase("decimal") && editTextText.length() >15) {
+            //If The editTextText contains point(.), then this condition will true
+            if (editTextText.contains(".")) {
+                int length = editTextText.substring(0,editTextText.indexOf(".")).length();
+                //If length of Digits before Point is more then 16.
+                if (length>16){
+                    //Set the edit text whatever was before editText text changed i.e. the set the value of beforeEditTextChangeString.
+                    numberSystemValueEditText.setText(beforeEditTextChangeString);
+                    Toast.makeText(NumberSystemConverterActivity.this, "Maximum 16 Digits is Possible Before Point", Toast.LENGTH_SHORT).show();
+                    isOk = false;
+                }
+            } else {
+                //If editTextText does not contains any point(.), then this condition will true
+                if (editTextText.length()>16){
+                    numberSystemValueEditText.setText(beforeEditTextChangeString);
+                    Toast.makeText(NumberSystemConverterActivity.this, "Maximum 16 Digits is Possible Before Point", Toast.LENGTH_SHORT).show();
+                    isOk = false;
+                }
+            }
+        }
+        return isOk;
     }
 
 
@@ -436,7 +533,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         frameLayoutForKeypad.setVisibility(View.VISIBLE);
         String text = leftNumberSystemTextView.getText().toString();
         if (text.equalsIgnoreCase("Binary")){
-            numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL);
+            numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL | EditorInfo.TYPE_CLASS_NUMBER);
             //If left number system Text view is selected as Binary then......
             closeKeyBoard();
             /*If the binary view is already added to parent view i.e. frame Layout , then remove the view from parent layout and then again add the view
@@ -444,7 +541,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
             frameLayoutForKeypad.removeView(binaryViewObjectForKeypad);
             frameLayoutForKeypad.addView(binaryViewObjectForKeypad);
         }else if (text.equalsIgnoreCase("Octal")){
-            numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL);
+            numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL | EditorInfo.TYPE_CLASS_NUMBER);
             //If left number system Text view is selected as Octal then......
             closeKeyBoard();
             /*If the octal view is already added to parent view i.e. frame Layout , then remove the view from parent layout and then again add the view
@@ -476,6 +573,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
 
     private void openKeyBoard(){
+        //Open System key Board
         View view = this.getCurrentFocus();
         if (view != null){
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

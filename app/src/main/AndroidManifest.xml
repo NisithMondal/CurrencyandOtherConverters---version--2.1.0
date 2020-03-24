@@ -65,10 +65,7 @@
             android:name=".LengthConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".CurrencyHistoryActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+
         <activity
             android:name=".AllCurrencyNameActivity"
             android:screenOrientation="portrait"
