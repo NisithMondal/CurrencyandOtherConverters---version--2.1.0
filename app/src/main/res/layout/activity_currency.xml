@@ -28,7 +28,7 @@
             android:layout_below="@+id/app_toolbar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="160dp"
-            android:visibility="visible"
+            android:visibility="gone"
             />
 
         <ScrollView
@@ -262,6 +262,7 @@
         android:layout_gravity="start"
         app:menu="@menu/nevigation_drawer_menu"
         app:headerLayout="@layout/nevigation_drawer_header"
+        app:itemIconTint="#0000ff"
         >
 
 

@@ -9,90 +9,1070 @@
 
     <include
         android:id="@+id/app_toolbar"
-        layout="@layout/app_toolbar"/>
+        layout="@layout/app_toolbar"
+        />
 
 
     <ScrollView
-        android:layout_below="@+id/app_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="2dp"
-        >
+        android:layout_below="@+id/app_toolbar"
+        android:layout_marginTop="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/small_banner_ad"
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                ads:adSize="BANNER"
-                android:layout_marginTop="3dp"
-                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/holo_orange_dark"
+                app:cardElevation="14dp"
+                app:cardCornerRadius="0dp">
+
+                <TextView
+                    android:id="@+id/heading_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#09ac10"
+                    android:padding="15dp"
+                    android:text="@string/app_title"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view1"
+                android:layout_marginTop="2dp"
+                android:background="#0000ff"
+                android:elevation="1dp"
+                app:cardCornerRadius="0dp">
+
+                <TextView
+                    android:id="@+id/description_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:background="#ffffff"
+                    android:paddingStart="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="15dp"
+                    android:text="@string/app_description"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <RelativeLayout
+                android:id="@+id/relative_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/card_view2"
                 >
+
+                <TextView
+                    android:id="@+id/note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NOTE :-"
+                    android:textSize="19sp"
+                    android:layout_marginStart="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/holo_red_dark"
+
+                    />
+
+                <TextView
+                    android:id="@+id/note_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:layout_toEndOf="@+id/note"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="If you Like this application, please give rating to our Application in Play Store Link :- "
+                    android:layout_below="@+id/note_text"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:layout_marginStart="15dp"
+
+                    />
+
+
+            </RelativeLayout>
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/small_top_banner_ad"
+                android:layout_below="@+id/relative_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
             </com.google.android.gms.ads.AdView>
 
 
 
-        <TextView
-            android:id="@+id/heading_text_view"
-            android:layout_below="@+id/small_banner_ad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="UNITS  AND  CURRENCY  CONVERTER"
-            android:textStyle="italic"
-            android:textAlignment="center"
-            android:padding="15dp"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
-            android:background="#EE00AA"
-            android:textColor="@android:color/white"
-            />
 
-        <TextView
-            android:id="@+id/description_text_view"
-            android:layout_below="@+id/heading_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="This is an application Which Converts Different types of Mathematics Units as well as it Convert Different Country's Currencies."
-            android:textAlignment="textStart"
-            android:textSize="16dp"
-            android:textStyle="italic"
-            android:textColor="@android:color/black"
-            />
-
-            <ImageView
-                android:id="@+id/image_view"
-                android:layout_below="@+id/description_text_view"
-                android:layout_width="200dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/user"
-                android:layout_height="200dp" />
-
-            <TextView
-                android:id="@+id/description1_text_view"
-                android:layout_below="@+id/image_view"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="In This App You Can Get About 149 Contries Currencies. This App Supports Total 15 Types of Converters At The Current Version. But In Future More Converters are Added In This Application. This is a very Simple Appliaction To Use and Granneted You That You Will Get a Better User Exprience in This  Application.
-So Thanks For Downloading Our Application. Take Care.
-In This App You Can Get About 149 Contries Currencies. This App Supports Total 15 Types of Converters At The Current Version. But In Future More Converters are Added In This Application. This is a very Simple Appliaction To Use and Granneted You That You Will Get a Better User Exprience in This  Application
-In This App You Can Get About 149 Contries Currencies. This App Supports Total 15 Types of Converters At The Current Version. But In Future More Converters are Added In This Application. This is a very Simple Appliaction To Use and Granneted You That You Will Get a Better User Exprience in This  Application
-"
-                android:textAlignment="textStart"
-                android:textStyle="italic"
-                android:textSize="16dp"
-                android:textColor="@android:color/black"
-                />
+                android:layout_below="@+id/small_top_banner_ad"
+                android:background="@color/colorPrimary"
+                android:elevation="14dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/available_feature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background_shape_style1"
+                    android:padding="10dp"
+                    android:text="Available Features"
+                    android:textAlignment="textStart"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linear_layout20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_view5"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="12dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Currency Converter"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout20"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Unit Converter"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout21"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Number System Converter"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout22"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Text To Speech Converter"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout23"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_red" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Store Data In Database"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_layout26"
+                android:background="@drawable/text_background_shape_style2"
+                android:elevation="14dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/unit_converter_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background_shape_style2"
+                    android:padding="10dp"
+                    android:text="@string/unit_converter_tag"
+                    android:textAlignment="textStart"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linear_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_view3"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="12dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Length Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout2"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Area Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout3"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Volume Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout4"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Pressure Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout5"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Angle Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout6"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Weight Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout7"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Temperature Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout8"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Speed Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout9"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Time Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout10"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Frequency Converter"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/small_middle_banner_ad1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_layout11"
+                android:layout_marginTop="5dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+            </com.google.android.gms.ads.AdView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/small_middle_banner_ad1"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/text_background_shape_style2"
+                android:elevation="14dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/number_system_converter_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background_shape_style2"
+                    android:padding="10dp"
+                    android:text="@string/number_system_converter_tag"
+                    android:textAlignment="textStart"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_view4"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="12dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Binary To Decimal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_a"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Binary To Octal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linear_layout_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_b"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Binary To Hexadecimal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_c"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Decimal To Binary"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_d"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Decimal To Octal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_f"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_e"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Decimal To Hexadecimal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_g"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_f"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Octal To Binary"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_g"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Octal To Decimal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_i"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_h"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Octal To Hexadecimal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_j"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_i"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Hexadecimal To Binary "
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_k"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_j"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Hexadecimal To Decimal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_k"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Hexadecimal To Octal"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/small_middle_banner_ad2"
+                android:layout_below="@+id/linear_layout_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+            </com.google.android.gms.ads.AdView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/small_middle_banner_ad2"
+                android:background="@drawable/text_background_shape_style2"
+                android:layout_marginTop="8dp"
+                android:elevation="14dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/text_to_speech_text_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background_shape_style2"
+                    android:padding="10dp"
+                    android:text="Currency Converter"
+                    android:textAlignment="textStart"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+             <LinearLayout
+                 android:id="@+id/linear_layout_25"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/card_view6"
+                 >
+                 <TextView
+                     android:id="@+id/currency_text"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:padding="10dp"
+                     android:layout_marginTop="5dp"
+                     android:text="@string/currency_text"
+                     android:textColor="@android:color/black"
+                     android:textSize="18sp"
+                     android:textStyle="italic" />
+
+            </LinearLayout>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_layout_25"
+                android:background="@drawable/text_background_shape_style2"
+                android:layout_marginTop="8dp"
+                android:elevation="14dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background_shape_style2"
+                    android:padding="10dp"
+                    android:text="Available Text To Speech Converter"
+                    android:textAlignment="textStart"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view7"
+
+                >
+                <TextView
+                    android:id="@+id/text_to_speech_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/important_feature"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_layout_27"
+                android:background="@drawable/text_background_shape_style2"
+                android:layout_marginTop="8dp"
+                android:elevation="14dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background_shape_style2"
+                    android:padding="10dp"
+                    android:text="Store Data in Database"
+                    android:textAlignment="textStart"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view8"
+
+                >
+
+
+                <TextView
+                    android:id="@+id/store_data_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/store_data_database_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+
+
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/small_bottom_banner_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_layout_28"
+                android:layout_marginTop="10dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+            </com.google.android.gms.ads.AdView>
+
+
 
         </RelativeLayout>
-
-
 
 
     </ScrollView>

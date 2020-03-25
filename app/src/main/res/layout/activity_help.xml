@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity">
+
+    <include
+        android:id="@+id/app_toolbar"
+        layout="@layout/app_toolbar"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_below="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="15dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How To Use This Application"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:background="#09ac10"
+                android:padding="12dp"
+
+            />
+        </androidx.cardview.widget.CardView>
+
+         <androidx.cardview.widget.CardView
+             android:id="@+id/card_view2"
+             android:layout_below="@+id/card_view1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <RelativeLayout
+                 android:id="@+id/relative_layout1"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+
+                 <TextView
+                     android:id="@+id/currency_converter_tag"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Currency Converter  "
+                     android:textSize="18sp"
+                     android:textStyle="bold"
+                     android:textColor="@android:color/white"
+                     android:background="@drawable/text_background_shape_style2"
+                     android:padding="12dp"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginStart="5dp"
+                     />
+
+
+                 <TextView
+                     android:id="@+id/currency_converter_description"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/currency_converter_description_above_image"
+                     android:layout_below="@+id/currency_converter_tag"
+                     android:padding="14dp"
+                     android:textAlignment="textStart"
+                     android:textColor="@android:color/black"
+                     android:textSize="16sp"
+
+
+                     />
+
+                 <ImageView
+                     android:id="@+id/image_drawer_icon"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:src="@drawable/ic_drawer_icon"
+                     android:layout_centerHorizontal="true"
+                     android:background="@color/colorPrimary"
+                     android:layout_marginEnd="20dp"
+                     android:layout_toStartOf="@+id/image_sound_enable_icon"
+                     android:layout_below="@+id/currency_converter_description"
+                     />
+                 <TextView
+                     android:id="@+id/image_text"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/image_drawer_icon"
+                     android:layout_toStartOf="@+id/image_sound_enable_icon"
+                     android:text="Image 2"
+                     android:textSize="14sp"
+                     android:layout_marginEnd="12dp"
+                     android:textColor="#ee00aa"
+                     />
+
+                 <ImageView
+                     android:id="@+id/image_sound_enable_icon"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:src="@drawable/ic_volume_on"
+                     android:background="@color/colorPrimary"
+                     android:layout_centerHorizontal="true"
+                     android:layout_below="@+id/currency_converter_description"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/image_drawer_icon"
+                     android:layout_toEndOf="@+id/image_drawer_icon"
+                     android:text="Enable"
+                     android:textSize="14sp"
+                     android:textColor="#ee00aa"
+                     />
+
+
+                 <ImageView
+                     android:id="@+id/image_sound_disable_icon"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:src="@drawable/ic_volume_off"
+                     android:background="@color/colorPrimary"
+                     android:layout_centerHorizontal="true"
+                     android:layout_marginStart="20dp"
+                     android:layout_toEndOf="@+id/image_sound_enable_icon"
+                     android:layout_below="@+id/currency_converter_description"
+                     />
+
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/image_sound_disable_icon"
+                     android:layout_toEndOf="@+id/image_sound_enable_icon"
+                     android:text="Disable"
+                     android:textSize="14sp"
+                     android:layout_marginStart="20dp"
+                     android:textColor="#ee00aa"
+                     />
+
+
+
+                 <ImageView
+                     android:id="@+id/image_circular_arrow_icon"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:src="@drawable/ic_circular_arrow_icon"
+                     android:background="@color/colorPrimary"
+                     android:layout_centerHorizontal="true"
+                     android:layout_marginEnd="20dp"
+                     android:layout_toStartOf="@+id/image_drawer_icon"
+                     android:layout_below="@+id/currency_converter_description"
+                     />
+
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/image_sound_disable_icon"
+                     android:layout_toStartOf="@+id/image_drawer_icon"
+                     android:text="image 1"
+                     android:textSize="14sp"
+                     android:layout_marginEnd="20dp"
+                     android:textColor="#ee00aa"
+                     />
+
+
+
+                 <ImageView
+                     android:id="@+id/image_down_arrow_icon"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:src="@drawable/ic_down_arrow"
+                     android:background="@color/colorPrimary"
+                     android:layout_centerHorizontal="true"
+                     android:layout_toEndOf="@+id/image_sound_disable_icon"
+                     android:layout_marginStart="20dp"
+                     android:layout_below="@+id/currency_converter_description"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/image_drawer_icon"
+                     android:layout_toEndOf="@+id/image_sound_disable_icon"
+                     android:text="Image 3"
+                     android:textSize="14sp"
+                     android:layout_marginStart="20dp"
+                     android:textColor="#ee00aa"
+                     />
+
+
+                 <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                     android:id="@+id/small_top_banner_ad"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/image_text"
+                     android:layout_marginTop="14dp"
+                     ads:adSize="BANNER"
+                     ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                 </com.google.android.gms.ads.AdView>
+
+
+
+
+                 <TextView
+                     android:id="@+id/currency_converter_description_bellow_image"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/small_top_banner_ad"
+                     android:layout_marginTop="14dp"
+                     android:padding="14dp"
+                     android:text="@string/currency_converter_description_bellow_image"
+                     android:textColor="@android:color/black"
+                     android:textSize="16sp"
+                     android:textAlignment="textStart"
+
+                     />
+
+
+                 <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                     android:id="@+id/large_middle_banner_ad"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/currency_converter_description_bellow_image"
+                     android:layout_marginTop="6dp"
+                     ads:adSize="LARGE_BANNER"
+                     ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                 </com.google.android.gms.ads.AdView>
+
+                 <TextView
+                     android:id="@+id/unit_converter_tag"
+                     android:layout_below="@+id/large_middle_banner_ad"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Unit Converter  "
+                     android:textSize="18sp"
+                     android:textStyle="bold"
+                     android:textColor="@android:color/white"
+                     android:background="@drawable/text_background_shape_style2"
+                     android:padding="12dp"
+                     android:layout_marginTop="20dp"
+                     android:layout_marginStart="5dp"
+                     />
+
+
+                 <TextView
+                     android:id="@+id/unit_converter_description"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/unit_converter_description"
+                     android:layout_below="@+id/unit_converter_tag"
+                     android:padding="14dp"
+                     android:textAlignment="textStart"
+                     android:textColor="@android:color/black"
+                     android:textSize="16sp"
+                     />
+
+
+
+
+                 <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+                     android:id="@+id/small_bottom_banner_ad"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/unit_converter_description"
+                     android:layout_marginTop="10dp"
+                     ads:adSize="BANNER"
+                     ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                 </com.google.android.gms.ads.AdView>
+
+
+                 <TextView
+                     android:id="@+id/number_system_converter_tag"
+                     android:layout_below="@+id/small_bottom_banner_ad"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Number System Converter"
+                     android:textSize="18sp"
+                     android:textStyle="bold"
+                     android:textColor="@android:color/white"
+                     android:background="@drawable/text_background_shape_style2"
+                     android:padding="12dp"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginStart="5dp"
+                     />
+
+
+                 <TextView
+                     android:id="@+id/number_system_converter_description"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/number_system_converter_description"
+                     android:layout_below="@+id/number_system_converter_tag"
+                     android:padding="14dp"
+                     android:textColor="@android:color/black"
+                     android:textAlignment="textStart"
+                     android:textSize="16sp"
+                     />
+
+
+
+
+                 <TextView
+                     android:id="@+id/conclusion"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:text="@string/conclusion"
+                     android:layout_below="@+id/number_system_converter_description"
+                     android:padding="14dp"
+                     android:textColor="#AA0646"
+                     android:textAlignment="textStart"
+                     android:layout_marginTop="7dp"
+                     android:textSize="16sp"
+                     />
+
+
+             </RelativeLayout>
+
+         </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

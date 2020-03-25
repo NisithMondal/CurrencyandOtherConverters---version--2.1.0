@@ -239,9 +239,17 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                 Intent frequencyIntent = new Intent(CurrencyActivity.this,FrequencyConverterActivity.class);
                 startActivity(frequencyIntent);
                 break;
+            case R.id.help:
+                Intent helpIntent = new Intent(CurrencyActivity.this,HelpActivity.class);
+                startActivity(helpIntent);
+                break;
             case R.id.about_app:
                 Intent aboutAppIntent = new Intent(CurrencyActivity.this,AboutAppActivity.class);
                 startActivity(aboutAppIntent);
+                break;
+
+            case R.id.app_rating:
+                Toast.makeText(this, "App Rating", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

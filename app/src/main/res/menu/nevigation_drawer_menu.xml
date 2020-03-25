@@ -55,7 +55,7 @@
         <item
             android:id="@+id/temperature"
             android:title="Temperature  Converter"
-            android:icon="@drawable/ic_temperature_icon"
+            android:icon="@drawable/ic_temperature"
             />
 
         <item
@@ -92,10 +92,21 @@
         >
 
         <menu>
+
+            <item
+                android:id="@+id/help"
+                android:title="Help"
+                android:icon="@drawable/ic_help"/>
+
             <item
                 android:id="@+id/about_app"
                 android:title="About App"
                 android:icon="@drawable/ic_information"/>
+
+            <item
+                android:id="@+id/app_rating"
+                android:title="Rate This App"
+                android:icon="@drawable/ic_star_black_24dp"/>
 
         </menu>
     </item>
