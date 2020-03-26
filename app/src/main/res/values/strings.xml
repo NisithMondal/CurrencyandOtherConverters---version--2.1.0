@@ -44,6 +44,31 @@
     <string name="small_banner_ad_unit_general_history_activity">ca-app-pub-3940256099942544/6300978111</string>
     <string name="small_banner_ad_unit_all_currency_name_activity">ca-app-pub-3940256099942544/6300978111</string>
 
+    <string name="small_top_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="large_middle_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="small_bottom_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="small_top_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="large_middle_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="small_middle_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="small_bottom_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <string-array name="countries_name">
 

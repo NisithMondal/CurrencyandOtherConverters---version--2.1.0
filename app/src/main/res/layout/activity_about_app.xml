@@ -114,13 +114,28 @@
                     />
 
                 <TextView
+                    android:id="@+id/text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="If you Like this application, please give rating to our Application in Play Store Link :- "
+                    android:text="If you Like this application, please give rating to our Application in Play Store by clicking the following Link"
                     android:layout_below="@+id/note_text"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/rank_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_view"
+                    android:text="Click Here To Give Rank This Application"
+                    android:layout_marginStart="15dp"
+                    android:textSize="18dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/colorPrimary"
 
                     />
 
@@ -132,9 +147,9 @@
                 android:layout_below="@+id/relative_layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="30dp"
                 ads:adSize="BANNER"
-                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                ads:adUnitId="@string/small_top_banner_ad_unit_about_app_activity">
             </com.google.android.gms.ads.AdView>
 
 
@@ -577,8 +592,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linear_layout11"
                 android:layout_marginTop="5dp"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                ads:adSize="LARGE_BANNER"
+                ads:adUnitId="@string/large_middle_banner_ad_unit_about_app_activity">
             </com.google.android.gms.ads.AdView>
 
 
@@ -917,7 +932,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 ads:adSize="BANNER"
-                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                ads:adUnitId="@string/small_middle_banner_ad_unit_about_app_activity">
             </com.google.android.gms.ads.AdView>
 
 
@@ -1067,7 +1082,7 @@
                 android:layout_below="@+id/linear_layout_28"
                 android:layout_marginTop="10dp"
                 ads:adSize="BANNER"
-                ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                ads:adUnitId="@string/small_bottom_banner_ad_unit_about_app_activity">
             </com.google.android.gms.ads.AdView>
 
 

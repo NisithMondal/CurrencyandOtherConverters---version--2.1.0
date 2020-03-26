@@ -1,5 +1,6 @@
 package com.nisith.currencyandotherconverters;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -249,7 +251,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.app_rating:
-                Toast.makeText(this, "App Rating", Toast.LENGTH_SHORT).show();
+                giveRatingThisApplication();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -342,10 +344,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                         if (enterAmountEditText.getText().toString().length()>0){
                             //Some Value in edit text
                             /*When allCurrencyInfoArrayList,which is a variable of this class is null, then only we fetch all Currency Information
-                              from server.allCurrencyInfoArrayList will null in two cases
-                              First:- when this activity is Created.
-                              Second:- when this activity's onPaused() method is Called by Android OS.For More Info see this Activity's onPaused
-                              Method .*/
+                              from server.allCurrencyInfoArrayList will null in when this activity is Created. */
                             resultTextView.setVisibility(View.INVISIBLE);
                             if (allCurrencyInfoArrayList == null){
                                 CurrencyNetworkOperation currencyNetworkOperation = new CurrencyNetworkOperation(CurrencyActivity.this);
@@ -605,6 +604,24 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         }
     }
 
+    private void giveRatingThisApplication(){
+        //This Method open Google Play Store to give rating this Application
+        try{
+            //If play store app is installed in that device, then do the following
+            Intent playStroreIntent = new Intent();
+            playStroreIntent.setAction(Intent.ACTION_VIEW);
+            playStroreIntent.setData(Uri.parse("market://details?id="+"com.android.chrome"));
+            startActivity(playStroreIntent);
+        }catch (ActivityNotFoundException e){
+            //If play store app is not installed in that device, then the following code open play store app in web browser.
+            Intent playStoreIntent1 = new Intent();
+            playStoreIntent1.setAction(Intent.ACTION_VIEW);
+            playStoreIntent1.setData(Uri.parse("http://play.google.com/store/apps/details?id="+"com.android.chrome"));
+            startActivity(playStoreIntent1);
+        }
+
+    }
+
 
 
 
@@ -624,11 +641,6 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     protected void onPause() {
         if (resultTextView != null){
             resultTextView.setVisibility(View.INVISIBLE);
-        }
-        if (allCurrencyInfoArrayList != null){
-            /*we null this variable because to remove the memory of this arrayList.Because 167 currencies Information is present in this ArrayList
-              So it consume a lot of memory.. */
-            allCurrencyInfoArrayList = null;
         }
         super.onPause();
     }

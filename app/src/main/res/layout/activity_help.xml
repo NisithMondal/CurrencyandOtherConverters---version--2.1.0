@@ -205,7 +205,7 @@
                      android:layout_below="@+id/image_text"
                      android:layout_marginTop="14dp"
                      ads:adSize="BANNER"
-                     ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                     ads:adUnitId="@string/small_top_banner_ad_unit_help_activity">
                  </com.google.android.gms.ads.AdView>
 
 
@@ -233,7 +233,7 @@
                      android:layout_below="@+id/currency_converter_description_bellow_image"
                      android:layout_marginTop="6dp"
                      ads:adSize="LARGE_BANNER"
-                     ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                     ads:adUnitId="@string/large_middle_banner_ad_unit_help_activity">
                  </com.google.android.gms.ads.AdView>
 
                  <TextView
@@ -274,7 +274,7 @@
                      android:layout_below="@+id/unit_converter_description"
                      android:layout_marginTop="10dp"
                      ads:adSize="BANNER"
-                     ads:adUnitId="@string/small_banner_ad_unit_all_currency_name_activity">
+                     ads:adUnitId="@string/small_bottom_banner_ad_unit_help_activity">
                  </com.google.android.gms.ads.AdView>
 
 
