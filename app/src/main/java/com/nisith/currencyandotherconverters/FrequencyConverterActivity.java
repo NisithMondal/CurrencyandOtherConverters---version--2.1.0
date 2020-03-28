@@ -347,7 +347,12 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                 double userInputData = Double.parseDouble(editTextSting);
                 //FrequencyConvert class's methods are responsible to perform frequency Convertion. For more Information Go to that class
                 FrequencyConverter frequencyConverter = new FrequencyConverter();
-                double result = frequencyConverter.getFrequencyConvertResult(leftFrequencyTextViewValue, rightFrequencyTextViewValue, userInputData);
+                double resultInDouble = frequencyConverter.getFrequencyConvertResult(leftFrequencyTextViewValue, rightFrequencyTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")){
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0,(result.length()-2));
+                }
                 resultTextView.setVisibility(View.VISIBLE);
                 resultTextView.setText(editTextSting + "  " + leftFrequencyTextViewValue + "  =  " + result + "  " + rightFrequencyTextViewValue);
             }

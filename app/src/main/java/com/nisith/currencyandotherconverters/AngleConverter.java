@@ -61,10 +61,10 @@ public class AngleConverter {
                 break;
 
             case radianId:
-                result = value*3.1416/180;
+                result = value*0.017453292519943;
                 break;
             case gradianId:
-                result = value*200/180;
+                result = value*1.1111111111111;
                 break;
             case arcMinuteId:
                 result = value*60;
@@ -85,21 +85,21 @@ public class AngleConverter {
         switch (getUnitId(destUnit)){
 
             case degreeId:
-                result = value*180/3.1416;
+                result = value*57.295779513082;
                 break;
 
             case radianId:
                 result = value;
                 break;
             case gradianId:
-                result = value*200/3.1416;
+                result = value*63.661977236758;
                 break;
             case arcMinuteId:
-                result = value*3437.75;
+                result = value*3437.7467707849;
                 break;
 
             case arcSecondId:
-                result = value*206265;
+                result = value*206264.8062471;
                 break;
 
         }
@@ -118,7 +118,7 @@ public class AngleConverter {
                 break;
 
             case radianId:
-                result = value*0.015708;
+                result = value*0.015707963267949;
                 break;
             case gradianId:
                 result = value;
@@ -145,14 +145,14 @@ public class AngleConverter {
         switch (getUnitId(destUnit)){
 
             case degreeId:
-                result = value*0.0166667;
+                result = value*0.016666666666667;
                 break;
 
             case radianId:
-                result = value*0.000290888;
+                result = value*0.00029088820866572;
                 break;
             case gradianId:
-                result = value*0.0185185;
+                result = value*0.018518518518519;
                 break;
 
             case arcMinuteId:
@@ -175,17 +175,17 @@ public class AngleConverter {
         switch (getUnitId(destUnit)){
 
             case degreeId:
-                result = value*0.000277778;
+                result = value*0.00027777777777778;
                 break;
 
             case radianId:
-                result = value*4.8481*Math.pow(10,-6);
+                result = value*4.8481368110954*Math.pow(10,-6);
                 break;
             case gradianId:
-                result = value*0.000308642;
+                result = value*0.00030864197530864;
                 break;
             case arcMinuteId:
-                result = value*0.0166667;
+                result = value*0.016666666666667;
                 break;
 
             case arcSecondId:

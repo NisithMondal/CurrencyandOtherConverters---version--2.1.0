@@ -359,7 +359,12 @@ public class TimeConverterActivity extends AppCompatActivity {
             String editTextSting = timeValueEditText.getText().toString();
             double userInputData = Double.parseDouble(editTextSting);
             TimeConverter timeConverter = new TimeConverter();
-            double result = timeConverter.getWeightConvertResult(leftTimeTextViewValue,rightTimeTextViewValue,userInputData);
+            double resultInDouble = timeConverter.getWeightConvertResult(leftTimeTextViewValue,rightTimeTextViewValue,userInputData);
+            String result = String.valueOf(resultInDouble);
+            if (result.endsWith(".0")){
+                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                result = result.substring(0,(result.length()-2));
+            }
             resultTextView.setVisibility(View.VISIBLE);
             resultTextView.setText(editTextSting+"  "+leftTimeTextViewValue+"  =  "+result+"  "+rightTimeTextViewValue);
         }

@@ -362,7 +362,12 @@ public class TemperatureConverterActivity extends AppCompatActivity {
             String editTextSting = temperatureValueEditText.getText().toString();
             double userInputData = Double.parseDouble(editTextSting);
             TemperatureConverter temperatureConverter = new TemperatureConverter();
-            double result = temperatureConverter.getTemperatureConvertResult(leftTemperatureTextViewValue,rightTemperatureTextViewValue,userInputData);
+            double resultInDouble = temperatureConverter.getTemperatureConvertResult(leftTemperatureTextViewValue,rightTemperatureTextViewValue,userInputData);
+            String result = String.valueOf(resultInDouble);
+            if (result.endsWith(".0")){
+                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                result = result.substring(0,(result.length()-2));
+            }
             resultTextView.setVisibility(View.VISIBLE);
             resultTextView.setText(editTextSting+"  "+leftTemperatureTextViewValue+"  =  "+result+"  "+rightTemperatureTextViewValue);
         }

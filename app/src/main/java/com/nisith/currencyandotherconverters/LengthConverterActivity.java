@@ -360,7 +360,12 @@ public class LengthConverterActivity extends AppCompatActivity {
             String editTextSting = lengthValueEditText.getText().toString();
             double userInputData = Double.parseDouble(editTextSting);
             LengthConverter lengthConverter = new LengthConverter();
-            double result = lengthConverter.getLengthConvertResult(leftLengthTextViewValue,rightLengthTextViewValue,userInputData);
+            double resultInDouble = lengthConverter.getLengthConvertResult(leftLengthTextViewValue,rightLengthTextViewValue,userInputData);
+            String result = String.valueOf(resultInDouble);
+            if (result.endsWith(".0")){
+                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                result = result.substring(0,(result.length()-2));
+            }
             resultTextView.setVisibility(View.VISIBLE);
             resultTextView.setText(editTextSting+"  "+leftLengthTextViewValue+"  =  "+result+"  "+rightLengthTextViewValue);
         }

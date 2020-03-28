@@ -18,8 +18,8 @@ public class StartingActivity extends AppCompatActivity {
             public void run() {
                 SystemClock.sleep(sleepTime);
                 Intent intent = new Intent(StartingActivity.this,CurrencyActivity.class);
-                finish();
                 startActivity(intent);
+                finish();
             }
         });
         thread.start();

@@ -367,7 +367,12 @@ public class AngleConverterActivity extends AppCompatActivity {
             String editTextSting = angleValueEditText.getText().toString();
             double userInputData = Double.parseDouble(editTextSting);
             AngleConverter angleConverter = new AngleConverter();
-            double result = angleConverter.getLengthConvertResult(leftAngleTextViewValue,rightAngleTextViewValue,userInputData);
+            double resultInDouble = angleConverter.getLengthConvertResult(leftAngleTextViewValue,rightAngleTextViewValue,userInputData);
+            String result = String.valueOf(resultInDouble);
+            if (result.endsWith(".0")){
+                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                result = result.substring(0,(result.length()-2));
+            }
             resultTextView.setVisibility(View.VISIBLE);
             resultTextView.setText(editTextSting+"  "+leftAngleTextViewValue+"  =  "+result+"  "+rightAngleTextViewValue);
         }

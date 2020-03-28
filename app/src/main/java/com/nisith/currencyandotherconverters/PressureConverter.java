@@ -55,13 +55,13 @@ public class PressureConverter {
                 break;
 
             case torrId:
-                result = value*750.062;
+                result = value*750.0616827;
                 break;
             case pascalId:
                 result = value*100000;
                 break;
             case atmosphereId:
-                result = value*0.986923;
+                result = value*0.9869232667;
                 break;
         }
 
@@ -73,14 +73,14 @@ public class PressureConverter {
         switch (getUnitId(destUnit)){
 
             case barId:
-                result = value*0.00133322;
+                result = value*0.0013332237;
                 break;
 
             case torrId:
                 result = value;
                 break;
             case pascalId:
-                result = value*133.322;
+                result = value*133.32236842;
                 break;
             case atmosphereId:
                 result = value/760;
@@ -96,11 +96,11 @@ public class PressureConverter {
         switch (getUnitId(destUnit)){
 
             case barId:
-                result = value*Math.pow(10,-5);
+                result = value*0.00001;
                 break;
 
             case torrId:
-                result = value*0.00750062;
+                result = value*0.0075006168;
                 break;
             case pascalId:
                 result = value;

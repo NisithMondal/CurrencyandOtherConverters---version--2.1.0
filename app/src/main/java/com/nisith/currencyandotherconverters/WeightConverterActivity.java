@@ -355,7 +355,12 @@ public class WeightConverterActivity extends AppCompatActivity {
             String editTextSting = weightValueEditText.getText().toString();
             double userInputData = Double.parseDouble(editTextSting);
             WeightConvert weightConvert = new WeightConvert();
-            double result = weightConvert.getWeightConvertResult(leftWeightTextViewValue,rightWeightTextViewValue,userInputData);
+            double resultInDouble = weightConvert.getWeightConvertResult(leftWeightTextViewValue,rightWeightTextViewValue,userInputData);
+            String result = String.valueOf(resultInDouble);
+            if (result.endsWith(".0")){
+                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                result = result.substring(0,(result.length()-2));
+            }
             resultTextView.setVisibility(View.VISIBLE);
             resultTextView.setText(editTextSting+"  "+leftWeightTextViewValue+"  =  "+result+"  "+rightWeightTextViewValue);
         }

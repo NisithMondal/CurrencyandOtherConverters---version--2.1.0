@@ -659,14 +659,14 @@
         <item>square yard</item>
         <item>square micrometer</item>
         <item>square centimeter (cm^2)</item>
-        <item>square millimeter</item>
+        <item>square millimeter (mm^2)</item>
         <item>square kilometer (km^2)</item>
     </string-array>
 
 
     <string-array name="area_units_right">
         <item>square centimeter (cm^2)</item>
-        <item>square millimeter</item>
+        <item>square millimeter (mm^2)</item>
         <item>square meter (m^2)</item>
         <item>square kilometer (km^2)</item>
         <item>square micrometer</item>

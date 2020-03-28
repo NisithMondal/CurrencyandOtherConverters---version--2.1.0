@@ -35,7 +35,7 @@ public class AreaConverter {
         } else if (unitName.equalsIgnoreCase("square centimeter (cm^2)")) {
             idValue = squareCentimeterId;
 
-        }else if (unitName.equalsIgnoreCase("square millimeter")) {
+        }else if (unitName.equalsIgnoreCase("square millimeter (mm^2)")) {
             idValue = squareMillimeterId;
 
         }else if (unitName.equalsIgnoreCase("square kilometer (km^2)")) {
@@ -80,7 +80,7 @@ public class AreaConverter {
         } else if (sourceUnit.equalsIgnoreCase("square centimeter (cm^2)")) {
             result = squareCentimeterToOthers(sourceUnit,destUnit,value);
 
-        }else if (sourceUnit.equalsIgnoreCase("square millimeter")) {
+        }else if (sourceUnit.equalsIgnoreCase("square millimeter (mm^2)")) {
             result = squareMillimeterToOthers(sourceUnit,destUnit,value);
 
         }else if (sourceUnit.equalsIgnoreCase("square kilometer (km^2)")) {
@@ -112,17 +112,17 @@ public class AreaConverter {
                 result = value/10000;
                 break;
             case squareMileId:
-                result = value/(2.59*Math.pow(10,6));
+                result = value*3.861021585*Math.pow(10,-7);
                 break;
             case squareInchId:
-                result = value*1550;
+                result = value*1550.0031;
                 break;
 
             case squareFootId:
-                result = value*10.7639;
+                result = value*10.763910417;
                 break;
             case squareYardId:
-                result = value*1.19599;
+                result = value*1.1959900463;
                 break;
 
             case squareMicroMeterId:
@@ -152,20 +152,20 @@ public class AreaConverter {
         switch (getUnitId(destUnit)){
 
             case squareMeterId:
-                result = value*4046.86;
+                result = value*4046.8564224;
                 break;
 
             case acreId:
                 result = value;
                 break;
             case hectareId:
-                result = value*0.404686;
+                result = value*0.4046856422;
                 break;
             case squareMileId:
                 result = value/640;
                 break;
             case squareInchId:
-                result = value*6.273*Math.pow(10,6);
+                result = value*6272640;
                 break;
 
             case squareFootId:
@@ -176,18 +176,18 @@ public class AreaConverter {
                 break;
 
             case squareMicroMeterId:
-                result = value*4.047*Math.pow(10,15);
+                result = value*4.046856422399924*Math.pow(10,15);
                 break;
 
             case squareCentimeterId:
-                result = value*4.047*Math.pow(10,7);
+                result = value*40468564.224;
                 break;
             case squareMillimeterId:
-                result = value*4.047*Math.pow(10,9);
+                result = value*4046856422.4;
                 break;
 
             case squareKilometerId:
-                result = value*0.00404686;
+                result = value*0.0040468564;
                 break;
 
         }
@@ -206,23 +206,23 @@ public class AreaConverter {
                 break;
 
             case acreId:
-                result = value*2.47105;
+                result = value*2.4710538147;
                 break;
             case hectareId:
                 result = value;
                 break;
             case squareMileId:
-                result = value*0.00386102;
+                result = value*0.0038610216;
                 break;
             case squareInchId:
-                result = value*1.55*Math.pow(10,7);
+                result = value*1.5500031*Math.pow(10,7);
                 break;
 
             case squareFootId:
-                result = value*107639;
+                result = value*107639.10417;
                 break;
             case squareYardId:
-                result = value*11959.9;
+                result = value*11959.900463;
                 break;
 
             case squareMicroMeterId:
@@ -253,42 +253,42 @@ public class AreaConverter {
         switch (getUnitId(destUnit)){
 
             case squareMeterId:
-                result = value*2.59*Math.pow(10,6);
+                result = value*2589988.1103;
                 break;
 
             case acreId:
                 result = value*640;
                 break;
             case hectareId:
-                result = value*258.999;
+                result = value*258.99881103;
                 break;
             case squareMileId:
                 result = value;
                 break;
             case squareInchId:
-                result = value*4.014*Math.pow(10,9);
+                result = value*4.014489600*Math.pow(10,9);
                 break;
 
             case squareFootId:
-                result = value*2.788*Math.pow(10,7);
+                result = value*2.7878400*Math.pow(10,7);
                 break;
             case squareYardId:
-                result = value*3.098*Math.pow(10,6);
+                result = value*3.097600*Math.pow(10,6);
                 break;
 
             case squareMicroMeterId:
-                result = value*2.59*Math.pow(10,18);
+                result = value*2.589988110335972400*Math.pow(10,18);
                 break;
 
             case squareCentimeterId:
-                result = value*2.59*Math.pow(10,10);
+                result = value*2.589988110336*Math.pow(10,10);
                 break;
             case squareMillimeterId:
-                result = value*2.59*Math.pow(10,12);
+                result = value*2.589988110336*Math.pow(10,12);
                 break;
 
             case squareKilometerId:
-                result = value*2.58999;
+                result = value*2.5899881103;
                 break;
 
         }
@@ -307,13 +307,13 @@ public class AreaConverter {
                 break;
 
             case acreId:
-                result = value*1.5942*Math.pow(10,-7);
+                result = value*1.594225079*Math.pow(10,-7);
                 break;
             case hectareId:
                 result = value*6.4516*Math.pow(10,-8);
                 break;
             case squareMileId:
-                result = value*2.491*Math.pow(10,-10);
+                result = value*2.490976686*Math.pow(10,-10);
                 break;
             case squareInchId:
                 result = value;
@@ -327,7 +327,7 @@ public class AreaConverter {
                 break;
 
             case squareMicroMeterId:
-                result = value*6.452*Math.pow(10,8);
+                result = value*6.45160000*Math.pow(10,8);
                 break;
 
             case squareCentimeterId:
@@ -353,7 +353,7 @@ public class AreaConverter {
         switch (getUnitId(destUnit)){
 
             case squareMeterId:
-                result = value/10.764;
+                result = value*0.09290304;
                 break;
 
             case acreId:
@@ -363,7 +363,7 @@ public class AreaConverter {
                 result = value/107639;
                 break;
             case squareMileId:
-                result = value*3.587*Math.pow(10,-8);
+                result = value*3.587006427*Math.pow(10,-8);
                 break;
             case squareInchId:
                 result = value*144;
@@ -377,18 +377,18 @@ public class AreaConverter {
                 break;
 
             case squareMicroMeterId:
-                result = value*9.29*1.1574*Math.pow(10,10);
+                result = value*9.2903040000*Math.pow(10,10);
                 break;
 
             case squareCentimeterId:
-                result = value*929.03;
+                result = value*929.0304;
                 break;
             case squareMillimeterId:
-                result = value*92903;
+                result = value*92903.04;
                 break;
 
             case squareKilometerId:
-                result = value*9.2903*Math.pow(10,-8);
+                result = value*9.290303999*Math.pow(10,-8);
                 break;
 
         }
@@ -403,7 +403,7 @@ public class AreaConverter {
         switch (getUnitId(destUnit)){
 
             case squareMeterId:
-                result = value*0.836127;
+                result = value*0.83612736;
                 break;
 
             case acreId:
@@ -413,7 +413,7 @@ public class AreaConverter {
                 result = value/11960;
                 break;
             case squareMileId:
-                result = value*3.2283*Math.pow(10,-7);
+                result = value*3.228305785*Math.pow(10,-7);
                 break;
             case squareInchId:
                 result = value*1296;
@@ -427,18 +427,18 @@ public class AreaConverter {
                 break;
 
             case squareMicroMeterId:
-                result = value*8.361*Math.pow(10,11);
+                result = value*8.36127360000*Math.pow(10,11);
                 break;
 
             case squareCentimeterId:
-                result = value*8361.27*Math.pow(10,-18);
+                result = value*8361.2736*Math.pow(10,-18);
                 break;
             case squareMillimeterId:
-                result = value*836127;
+                result = value*836127.36;
                 break;
 
             case squareKilometerId:
-                result = value*8.3613*Math.pow(10,-7);
+                result = value*8.361273599*Math.pow(10,-7);
                 break;
 
         }
@@ -457,27 +457,27 @@ public class AreaConverter {
                 break;
 
             case acreId:
-                result = value*2.4711*Math.pow(10,-16);
+                result = value*2.471053814*Math.pow(10,-16);
                 break;
             case hectareId:
                 result = value*Math.pow(10,-16);
                 break;
             case squareMileId:
-                result = value*3.861*Math.pow(10,-19);
+                result = value*3.861021585*Math.pow(10,-19);
                 break;
             case squareInchId:
-                result = value*1.55*Math.pow(10,-9);
+                result = value*1.5500031*Math.pow(10,-9);
                 break;
 
             case squareFootId:
-                result = value*1.0764*Math.pow(10,-11);
+                result = value*1.076391041*Math.pow(10,-11);
                 break;
             case squareYardId:
-                result = value*1.196*Math.pow(10,-12);
+                result = value*1.195990046*Math.pow(10,-12);
                 break;
 
             case squareMicroMeterId:
-                result = value*1.1574*Math.pow(10,-17);
+                result = value;
                 break;
 
             case squareCentimeterId:
@@ -507,16 +507,16 @@ public class AreaConverter {
                 break;
 
             case acreId:
-                result = value*2.4711*Math.pow(10,-8);
+                result = value*2.471053814*Math.pow(10,-8);
                 break;
             case hectareId:
                 result = value*Math.pow(10,-8);
                 break;
             case squareMileId:
-                result = value*3.861*Math.pow(10,-11);
+                result = value*3.861021585*Math.pow(10,-11);
                 break;
             case squareInchId:
-                result = value/6.452;
+                result = value*0.15500031;
                 break;
 
             case squareFootId:
@@ -558,16 +558,16 @@ public class AreaConverter {
                 break;
 
             case acreId:
-                result = value*2.4711*Math.pow(10,-10);
+                result = value*2.471053814*Math.pow(10,-10);
                 break;
             case hectareId:
                 result = value*Math.pow(10,-10);
                 break;
             case squareMileId:
-                result = value*3.861*Math.pow(10,-13);
+                result = value*3.861021585*Math.pow(10,-13);
                 break;
             case squareInchId:
-                result = value/645;
+                result = value*0.0015500031;
                 break;
 
             case squareFootId:

@@ -110,11 +110,11 @@ public class WeightConvert {
                 result = value*0.000157473;
                 break;
             case poundId:
-                result = value/454;
+                result = value*0.0022046226;
                 break;
 
             case ounceId:
-                result = value/28.35;
+                result = value*0.0352739619;
                 break;
 
             case usTonId:
@@ -122,7 +122,7 @@ public class WeightConvert {
                 break;
 
             case imperialTonId:
-                result = value*9.8421*Math.pow(10,-7);
+                result = value*9.842065276*Math.pow(10,-7);
                 break;
 
         }
@@ -154,22 +154,22 @@ public class WeightConvert {
                 break;
 
             case stoneId:
-                result = value/6.35;
+                result = value*0.1574730444;
                 break;
             case poundId:
-                result = value*2.20462;
+                result = value*2.2046226218;
                 break;
 
             case ounceId:
-                result = value*35.274;
+                result = value*35.27396195;
                 break;
 
             case usTonId:
-                result = value/907;
+                result = value*0.0011023113;
                 break;
 
             case imperialTonId:
-                result = value/1016;
+                result = value*0.0009842065;
                 break;
 
         }
@@ -201,7 +201,7 @@ public class WeightConvert {
                 break;
 
             case stoneId:
-                result = value*1.5747*Math.pow(10,-7);
+                result = value*1.574730444*Math.pow(10,-7);
                 break;
             case poundId:
                 result = value*2.2046*Math.pow(10,-6);
@@ -212,11 +212,11 @@ public class WeightConvert {
                 break;
 
             case usTonId:
-                result = value*1.1023*Math.pow(10,-9);
+                result = value*1.10231131*Math.pow(10,-9);
                 break;
 
             case imperialTonId:
-                result = value*9.8421*Math.pow(10,-10);
+                result = value*9.842065276*Math.pow(10,-10);
                 break;
 
         }
@@ -248,22 +248,22 @@ public class WeightConvert {
                 break;
 
             case stoneId:
-                result = value*1.5747*Math.pow(10,-10);
+                result = value*1.574730444*Math.pow(10,-10);
                 break;
             case poundId:
-                result = value*2.2046*Math.pow(10,-9);
+                result = value*2.204622621*Math.pow(10,-9);
                 break;
 
             case ounceId:
-                result = value*3.5274*Math.pow(10,-8);
+                result = value*3.527396194*Math.pow(10,-8);
                 break;
 
             case usTonId:
-                result = value*1.1023*Math.pow(10,-12);
+                result = value*1.10231131*Math.pow(10,-12);
                 break;
 
             case imperialTonId:
-                result = value*9.8421*Math.pow(10,-13);
+                result = value*9.842065276*Math.pow(10,-13);
                 break;
 
         }
@@ -295,22 +295,22 @@ public class WeightConvert {
                 break;
 
             case stoneId:
-                result = value*157.473;
+                result = value*157.47304442;
                 break;
             case poundId:
-                result = value*2204.62;
+                result = value*2204.6226218;
                 break;
 
             case ounceId:
-                result = value*35274;
+                result = value*35273.96195;
                 break;
 
             case usTonId:
-                result = value*1.10231;
+                result = value*1.1023113109;
                 break;
 
             case imperialTonId:
-                result = value*0.984207;
+                result = value*0.9842065276;
                 break;
 
         }
@@ -325,20 +325,20 @@ public class WeightConvert {
         switch (getUnitId(destUnit)){
 
             case gramId:
-                result = value*6350.29;
+                result = value*6350.29318;
                 break;
 
             case kilogramId:
-                result = value*6.35029;
+                result = value*6.35029318;
                 break;
             case milliGramId:
-                result = value*6.35*Math.pow(10,6);
+                result = value*6.35029318*Math.pow(10,6);
                 break;
             case microGramId:
-                result = value*6.35*Math.pow(10,9);
+                result = value*6.350293180*Math.pow(10,9);
                 break;
             case tonneId:
-                result = value*0.00635029;
+                result = value*0.0063502932;
                 break;
 
             case stoneId:
@@ -372,24 +372,24 @@ public class WeightConvert {
         switch (getUnitId(destUnit)){
 
             case gramId:
-                result = value*453.592;
+                result = value*453.59237;
                 break;
 
             case kilogramId:
-                result = value*0.453592;
+                result = value*0.45359237;
                 break;
             case milliGramId:
-                result = value*453592;
+                result = value*453592.37;
                 break;
             case microGramId:
-                result = value*4.536*Math.pow(10,8);
+                result = value*4.53592370*Math.pow(10,8);
                 break;
             case tonneId:
-                result = value*0.000453592;
+                result = value*0.0004535924;
                 break;
 
             case stoneId:
-                result = value*0.0714286;
+                result = value*0.0714285714;
                 break;
             case poundId:
                 result = value;
@@ -404,7 +404,7 @@ public class WeightConvert {
                 break;
 
             case imperialTonId:
-                result = value*0.000446429;
+                result = value*0.0004464286;
                 break;
 
         }
@@ -419,24 +419,24 @@ public class WeightConvert {
         switch (getUnitId(destUnit)){
 
             case gramId:
-                result = value*28.3495;
+                result = value*28.349523125;
                 break;
 
             case kilogramId:
-                result = value*0.0283495;
+                result = value*0.0283495231;
                 break;
             case milliGramId:
-                result = value*28349.5;
+                result = value*28349.523125;
                 break;
             case microGramId:
-                result = value*2.835*Math.pow(10,7);
+                result = value*2.8349523125*Math.pow(10,7);
                 break;
             case tonneId:
-                result = value*2.835*Math.pow(10,-5);
+                result = value*0.0000283495;
                 break;
 
             case stoneId:
-                result = value*0.00446429;
+                result = value*0.0044642857;
                 break;
             case poundId:
                 result = value*0.0625;
@@ -451,7 +451,7 @@ public class WeightConvert {
                 break;
 
             case imperialTonId:
-                result = value*2.7902*Math.pow(10,-5);
+                result = value*0.0000279018;
                 break;
 
         }
@@ -466,24 +466,24 @@ public class WeightConvert {
         switch (getUnitId(destUnit)){
 
             case gramId:
-                result = value*907185;
+                result = value*907184.74;
                 break;
 
             case kilogramId:
-                result = value*907.185;
+                result = value*907.18474;
                 break;
             case milliGramId:
-                result = value*9.072*Math.pow(10,8);
+                result = value*9.07184740*Math.pow(10,8);
                 break;
             case microGramId:
-                result = value*9.072*Math.pow(10,11);
+                result = value*9.07184740000*Math.pow(10,11);
                 break;
             case tonneId:
-                result = value*0.907185;
+                result = value*0.90718474;
                 break;
 
             case stoneId:
-                result = value*142.857;
+                result = value*142.85714286;
                 break;
             case poundId:
                 result = value*2000;
@@ -498,7 +498,7 @@ public class WeightConvert {
                 break;
 
             case imperialTonId:
-                result = value*0.892857;
+                result = value*0.8928571429;
                 break;
 
         }
@@ -513,20 +513,20 @@ public class WeightConvert {
         switch (getUnitId(destUnit)){
 
             case gramId:
-                result = value*1.016*Math.pow(10,6);
+                result = value*1.0160469088*Math.pow(10,6);
                 break;
 
             case kilogramId:
-                result = value*1016.05;
+                result = value*1016.0469088;
                 break;
             case milliGramId:
-                result = value*1.016*Math.pow(10,9);
+                result = value*1.0160469088*Math.pow(10,9);
                 break;
             case microGramId:
-                result = value*1.016*Math.pow(10,12);
+                result = value*1.016046908800*Math.pow(10,12);
                 break;
             case tonneId:
-                result = value*1.01605;
+                result = value*1.0160469088;
                 break;
 
             case stoneId:

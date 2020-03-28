@@ -446,17 +446,17 @@ public class LengthConverter {
         switch (getUnitId(destUnit)){
 
             case kmId:
-                result = value*1.60934;
+                result = value*1.609344;
                 break;
 
             case mId:
-                result = value*1609.34;// 1 km = 1000 m
+                result = value*1609.344;// 1 km = 1000 m
                 break;
             case cmId:
-                result = value*160934;// 1 km = 100000 cm
+                result = value*160934.4;// 1 km = 100000 cm
                 break;
             case mmId:
-                result = value*1.609*Math.pow(10,6);// 1 km = 1000000 mm
+                result = value*1609344;// 1 km = 1000000 mm
                 break;
             case inchId:
                 result = value*63360;// 1 km = 39370.07 inch
@@ -466,11 +466,11 @@ public class LengthConverter {
                 result = value*5280;// 1 km = 3280.83 foot
                 break;
             case microMeterId:
-                result = value*1.609*Math.pow(10,9);// 1 km = 10^9
+                result = value*1.609344*Math.pow(10,9);// 1 km = 10^9
                 break;
 
             case nanoMeterId:
-                result = value*1.609*Math.pow(10,12);// 1 km = 10^12
+                result = value*1.609344*Math.pow(10,12);// 1 km = 10^12
                 break;
 
             case mileId:

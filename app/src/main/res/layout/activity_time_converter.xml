@@ -77,7 +77,6 @@
                                 android:id="@+id/left_time_text_view"
                                 android:layout_width="wrap_content"
                                 android:textSize="16sp"
-                                android:text="MicroSecond"
                                 android:textColor="@color/colorPrimary"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
@@ -119,7 +118,6 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="16sp"
                                 android:layout_marginStart="3dp"
-                                android:text="MicroSecond"
                                 android:textColor="@color/colorPrimary"
                                 android:textStyle="bold"
                                 />
@@ -163,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:textSize="15sp"
+                        android:textSize="17sp"
                         android:textColor="@color/colorAccent"
                         />
 

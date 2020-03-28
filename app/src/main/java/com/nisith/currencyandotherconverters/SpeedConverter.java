@@ -31,7 +31,7 @@ public class SpeedConverter {
         } else if (unitName.equalsIgnoreCase("foot/second (ft/s)")) {
             idValue = footPerSecondId;
 
-        } else if (unitName.equalsIgnoreCase("yard/second")) {
+        } else if (unitName.equalsIgnoreCase("yard/second (y/s)")) {
             idValue = yardPerSecondId;
 
         }
@@ -69,7 +69,7 @@ public class SpeedConverter {
         } else if (sourceUnit.equalsIgnoreCase("foot/second (ft/s)")) {
             result = footPerSecondToOthers(sourceUnit,destUnit,value);
 
-        } else if (sourceUnit.equalsIgnoreCase("yard/second")) {
+        } else if (sourceUnit.equalsIgnoreCase("yard/second (y/s)")) {
             result = yardPerSecondToOthers(sourceUnit,destUnit,value);
 
         }
@@ -106,15 +106,15 @@ public class SpeedConverter {
                 result = value*3.6;
                 break;
             case milePerHourId:
-                result = value*2.23694;
+                result = value*2.236936292054;
                 break;
 
             case footPerSecondId:
-                result = value*3.28084;
+                result = value*3.280839895013;
                 break;
 
             case yardPerSecondId:
-                result = value*1.09361;
+                result = value*1.093613298338;
                 break;
 
         }
@@ -139,7 +139,7 @@ public class SpeedConverter {
                 result = value;
                 break;
             case centimeterPerSecondId:
-                result = value*1.66667;
+                result = value*1.666666666667;
                 break;
             case kilometerPerSecondId:
                 result = value/60000;
@@ -152,7 +152,7 @@ public class SpeedConverter {
                 result = value*0.06;
                 break;
             case milePerHourId:
-                result = value/26.822;
+                result = value*0.03728227153424;
                 break;
 
             case footPerSecondId:
@@ -196,15 +196,15 @@ public class SpeedConverter {
                 result = value*0.036;
                 break;
             case milePerHourId:
-                result = value*0.0223694;
+                result = value*0.02236936292054;
                 break;
 
             case footPerSecondId:
-                result = value*0.0328084;
+                result = value*0.03280839895013;
                 break;
 
             case yardPerSecondId:
-                result = value/91.44;
+                result = value*0.01093613298338;
                 break;
 
         }
@@ -242,15 +242,15 @@ public class SpeedConverter {
                 result = value*3600;
                 break;
             case milePerHourId:
-                result = value*2237;
+                result = value*2236.936292054 ;
                 break;
 
             case footPerSecondId:
-                result = value*3280.84;
+                result = value*3280.839895013 ;
                 break;
 
             case yardPerSecondId:
-                result = value*1093.61;
+                result = value*1093.613298338 ;
                 break;
 
         }
@@ -275,7 +275,7 @@ public class SpeedConverter {
                 result = value*1000;
                 break;
             case centimeterPerSecondId:
-                result = value*1666.67;
+                result = value*1666.666666667;
                 break;
             case kilometerPerSecondId:
                 result = value/60;
@@ -288,15 +288,15 @@ public class SpeedConverter {
                 result = value*60;
                 break;
             case milePerHourId:
-                result = value*37.2823;
+                result = value*37.28227153424;
                 break;
 
             case footPerSecondId:
-                result = value*54.6807;
+                result = value*54.68066491689;
                 break;
 
             case yardPerSecondId:
-                result = value*18.2269;
+                result = value*18.22688830563;
                 break;
 
         }
@@ -320,31 +320,31 @@ public class SpeedConverter {
                 break;
 
             case meterPerMuniteId:
-                result = value*16.6667;
+                result = value*16.66666666667;
                 break;
             case centimeterPerSecondId:
-                result = value*27.7778;
+                result = value*27.77777777778;
                 break;
             case kilometerPerSecondId:
                 result = value/3600;
                 break;
             case kilometerPerMinuteId:
-                result = value*60;
+                result = value*0.01666666666667;
                 break;
 
             case kilometerPerHourId:
                 result = value;
                 break;
             case milePerHourId:
-                result = value/1.609;
+                result = value*0.6213711922373;
                 break;
 
             case footPerSecondId:
-                result = value/1.097;
+                result = value*0.9113444152814;
                 break;
 
             case yardPerSecondId:
-                result = value/3.292;
+                result = value*0.3037814717605;
                 break;
 
         }
@@ -364,7 +364,7 @@ public class SpeedConverter {
         switch (getUnitId(destUnit)){
 
             case meterPerSecondId:
-                result = value/2.237;
+                result = value*0.44704;
                 break;
 
             case meterPerMuniteId:
@@ -374,25 +374,25 @@ public class SpeedConverter {
                 result = value*44.704;
                 break;
             case kilometerPerSecondId:
-                result = value/2237;
+                result = value*0.00044704;
                 break;
             case kilometerPerMinuteId:
-                result = value*37.2823;
+                result = value*0.0268224;
                 break;
 
             case kilometerPerHourId:
-                result = value*1.60934;
+                result = value*1.609344;
                 break;
             case milePerHourId:
                 result = value;
                 break;
 
             case footPerSecondId:
-                result = value*1.46667;
+                result = value*1.466666666667;
                 break;
 
             case yardPerSecondId:
-                result = value/2.045;
+                result = value*0.4888888888889;
                 break;
 
         }
@@ -430,7 +430,7 @@ public class SpeedConverter {
                 result = value*1.09728;
                 break;
             case milePerHourId:
-                result = value/1.467;
+                result = value*0.6818181818182;
                 break;
 
             case footPerSecondId:
@@ -456,7 +456,7 @@ public class SpeedConverter {
         switch (getUnitId(destUnit)){
 
             case meterPerSecondId:
-                result = value/1.094;
+                result = value*0.9144;
                 break;
 
             case meterPerMuniteId:
@@ -466,7 +466,7 @@ public class SpeedConverter {
                 result = value*91.44;
                 break;
             case kilometerPerSecondId:
-                result = value/1094;
+                result = value*0.0009144;
                 break;
             case kilometerPerMinuteId:
                 result = value/18.227;
@@ -476,7 +476,7 @@ public class SpeedConverter {
                 result = value*3.29184;
                 break;
             case milePerHourId:
-                result = value*2.04545;
+                result = value*2.045454545455;
                 break;
 
             case footPerSecondId:

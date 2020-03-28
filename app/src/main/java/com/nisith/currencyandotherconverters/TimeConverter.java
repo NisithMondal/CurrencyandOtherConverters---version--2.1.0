@@ -124,29 +124,29 @@ public class TimeConverter {
                 break;
 
             case MinuteId:
-                result = value*1.6667*Math.pow(10,-14);
+                result = value*1.6666666666667*Math.pow(10,-14);
                 break;
             case HourId:
-                result = value*2.7778*Math.pow(10,-16);
+                result = value*2.7777777777778*Math.pow(10,-16);
                 break;
 
             case DayId:
-                result = value*1.1574*Math.pow(10,-17);
+                result = value*1.1574074074074*Math.pow(10,-17);
                 break;
 
             case WeekId:
-                result = value*1.6534*Math.pow(10,-18);
+                result = value*1.6534391534392*Math.pow(10,-18);
                 break;
             case MonthId:
-                result = value*3.8052*Math.pow(10,-19);
+                result = value*3.8051750380518*Math.pow(10,-19);
                 break;
 
             case YearId:
-                result = value*3.171*Math.pow(10,-20);
+                result = value*3.1709791983765*Math.pow(10,-20);
                 break;
 
             case CenturyId:
-                result = value*3.171*Math.pow(10,-22);
+                result = value*3.1709791983765*Math.pow(10,-22);
                 break;
         }
 
@@ -178,29 +178,29 @@ public class TimeConverter {
                 break;
 
             case MinuteId:
-                result = value*1.6667*Math.pow(10,-11);
+                result = value*1.6666666666667*Math.pow(10,-11);
                 break;
             case HourId:
-                result = value*2.7778*Math.pow(10,-13);
+                result = value*2.7777777777778*Math.pow(10,-13);
                 break;
 
             case DayId:
-                result = value*1.1574*Math.pow(10,-14);
+                result = value*1.1574074074074*Math.pow(10,-14);
                 break;
 
             case WeekId:
-                result = value*1.6534*Math.pow(10,-15);
+                result = value*1.6534391534392*Math.pow(10,-15);
                 break;
             case MonthId:
-                result = value*3.8052*Math.pow(10,-16);
+                result = value*3.8051750380518*Math.pow(10,-16);
                 break;
 
             case YearId:
-                result = value*3.171*Math.pow(10,-17);
+                result = value*3.1709791983765*Math.pow(10,-17);
                 break;
 
             case CenturyId:
-                result = value*3.171*Math.pow(10,-19);
+                result = value*3.1709791983765*Math.pow(10,-19);
                 break;
         }
 
@@ -231,29 +231,29 @@ public class TimeConverter {
                 break;
 
             case MinuteId:
-                result = value*1.6667*Math.pow(10,-8);
+                result = value*1.6666666666667*Math.pow(10,-8);
                 break;
             case HourId:
-                result = value*2.7778*Math.pow(10,-10);
+                result = value*2.7777777777778*Math.pow(10,-10);
                 break;
 
             case DayId:
-                result = value*1.1574*Math.pow(10,-11);
+                result = value*1.1574074074074*Math.pow(10,-11);
                 break;
 
             case WeekId:
-                result = value*1.6534*Math.pow(10,-12);
+                result = value*1.6534391534392*Math.pow(10,-12);
                 break;
             case MonthId:
-                result = value*3.8052*Math.pow(10,-13);
+                result = value*3.8051750380518*Math.pow(10,-13);
                 break;
 
             case YearId:
-                result = value*3.171*Math.pow(10,-14);
+                result = value*3.1709791983765*Math.pow(10,-14);
                 break;
 
             case CenturyId:
-                result = value*3.171*Math.pow(10,-16);
+                result = value*3.1709791983765*Math.pow(10,-16);
                 break;
         }
 
@@ -286,29 +286,29 @@ public class TimeConverter {
                 break;
 
             case MinuteId:
-                result = value*1.6667*Math.pow(10,-5);
+                result = value*1.6666666666667*Math.pow(10,-5);
                 break;
             case HourId:
-                result = value*2.7778*Math.pow(10,-7);
+                result = value*2.7777777777778*Math.pow(10,-7);
                 break;
 
             case DayId:
-                result = value*1.1574*Math.pow(10,-8);
+                result = value*1.1574074074074*Math.pow(10,-8);
                 break;
 
             case WeekId:
-                result = value*1.6534*Math.pow(10,-9);
+                result = value*1.6534391534392*Math.pow(10,-9);
                 break;
             case MonthId:
-                result = value*3.8052*Math.pow(10,-10);
+                result = value*3.8051750380518*Math.pow(10,-10);
                 break;
 
             case YearId:
-                result = value*3.171e-11*Math.pow(10,-11);
+                result = value*3.1709791983765*Math.pow(10,-11);
                 break;
 
             case CenturyId:
-                result = value*3.171*Math.pow(10,-13);
+                result = value*3.1709791983765*Math.pow(10,-13);
                 break;
         }
 
@@ -352,18 +352,18 @@ public class TimeConverter {
                 break;
 
             case WeekId:
-                result = value*604800;
+                result = value/604800;
                 break;
             case MonthId:
-                result = value*3.8052*Math.pow(10,-7);
+                result = value*3.8051750380518*Math.pow(10,-7);
                 break;
 
             case YearId:
-                result = value*3.171e-8;
+                result = value*3.1709791983765*Math.pow(10,-8);
                 break;
 
             case CenturyId:
-                result = value*3.171*Math.pow(10,-10);
+                result = value*3.1709791983765*Math.pow(10,-10);
                 break;
         }
 
@@ -416,7 +416,7 @@ public class TimeConverter {
                 break;
 
             case CenturyId:
-                result = value*1.9026*Math.pow(10,-8);
+                result = value*1.9025875190259*Math.pow(10,-8);
                 break;
         }
 
@@ -567,15 +567,15 @@ public class TimeConverter {
                 result = value;
                 break;
             case MonthId:
-                result = value/4.345;
+                result = value*0.23013698630137;
                 break;
 
             case YearId:
-                result = value/52.143;
+                result = value*0.019178082191781;
                 break;
 
             case CenturyId:
-                result = value/5214;
+                result = value*0.00019178082191781;
                 break;
         }
 
@@ -613,22 +613,22 @@ public class TimeConverter {
                 break;
 
             case DayId:
-                result = value*30.4167;
+                result = value*30.416666666667;
                 break;
 
             case WeekId:
-                result = value*4.34524;
+                result = value*4.3452380952381;
                 break;
             case MonthId:
-                result = value/4.345;
+                result = value;
                 break;
 
             case YearId:
-                result = value/52.143;
+                result = value/12;
                 break;
 
             case CenturyId:
-                result = value/5214;
+                result = value/1200;
                 break;
         }
 
@@ -642,20 +642,20 @@ public class TimeConverter {
         switch (getUnitId(destUnit)){
 
             case PicoSecondId:
-                result = value*3.154*Math.pow(10,19);
+                result = value*3.1536*Math.pow(10,19);
                 break;
 
             case NanoSecondId:
-                result = value*3.154*Math.pow(10,16);
+                result = value*3.1536*Math.pow(10,16);
                 break;
             case MicroSecondId:
-                result = value*3.154*Math.pow(10,13);
+                result = value*3.1536*Math.pow(10,13);
                 break;
             case MilliSecondId:
-                result = value*3.154*Math.pow(10,10);
+                result = value*3.1536*Math.pow(10,10);
                 break;
             case SecondId:
-                result = value*3.154*Math.pow(10,7);
+                result = value*31536000;
                 break;
 
             case MinuteId:
@@ -670,7 +670,7 @@ public class TimeConverter {
                 break;
 
             case WeekId:
-                result = value*52.1429;
+                result = value*52.142857142857;
                 break;
             case MonthId:
                 result = value*12;
@@ -695,20 +695,20 @@ public class TimeConverter {
         switch (getUnitId(destUnit)){
 
             case PicoSecondId:
-                result = value*3.154*Math.pow(10,21);
+                result = value*3.1536*Math.pow(10,21);
                 break;
 
             case NanoSecondId:
-                result = value*3.154*Math.pow(10,18);
+                result = value*3.1536*Math.pow(10,18);
                 break;
             case MicroSecondId:
-                result = value*3.154*Math.pow(10,15);
+                result = value*3.1536*Math.pow(10,15);
                 break;
             case MilliSecondId:
-                result = value*3.154*Math.pow(10,12);
+                result = value*3.1536*Math.pow(10,12);
                 break;
             case SecondId:
-                result = value*3.154*Math.pow(10,9);
+                result = value*3.1536*Math.pow(10,9);
                 break;
 
             case MinuteId:
@@ -723,7 +723,7 @@ public class TimeConverter {
                 break;
 
             case WeekId:
-                result = value*5214.29;
+                result = value*5214.2857142857;
                 break;
             case MonthId:
                 result = value*1200;
