@@ -764,17 +764,17 @@
         <item>US liquid gallon</item>
         <item>US liquid quart</item>
         <item>US liquid pint</item>
-        <item>US legal cup</item>
+        <item>US cup</item>
         <item>US fluid ounce</item>
         <item>US tableSpoon</item>
         <item>US teaSpoon</item>
-        <item>imperial gallon</item>
-        <item>imperial quart</item>
-        <item>imperial pint</item>
-        <item>imperial cup</item>
-        <item>imperial fluid ounce</item>
-        <item>imperial tableSpoon</item>
-        <item>imperial teaSpoon</item>
+        <item>imperial gallon (UK)</item>
+        <item>imperial quart (UK)</item>
+        <item>imperial pint (UK)</item>
+        <item>imperial cup (UK)</item>
+        <item>imperial fluid ounce (UK)</item>
+        <item>imperial tableSpoon (UK)</item>
+        <item>imperial teaSpoon (UK)</item>
 
     </string-array>
 
@@ -790,18 +790,17 @@
         <item>US liquid gallon</item>
         <item>US liquid quart</item>
         <item>US liquid pint</item>
-        <item>US legal cup</item>
+        <item>US cup</item>
         <item>US fluid ounce</item>
         <item>US tableSpoon</item>
         <item>US teaSpoon</item>
-        <item>imperial gallon</item>
-        <item>imperial quart</item>
-        <item>imperial pint</item>
-        <item>imperial cup</item>
-        <item>imperial fluid ounce</item>
-        <item>imperial tableSpoon</item>
-        <item>imperial teaSpoon</item>
-        <item>imperial gallon</item>
+        <item>imperial gallon (UK)</item>
+        <item>imperial quart (UK)</item>
+        <item>imperial pint (UK)</item>
+        <item>imperial cup (UK)</item>
+        <item>imperial fluid ounce (UK)</item>
+        <item>imperial tableSpoon (UK)</item>
+        <item>imperial teaSpoon (UK)</item>
 
 
     </string-array>

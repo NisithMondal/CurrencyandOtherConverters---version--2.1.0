@@ -366,7 +366,12 @@ public class VolumeConverterActivity extends AppCompatActivity {
             String editTextSting = volumeValueEditText.getText().toString();
             double userInputData = Double.parseDouble(editTextSting);
             VolumeConverter volumeConverter = new VolumeConverter();
-            double result = volumeConverter.getVolumeConvertResult(leftVolumeTextViewValue,rightVolumeTextViewValue,userInputData);
+            double resultInDouble = volumeConverter.getVolumeConvertResult(leftVolumeTextViewValue,rightVolumeTextViewValue,userInputData);
+            String result = String.valueOf(resultInDouble);
+            if (result.endsWith(".0")){
+                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                result = result.substring(0,(result.length()-2));
+            }
             resultTextView.setVisibility(View.VISIBLE);
             resultTextView.setText(editTextSting+"  "+leftVolumeTextViewValue+"  =  "+result+"  "+rightVolumeTextViewValue);
         }
