@@ -23,7 +23,7 @@ public class WeightConvert {
         } else if (unitName.equalsIgnoreCase("tonne")) {
             idValue = tonneId;
 
-        } else if (unitName.equalsIgnoreCase("stone")) {
+        } else if (unitName.equalsIgnoreCase("stone (UK)")) {
             idValue = stoneId;
 
         } else if (unitName.equalsIgnoreCase("pound")) {
@@ -35,7 +35,7 @@ public class WeightConvert {
         } else if (unitName.equalsIgnoreCase("usTon")) {
             idValue = usTonId;
 
-        } else if (unitName.equalsIgnoreCase("imperialTon")) {
+        } else if (unitName.equalsIgnoreCase("imperialTon (UK)")) {
             idValue = imperialTonId;
         }
         return idValue;
@@ -62,7 +62,7 @@ public class WeightConvert {
         } else if (sourceUnit.equalsIgnoreCase("tonne")) {
             result = tonneToOthers(sourceUnit,destUnit,value);
 
-        } else if (sourceUnit.equalsIgnoreCase("stone")) {
+        } else if (sourceUnit.equalsIgnoreCase("stone (UK)")) {
             result = stoneToOthers(sourceUnit,destUnit,value);
 
         } else if (sourceUnit.equalsIgnoreCase("pound")) {
@@ -74,7 +74,7 @@ public class WeightConvert {
         } else if (sourceUnit.equalsIgnoreCase("usTon")) {
             result = usTonToOthers(sourceUnit,destUnit,value);
 
-        } else if (sourceUnit.equalsIgnoreCase("imperialTon")) {
+        } else if (sourceUnit.equalsIgnoreCase("imperialTon (UK)")) {
 
             result = imperialTonToOthers(sourceUnit,destUnit,value);
 

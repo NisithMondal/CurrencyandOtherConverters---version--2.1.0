@@ -213,7 +213,7 @@ public class VolumeConverter {
                 break;
 
             case USLegalCupId:
-                result = value*4.166666;
+                result = value*4.2267528377;
                 break;
 
             case USFluidOunceId:
@@ -304,7 +304,7 @@ public class VolumeConverter {
                 break;
 
             case USLegalCupId:
-                result = value/240;
+                result = value*0.0042267528;
                 break;
 
             case USFluidOunceId:
@@ -757,7 +757,7 @@ public class VolumeConverter {
                 break;
 
             case USLegalCupId:
-                result = value*117.986860;
+                result = value*119.68831169;
                 break;
 
             case USFluidOunceId:
@@ -1351,50 +1351,50 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/67.628;
+                result = value*0.0147867648;
                 break;
 
             case milliLiterId:
-                result = value*14.7868;
+                result = value*14.786764781;
                 break;
             case cubicMeterId:
-                result = value*1.4787*Math.pow(10,-5);
+                result = value*0.0000147868;
                 break;
             case cubicCentiMeterId:
-                result = value*14.7868;
+                result = value*14.786764781;
                 break;
             case cubickilometerId:
-                result = value*1.47868*Math.pow(10,-14);
+                result = value*1.478676478*Math.pow(10,-14);
                 break;
 
             case cubicMilliMeterId:
-                result = value*14786.8;
+                result = value*14786.764781;
                 break;
             case cubicFootId:
-                result = value/1915;
+                result = value*0.0005221897;
                 break;
 
             case cubicInchId:
-                result = value/1.108;
+                result = value*0.90234375;
                 break;
 
             case USLiquidGallonId:
-                result = value/256;
+                result = value*0.00390625;
                 break;
             case USLiquidQuartId:
-                result = value/64;
+                result = value*0.015625;
                 break;
 
             case USLiquidPintId:
-                result = value/32;
+                result = value*0.03125;
                 break;
 
             case USLegalCupId:
-                result = value/16.231;
+                result = value*0.0625;
                 break;
 
             case USFluidOunceId:
-                result = value/2;
+                result = value*0.5;
                 break;
             case USTableSpoonId:
                 result = value;
@@ -1404,29 +1404,29 @@ public class VolumeConverter {
                 break;
 
             case imperialGallonId:
-                result = value/307;
+                result = value*0.0032526335;
                 break;
             case imperialQuartId:
-                result = value/76.861;
+                result = value*0.0130105341;
                 break;
 
             case imperialPintId:
-                result = value/38.43;
+                result = value*0.0260210683;
                 break;
 
             case imperialCupId:
-                result = value/19.215;
+                result = value*0.0520421365;
                 break;
             case imperialFluidOunceId:
-                result = value/1.922;
+                result = value*0.5204213654;
                 break;
 
             case imperialTableSpoonId:
-                result = value/1.201;
+                result = value*0.8326741846;
                 break;
 
             case imperialTeaSpoonId:
-                result = value*2.49802;
+                result = value*2.4980225539;
                 break;
         }
 
@@ -1440,82 +1440,82 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/203;
+                result = value*0.0049289216;
                 break;
 
             case milliLiterId:
-                result = value*4.92892;
+                result = value*4.9289215937;
                 break;
             case cubicMeterId:
-                result = value/202884;
+                result = value*0.0000049289;
                 break;
             case cubicCentiMeterId:
-                result = value*4.92892;
+                result = value*4.9289215937;
                 break;
             case cubickilometerId:
-                result = value*4.92892*Math.pow(10,-15);
+                result = value*4.928921593*Math.pow(10,-15);
                 break;
 
             case cubicMilliMeterId:
-                result = value*4928.92;
+                result = value*4928.9215937;
                 break;
             case cubicFootId:
-                result = value/5745;
+                result = value*0.0001740632;
                 break;
 
             case cubicInchId:
-                result = value/3.325;
+                result = value*0.30078125;
                 break;
 
             case USLiquidGallonId:
-                result = value/768;
+                result = value*0.0013020833;
                 break;
             case USLiquidQuartId:
-                result = value/192;
+                result = value*0.0052083333;
                 break;
 
             case USLiquidPintId:
-                result = value/96;
+                result = value*0.0104166667;
                 break;
 
             case USLegalCupId:
-                result = value/48.692;
+                result = value*0.0208333333;
                 break;
 
             case USFluidOunceId:
-                result = value/6;
+                result = value*0.1666666667;
                 break;
             case USTableSpoonId:
-                result = value/3;
+                result = value*0.3333333333;
                 break;
             case USTeaSpoonId:
                 result = value;
                 break;
 
             case imperialGallonId:
-                result = value/922;
+                result = value*0.0010842112;
                 break;
             case imperialQuartId:
-                result = value/231;
+                result = value*0.0043368447;
                 break;
 
             case imperialPintId:
-                result = value/115;
+                result = value*0.0086736894;
                 break;
 
             case imperialCupId:
-                result = value/57.646;
+                result = value*0.0173473788;
                 break;
             case imperialFluidOunceId:
-                result = value/5.765;
+                result = value*0.1734737885;
                 break;
 
             case imperialTableSpoonId:
-                result = value/3.603;
+                result = value*0.2775580615;
                 break;
 
             case imperialTeaSpoonId:
-                result = value/1.201;
+                result = value*0.8326741846;
                 break;
         }
 
@@ -1537,49 +1537,49 @@ public class VolumeConverter {
                 result = value*4546.09;
                 break;
             case cubicMeterId:
-                result = value/220;
+                result = value*0.00454609;
                 break;
             case cubicCentiMeterId:
                 result = value*4546.09;
                 break;
             case cubickilometerId:
-                result = value*4.54609*Math.pow(10,-12);
+                result = value*4.546089999*Math.pow(10,-12);
                 break;
 
             case cubicMilliMeterId:
-                result = value*4.546*Math.pow(10,6);
+                result = value*4.546090*Math.pow(10,6);
                 break;
             case cubicFootId:
-                result = value/6.229;
+                result = value*0.1605436532;
                 break;
 
             case cubicInchId:
-                result = value*277.419;
+                result = value*277.41943279;
                 break;
 
             case USLiquidGallonId:
-                result = value*1.20095;
+                result = value*1.2009499255;
                 break;
             case USLiquidQuartId:
-                result = value*4.8038;
+                result = value*4.803799702;
                 break;
 
             case USLiquidPintId:
-                result = value*9.6076;
+                result = value*9.607599404;
                 break;
 
             case USLegalCupId:
-                result = value*18.942;
+                result = value*19.215198808;
                 break;
 
             case USFluidOunceId:
-                result = value*153.722;
+                result = value*153.72159046;
                 break;
             case USTableSpoonId:
-                result = value*307.443;
+                result = value*307.44318093;
                 break;
             case USTeaSpoonId:
-                result = value*922.33;
+                result = value*922.32954279;
                 break;
 
             case imperialGallonId:
@@ -1619,60 +1619,60 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value*1.13652;
+                result = value*1.1365225;
                 break;
 
             case milliLiterId:
-                result = value*1136.52;
+                result = value*1136.5225;
                 break;
             case cubicMeterId:
-                result = value/880;
+                result = value*0.0011365225;
                 break;
             case cubicCentiMeterId:
-                result = value*1136.52;
+                result = value*1136.5225;
                 break;
             case cubickilometerId:
-                result = value*1.13652*Math.pow(10,-12);
+                result = value*1.1365225*Math.pow(10,-12);
                 break;
 
             case cubicMilliMeterId:
-                result = value*1.137*Math.pow(10,6);
+                result = value*1.1365225*Math.pow(10,6);
                 break;
             case cubicFootId:
-                result = value/24.915;
+                result = value*0.0401359133;
                 break;
 
             case cubicInchId:
-                result = value*69.3549;
+                result = value*69.354858198;
                 break;
 
             case USLiquidGallonId:
-                result = value/3.331;
+                result = value*0.3002374814;
                 break;
             case USLiquidQuartId:
-                result = value*1.20095;
+                result = value*1.2009499255;
                 break;
 
             case USLiquidPintId:
-                result = value*2.4019;
+                result = value*2.401899851;
                 break;
 
             case USLegalCupId:
-                result = value*4.73551;
+                result = value*4.803799702;
                 break;
 
             case USFluidOunceId:
-                result = value*38.4304;
+                result = value*38.430397616;
                 break;
             case USTableSpoonId:
-                result = value*76.8608;
+                result = value*76.860795232;
                 break;
             case USTeaSpoonId:
-                result = value*230.582;
+                result = value*230.5823857;
                 break;
 
             case imperialGallonId:
-                result = value/4;
+                result = value*0.25;
                 break;
             case imperialQuartId:
                 result = value;
@@ -1709,63 +1709,63 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/1.76;
+                result = value*0.56826125;
                 break;
 
             case milliLiterId:
-                result = value*568.261;
+                result = value*568.26125;
                 break;
             case cubicMeterId:
-                result = value/1760;
+                result = value*0.0005682613;
                 break;
             case cubicCentiMeterId:
-                result = value*568.261;
+                result = value*568.26125;
                 break;
             case cubickilometerId:
-                result = value*5.68261*Math.pow(10,-13);
+                result = value*5.6826125*Math.pow(10,-13);
                 break;
 
             case cubicMilliMeterId:
-                result = value*568261;
+                result = value*568261.25;
                 break;
             case cubicFootId:
-                result = value/49.831;
+                result = value*0.0200679567;
                 break;
 
             case cubicInchId:
-                result = value*34.6774;
+                result = value*34.677429099;
                 break;
 
             case USLiquidGallonId:
-                result = value/6.661;
+                result = value*0.1501187407;
                 break;
             case USLiquidQuartId:
-                result = value/1.665;
+                result = value*0.6004749628;
                 break;
 
             case USLiquidPintId:
-                result = value*1.20095;
+                result = value*1.2009499255;
                 break;
 
             case USLegalCupId:
-                result = value*2.36776;
+                result = value*2.401899851;
                 break;
 
             case USFluidOunceId:
-                result = value*19.2152;
+                result = value*19.215198808;
                 break;
             case USTableSpoonId:
-                result = value*38.4304;
+                result = value*38.430397616;
                 break;
             case USTeaSpoonId:
-                result = value*115.291;
+                result = value*115.29119285;
                 break;
 
             case imperialGallonId:
-                result = value/8;
+                result = value*0.125;
                 break;
             case imperialQuartId:
-                result = value/2;
+                result = value*0.5;
                 break;
 
             case imperialPintId:
@@ -1799,60 +1799,60 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/3.52;
+                result = value*0.284130625;
                 break;
 
             case milliLiterId:
-                result = value*284.131;
+                result = value*284.130625;
                 break;
             case cubicMeterId:
-                result = value/3520;
+                result = value*0.0002841306;
                 break;
             case cubicCentiMeterId:
-                result = value*284.131;
+                result = value*284.130625;
                 break;
             case cubickilometerId:
-                result = value*2.84131*Math.pow(10,-13);
+                result = value*2.84130625*Math.pow(10,-13);
                 break;
 
             case cubicMilliMeterId:
-                result = value*284130.643;
+                result = value*284130.625;
                 break;
             case cubicFootId:
-                result = value/99.661;
+                result = value*0.0100339783;
                 break;
 
             case cubicInchId:
-                result = value*17.3387;
+                result = value*17.338714549;
                 break;
 
             case USLiquidGallonId:
-                result = value/13.323;
+                result = value*0.0750593703;
                 break;
             case USLiquidQuartId:
-                result = value/3.331;
+                result = value*0.3002374814;
                 break;
 
             case USLiquidPintId:
-                result = value/1.665;
+                result = value*0.6004749628;
                 break;
 
             case USLegalCupId:
-                result = value*1.18388;
+                result = value*1.2009499255;
                 break;
 
             case USFluidOunceId:
-                result = value*9.6076;
+                result = value*9.607599404;
                 break;
             case USTableSpoonId:
-                result = value*19.2152;
+                result = value*19.215198808;
                 break;
             case USTeaSpoonId:
-                result = value*57.6456;
+                result = value*57.645596424;
                 break;
 
             case imperialGallonId:
-                result = value/16;
+                result = value*0.0625;
                 break;
             case imperialQuartId:
                 result = value/4;
@@ -1888,67 +1888,67 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/35.195;
+                result = value*0.0284130625;
                 break;
 
             case milliLiterId:
-                result = value*28.4131;
+                result = value*28.4130625;
                 break;
             case cubicMeterId:
-                result = value/35195;
+                result = value*0.0000284131;
                 break;
             case cubicCentiMeterId:
-                result = value*28.4131;
+                result = value*28.4130625;
                 break;
             case cubickilometerId:
-                result = value*2.84131*Math.pow(10,-14);
+                result = value*2.84130625*Math.pow(10,-14);
                 break;
 
             case cubicMilliMeterId:
-                result = value*28413.1;
+                result = value*28413.0625;
                 break;
             case cubicFootId:
-                result = value/997;
+                result = value*0.0010033978;
                 break;
 
             case cubicInchId:
-                result = value*1.73387;
+                result = value*1.7338714549;
                 break;
 
             case USLiquidGallonId:
-                result = value/133;
+                result = value*0.007505937;
                 break;
             case USLiquidQuartId:
-                result = value/33.307;
+                result = value*0.0300237481;
                 break;
 
             case USLiquidPintId:
-                result = value/16.653;
+                result = value*0.0600474963;
                 break;
 
             case USLegalCupId:
-                result = value/8.447;
+                result = value*0.1200949926;
                 break;
 
             case USFluidOunceId:
-                result = value/1.041;
+                result = value*0.9607599404;
                 break;
             case USTableSpoonId:
-                result = value*1.92152;
+                result = value*1.9215198808;
                 break;
             case USTeaSpoonId:
-                result = value*5.76456;
+                result = value*5.7645596424;
                 break;
 
             case imperialGallonId:
-                result = value/160;
+                result = value*0.00625;
                 break;
             case imperialQuartId:
-                result = value/40;
+                result = value*0.025;
                 break;
 
             case imperialPintId:
-                result = value/20;
+                result = value*0.05;
                 break;
 
             case imperialCupId:
@@ -1978,60 +1978,60 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/56.312;
+                result = value*0.0177581641;
                 break;
 
             case milliLiterId:
-                result = value*17.7582;
+                result = value*17.758164063;
                 break;
             case cubicMeterId:
-                result = value/56312;
+                result = value*0.0000177582;
                 break;
             case cubicCentiMeterId:
-                result = value*17.7582;
+                result = value*17.758164063;
                 break;
             case cubickilometerId:
-                result = value*1.77582*Math.pow(10,-14);
+                result = value*1.775816406*Math.pow(10,-14);
                 break;
 
             case cubicMilliMeterId:
-                result = value*17758.2;
+                result = value*17758.164063;
                 break;
             case cubicFootId:
-                result = value/1595;
+                result = value*0.0006271236;
                 break;
 
             case cubicInchId:
-                result = value*1.08367;
+                result = value*1.0836696593;
                 break;
 
             case USLiquidGallonId:
-                result = value/213;
+                result = value*0.0046912106;
                 break;
             case USLiquidQuartId:
-                result = value/53.291;
+                result = value*0.0187648426;
                 break;
 
             case USLiquidPintId:
-                result = value/26.646;
+                result = value*0.0375296852;
                 break;
 
             case USLegalCupId:
-                result = value/13.515;
+                result = value*0.0750593703;
                 break;
 
             case USFluidOunceId:
-                result = value/1.665;
+                result = value*0.6004749628;
                 break;
             case USTableSpoonId:
-                result = value*1.20095;
+                result = value*1.2009499255;
                 break;
             case USTeaSpoonId:
-                result = value*3.60285;
+                result = value*3.6028497765;
                 break;
 
             case imperialGallonId:
-                result = value/256;
+                result = value*0.00390625;
                 break;
             case imperialQuartId:
                 result = value/64;
@@ -2068,74 +2068,74 @@ public class VolumeConverter {
         switch (getUnitId(destUnit)){
 
             case literId:
-                result = value/169;
+                result = value*0.005919388;
                 break;
 
             case milliLiterId:
-                result = value*5.91939;
+                result = value*5.9193880208;
                 break;
             case cubicMeterId:
-                result = value/168936;
+                result = value*0.0000059194;
                 break;
             case cubicCentiMeterId:
-                result = value*5.91939;
+                result = value*5.9193880208;
                 break;
             case cubickilometerId:
-                result = value*5.91939*Math.pow(10,-15);
+                result = value*5.91938802*Math.pow(10,-15);
                 break;
 
             case cubicMilliMeterId:
-                result = value*4928.92;
+                result = value*5919.3880208;
                 break;
             case cubicFootId:
-                result = value/4784;
+                result = value*0.0002090412;
                 break;
 
             case cubicInchId:
-                result = value/2.768;
+                result = value/0.3612232198;
                 break;
 
             case USLiquidGallonId:
-                result = value/639;
+                result = value*0.0015637369;
                 break;
             case USLiquidQuartId:
-                result = value/160;
+                result = value*0.0062549475;
                 break;
 
             case USLiquidPintId:
-                result = value/79.937;
+                result = value*0.0125098951;
                 break;
 
             case USLegalCupId:
-                result = value/40.545;
+                result = value*0.0250197901;
                 break;
 
             case USFluidOunceId:
-                result = value/4.996;
+                result = value*0.2001583209;
                 break;
             case USTableSpoonId:
-                result = value/2.498;
+                result = value*0.4003166418;
                 break;
             case USTeaSpoonId:
-                result = value*1.20095;
+                result = value*1.2009499255;
                 break;
 
             case imperialGallonId:
-                result = value/768;
+                result = value*0.0013020833;
                 break;
             case imperialQuartId:
-                result = value/192;
+                result = value*0.0052083333;
                 break;
 
             case imperialPintId:
-                result = value/96;
+                result = value*0.0104166667;
                 break;
 
             case imperialCupId:
-                result = value/48;
+                result = value*0.0208333333;
                 break;
             case imperialFluidOunceId:
-                result = value/4.8;
+                result = value*0.2083333333;
                 break;
 
             case imperialTableSpoonId:

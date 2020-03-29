@@ -627,11 +627,11 @@
         <item>milligram (mg)</item>
         <item>microgram</item>
         <item>tonne</item>
-        <item>stone</item>
+        <item>stone (UK)</item>
         <item>pound</item>
         <item>ounce</item>
         <item>usTon</item>
-        <item>imperialTon</item>
+        <item>imperialTon (UK)</item>
     </string-array>
 
 
@@ -641,11 +641,11 @@
         <item>milliGram (mg)</item>
         <item>microGram</item>
         <item>tonne</item>
-        <item>stone</item>
+        <item>stone (UK)</item>
         <item>pound</item>
         <item>ounce</item>
         <item>usTon</item>
-        <item>imperialTon</item>
+        <item>imperialTon (UK)</item>
     </string-array>
 
 

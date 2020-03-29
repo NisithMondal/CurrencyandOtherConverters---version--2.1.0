@@ -98,11 +98,11 @@ public class LengthConverter {
                 result = value*1000000;// 1 km = 1000000 mm
                 break;
             case inchId:
-                result = value*39370.07;// 1 km = 39370.07 inch
+                result = value*39370.07874;// 1 km = 39370.07 inch
                 break;
 
             case footId:
-                result = value*3280.83;// 1 km = 3280.83 foot
+                result = value*3280.839895;// 1 km = 3280.83 foot
                 break;
             case microMeterId:
                 result = value*Math.pow(10,9);// 1 km = 10^9
@@ -113,11 +113,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*0.621371;// 1 km = 0.621371 mile
+                result = value*0.6213711922;// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*1093.61;// 1 km = 1093.61 yard
+                result = value*1093.6132983;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -144,11 +144,11 @@ public class LengthConverter {
                 result = value*1000;// 1 km = 1000000 mm
                 break;
             case inchId:
-                result = value*39.3701;// 1 km = 39370.07 inch
+                result = value*39.37007874;// 1 km = 39370.07 inch
                 break;
 
             case footId:
-                result = value*3.28084;// 1 km = 3280.83 foot
+                result = value*3.280839895;// 1 km = 3280.83 foot
                 break;
             case microMeterId:
                 result = value*Math.pow(10,6);// 1 km = 10^9
@@ -159,11 +159,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*0.000621371;// 1 km = 0.621371 mile
+                result = value*0.0006213712;// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*1.09361;// 1 km = 1093.61 yard
+                result = value*1.0936132983;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -190,11 +190,11 @@ public class LengthConverter {
                 result = value*10;// 1 km = 1000000 mm
                 break;
             case inchId:
-                result = value*0.393701;// 1 km = 39370.07 inch
+                result = value*0.3937007874;// 1 km = 39370.07 inch
                 break;
 
             case footId:
-                result = value*0.0328084;// 1 km = 3280.83 foot
+                result = value*0.032808399;// 1 km = 3280.83 foot
                 break;
             case microMeterId:
                 result = value*10000;// 1 km = 10^9
@@ -209,7 +209,7 @@ public class LengthConverter {
                 break;
 
             case yardId:
-                result = value*0.0109361;// 1 km = 1093.61 yard
+                result = value*0.010936133;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -234,11 +234,11 @@ public class LengthConverter {
                 result = value;// 1 km = 1000000 mm
                 break;
             case inchId:
-                result = value*0.0393701;// 1 km = 39370.07 inch
+                result = value*0.0393700787;// 1 km = 39370.07 inch
                 break;
 
             case footId:
-                result = value*0.003280841;// 1 km = 3280.83 foot
+                result = value*0.0032808399;// 1 km = 3280.83 foot
                 break;
             case microMeterId:
                 result = value*1000;// 1 km = 10^9
@@ -249,11 +249,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*6.2137*Math.pow(10,-7);// 1 km = 0.621371 mile
+                result = value*6.213711922*Math.pow(10,-7);// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*0.00109361;// 1 km = 1093.61 yard
+                result = value*0.0010936133;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -283,7 +283,7 @@ public class LengthConverter {
                 break;
 
             case footId:
-                result = value*0.0833333;// 1 km = 3280.83 foot
+                result = value*0.0833333333;// 1 km = 3280.83 foot
                 break;
             case microMeterId:
                 result = value*25400;// 1 km = 10^9
@@ -294,11 +294,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*1.5783*Math.pow(10,-5);// 1 km = 0.621371 mile
+                result = value*0.0000157828;// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*0.0277778;// 1 km = 1093.61 yard
+                result = value*0.0277777778;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -339,11 +339,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*0.000189394;// 1 km = 0.621371 mile
+                result = value*0.0001893939;// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*0.333333;// 1 km = 1093.61 yard
+                result = value*0.3333333333;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -369,7 +369,7 @@ public class LengthConverter {
                 result = value*0.001;// 1 km = 1000000 mm
                 break;
             case inchId:
-                result = value*3.937*Math.pow(10,-5);// 1 km = 39370.07 inch
+                result = value*0.0000393701;// 1 km = 39370.07 inch
                 break;
 
             case footId:
@@ -384,11 +384,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*6.2137*Math.pow(10,-10);// 1 km = 0.621371 mile
+                result = value*6.213711922*Math.pow(10,-10);// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*1.0936*Math.pow(10,-6);// 1 km = 1093.61 yard
+                result = value*0.0000010936;// 1 km = 1093.61 yard
                 break;
 
         }
@@ -414,11 +414,11 @@ public class LengthConverter {
                 result = value*Math.pow(10,-6);// 1 km = 1000000 mm
                 break;
             case inchId:
-                result = value*3.937*Math.pow(10,-8);// 1 km = 39370.07 inch
+                result = value*3.937007874*Math.pow(10,-8);// 1 km = 39370.07 inch
                 break;
 
             case footId:
-                result = value*3.2808*Math.pow(10,-9);// 1 km = 3280.83 foot
+                result = value*3.280839895*Math.pow(10,-9);// 1 km = 3280.83 foot
                 break;
             case microMeterId:
                 result = value*0.001;// 1 km = 10^9
@@ -429,11 +429,11 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*6.2137*Math.pow(10,-13);// 1 km = 0.621371 mile
+                result = value*6.213711922*Math.pow(10,-13);// 1 km = 0.621371 mile
                 break;
 
             case yardId:
-                result = value*1.0936*Math.pow(10,-9);// 1 km = 1093.61 yard
+                result = value*1.093613298*Math.pow(10,-9);// 1 km = 1093.61 yard
                 break;
 
         }
@@ -521,7 +521,7 @@ public class LengthConverter {
                 break;
 
             case mileId:
-                result = value*0.000568182;// 1 km = 0.621371 mile
+                result = value*0.0005681818;// 1 km = 0.621371 mile
                 break;
 
             case yardId:
