@@ -221,7 +221,7 @@
                         android:id="@+id/small_banner_ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="30dp"
                         ads:adSize="BANNER"
                         ads:adUnitId="@string/small_banner_ad_unit_currency_activity"
                         >
@@ -233,7 +233,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         ads:adSize="LARGE_BANNER"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="30dp"
                         ads:adUnitId="@string/large_banner_ad_unit_currency_activity"
                         >
                     </com.google.android.gms.ads.AdView>

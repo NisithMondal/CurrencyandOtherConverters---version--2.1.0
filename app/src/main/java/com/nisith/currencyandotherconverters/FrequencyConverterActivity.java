@@ -85,8 +85,9 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -97,7 +98,6 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         frequencyHistoryButton.setOnClickListener(new MyFrequencyHistoryButtonClick());
         frequencyValueEditText.addTextChangedListener(new MyTextWatcher());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -335,7 +335,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
 
 
     private void performFrequencyConvertion(){
-        //This method perform Frequency Convertion
+        //This method perform Frequency Conversion
         //Check internet is Available or not
         if (isInternetAvailable()) {
             if (frequencyValueEditText.getText().toString().length() > 0) {
@@ -356,6 +356,9 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                 resultTextView.setVisibility(View.VISIBLE);
                 resultTextView.setText(editTextSting + "  " + leftFrequencyTextViewValue + "  =  " + result + "  " + rightFrequencyTextViewValue);
             }
+        }else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

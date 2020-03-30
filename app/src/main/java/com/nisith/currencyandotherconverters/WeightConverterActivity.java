@@ -51,6 +51,7 @@ public class WeightConverterActivity extends AppCompatActivity {
     private Toolbar appToolbar;
     private TextView toolbarTitle;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +69,9 @@ public class WeightConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -80,11 +82,12 @@ public class WeightConverterActivity extends AppCompatActivity {
         marqueTextView.setText("Weight   is   Converted    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
         weightHistoryButton.setOnClickListener(new MyWeightHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
         showLargeBannerAd();
+
+
     }
 
 
@@ -349,20 +352,25 @@ public class WeightConverterActivity extends AppCompatActivity {
 
 
     private void performWeightConvertion(){
-        if (weightValueEditText.getText().toString().length()>0){
-            String leftWeightTextViewValue = leftWeightTextView.getText().toString();
-            String rightWeightTextViewValue = rightWeightTextView.getText().toString();
-            String editTextSting = weightValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            WeightConvert weightConvert = new WeightConvert();
-            double resultInDouble = weightConvert.getWeightConvertResult(leftWeightTextViewValue,rightWeightTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (weightValueEditText.getText().toString().length() > 0) {
+                String leftWeightTextViewValue = leftWeightTextView.getText().toString();
+                String rightWeightTextViewValue = rightWeightTextView.getText().toString();
+                String editTextSting = weightValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                WeightConvert weightConvert = new WeightConvert();
+                double resultInDouble = weightConvert.getWeightConvertResult(leftWeightTextViewValue, rightWeightTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftWeightTextViewValue + "  =  " + result + "  " + rightWeightTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftWeightTextViewValue+"  =  "+result+"  "+rightWeightTextViewValue);
+        }else {
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

@@ -104,7 +104,8 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
             //at the first time when this app in installed then this condition will true only for once
             soundStateSharedPreference.setSoundState("enable");
         }
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         progressBar.setVisibility(View.GONE);
         addNavigationDrawer();
@@ -116,7 +117,6 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         enterAmountEditText.addTextChangedListener(new MyTextWatcher());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
 
 
 
@@ -574,6 +574,9 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                  }
                 }
             }
+        }else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
     }
 

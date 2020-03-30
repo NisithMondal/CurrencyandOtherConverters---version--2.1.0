@@ -70,8 +70,9 @@ public class LengthConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -82,7 +83,6 @@ public class LengthConverterActivity extends AppCompatActivity {
         lengthValueEditText.addTextChangedListener(new MyTextWatcher());
         lengthHistoryButton.setOnClickListener(new MyLengthHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -354,20 +354,26 @@ public class LengthConverterActivity extends AppCompatActivity {
 
 
     private void perFormLengthConvertion(){
-        if (lengthValueEditText.getText().toString().length()>0){
-            String leftLengthTextViewValue = leftLengthTextView.getText().toString();
-            String rightLengthTextViewValue = rightLengthTextView.getText().toString();
-            String editTextSting = lengthValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            LengthConverter lengthConverter = new LengthConverter();
-            double resultInDouble = lengthConverter.getLengthConvertResult(leftLengthTextViewValue,rightLengthTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (lengthValueEditText.getText().toString().length() > 0) {
+                String leftLengthTextViewValue = leftLengthTextView.getText().toString();
+                String rightLengthTextViewValue = rightLengthTextView.getText().toString();
+                String editTextSting = lengthValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                LengthConverter lengthConverter = new LengthConverter();
+                double resultInDouble = lengthConverter.getLengthConvertResult(leftLengthTextViewValue, rightLengthTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftLengthTextViewValue + "  =  " + result + "  " + rightLengthTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftLengthTextViewValue+"  =  "+result+"  "+rightLengthTextViewValue);
+        }else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

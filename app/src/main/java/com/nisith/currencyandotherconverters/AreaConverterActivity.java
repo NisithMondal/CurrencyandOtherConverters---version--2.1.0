@@ -71,8 +71,9 @@ public class AreaConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         marqueTextView.setSelected(true);
@@ -85,7 +86,6 @@ public class AreaConverterActivity extends AppCompatActivity {
 
         areaHistoryButton.setOnClickListener(new MyAreaHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -171,7 +171,7 @@ public class AreaConverterActivity extends AppCompatActivity {
                         .playOn(rightAreaLayout);
 
                 rightArearTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Length   is   Converted    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Area   is   Converted    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
                 performAreaConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -360,20 +360,26 @@ public class AreaConverterActivity extends AppCompatActivity {
 
 
     private void performAreaConvertion(){
-        if (areaValueEditText.getText().toString().length()>0){
-            String leftAngleTextViewValue = leftAreaTextView.getText().toString();
-            String rightAngleTextViewValue = rightArearTextView.getText().toString();
-            String editTextSting = areaValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            AreaConverter areaConverter = new AreaConverter();
-            double resultInDouble = areaConverter.getAreaConvertResult(leftAngleTextViewValue,rightAngleTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (areaValueEditText.getText().toString().length() > 0) {
+                String leftAngleTextViewValue = leftAreaTextView.getText().toString();
+                String rightAngleTextViewValue = rightArearTextView.getText().toString();
+                String editTextSting = areaValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                AreaConverter areaConverter = new AreaConverter();
+                double resultInDouble = areaConverter.getAreaConvertResult(leftAngleTextViewValue, rightAngleTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftAngleTextViewValue + "  =  " + result + "  " + rightAngleTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftAngleTextViewValue+"  =  "+result+"  "+rightAngleTextViewValue);
+        } else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

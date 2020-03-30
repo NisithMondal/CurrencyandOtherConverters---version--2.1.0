@@ -69,8 +69,9 @@ public class AngleConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -81,7 +82,6 @@ public class AngleConverterActivity extends AppCompatActivity {
         angleValueEditText.addTextChangedListener(new MyTextWatcher());
         angleHistoryButton.setOnClickListener(new MyAngleHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -361,20 +361,26 @@ public class AngleConverterActivity extends AppCompatActivity {
 
 
     private void performAngleConvertion(){
-        if (angleValueEditText.getText().toString().length()>0){
-            String leftAngleTextViewValue = leftAngleTextView.getText().toString();
-            String rightAngleTextViewValue = rightAngleTextView.getText().toString();
-            String editTextSting = angleValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            AngleConverter angleConverter = new AngleConverter();
-            double resultInDouble = angleConverter.getLengthConvertResult(leftAngleTextViewValue,rightAngleTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (angleValueEditText.getText().toString().length() > 0) {
+                String leftAngleTextViewValue = leftAngleTextView.getText().toString();
+                String rightAngleTextViewValue = rightAngleTextView.getText().toString();
+                String editTextSting = angleValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                AngleConverter angleConverter = new AngleConverter();
+                double resultInDouble = angleConverter.getLengthConvertResult(leftAngleTextViewValue, rightAngleTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftAngleTextViewValue + "  =  " + result + "  " + rightAngleTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftAngleTextViewValue+"  =  "+result+"  "+rightAngleTextViewValue);
+        } else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

@@ -69,9 +69,9 @@ public class TimeConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -82,7 +82,6 @@ public class TimeConverterActivity extends AppCompatActivity {
         timeValueEditText.addTextChangedListener(new MyTextWatcher());
         timeHistoryButton.setOnClickListener(new MyTimeHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -353,20 +352,26 @@ public class TimeConverterActivity extends AppCompatActivity {
 
 
     private void performTimeConvertion(){
-        if (timeValueEditText.getText().toString().length()>0){
-            String leftTimeTextViewValue = leftTimeTextView.getText().toString();
-            String rightTimeTextViewValue = rightTimeTextView.getText().toString();
-            String editTextSting = timeValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            TimeConverter timeConverter = new TimeConverter();
-            double resultInDouble = timeConverter.getWeightConvertResult(leftTimeTextViewValue,rightTimeTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (timeValueEditText.getText().toString().length() > 0) {
+                String leftTimeTextViewValue = leftTimeTextView.getText().toString();
+                String rightTimeTextViewValue = rightTimeTextView.getText().toString();
+                String editTextSting = timeValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                TimeConverter timeConverter = new TimeConverter();
+                double resultInDouble = timeConverter.getWeightConvertResult(leftTimeTextViewValue, rightTimeTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftTimeTextViewValue + "  =  " + result + "  " + rightTimeTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftTimeTextViewValue+"  =  "+result+"  "+rightTimeTextViewValue);
+        }else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

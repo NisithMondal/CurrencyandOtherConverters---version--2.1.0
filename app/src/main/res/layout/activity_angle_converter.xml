@@ -206,7 +206,7 @@
                         android:id="@+id/small_banner_ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="30dp"
                         ads:adSize="BANNER"
                         ads:adUnitId="@string/s_banner_ad_unit_angle"
 
@@ -221,7 +221,7 @@
                         android:layout_height="wrap_content"
                         ads:adSize="LARGE_BANNER"
                         ads:adUnitId="@string/l_banner_ad_unit_angle"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="30dp">
                     </com.google.android.gms.ads.AdView>
 
                 </LinearLayout>

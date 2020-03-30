@@ -2092,7 +2092,7 @@ public class VolumeConverter {
                 break;
 
             case cubicInchId:
-                result = value/0.3612232198;
+                result = value*0.3612232198;
                 break;
 
             case USLiquidGallonId:

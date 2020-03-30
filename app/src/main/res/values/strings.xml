@@ -839,10 +839,10 @@
     </string-array>
 
 
-    <string name="app_title">UNITS  AND  CURRENCY  CONVERTER </string>
+    <string name="app_title">UNITS, NUMBERS AND CURRENCY CONVERTER</string>
 
     <string name="app_description">
-        This application is a Currency and Units Converter. About 175 countries Currency is available in this application. This application also perform units convertion and Number System Convertion like (Binary to Decimal),(decimal to Octal),(binary to Hexadecimal) and so on.
+        This application is a Currency, Numbers and Units Converter. About 175 countries Currency is available in this application. This application also perform units conversion and Number System Conversion like (Binary to Decimal),(decimal to Octal),(binary to Hexadecimal) and so on.
        \n
     </string>
     <string name="unit_converter_tag">The available Unit converters are :- </string>
@@ -871,33 +871,33 @@
         Currency Converter Activity is the Home Activity of this application.In the top left corner of this activity you will see three horizontal lines icon (Image 2). When you
         click that icon a nevigation drawer will open and you will see a list of converters (like currency,length,volume,area,number system converter,frequency converter etc.) option available in that list.
         If you click any one of that converter you will go to that converter activity.By default currency converter is selected in that list.\n\n
-        At toolbar you will see converter name i.e. (Currency Converter) and a volume icon. You can click volume icon (shown in bellow image) to enable or disable the sound of text to speech converter.
+        At top app bar you will see converter name i.e. (Currency Converter) and a sound volume icon. You can click volume icon (shown in bellow image) to enable or disable the sound of text to speech converter.
     </string>
 
     <string name="currency_converter_description_bellow_image">
-        When You click on circular arrow icon (i.e. Image 1), then an animation will shown and the left ,right text of that arrow icon will interchange
+        When You click on circular arrow icon (shown in Image 1), then an animation will shown and the left ,right text of that arrow icon will interchange
         to each other. That is left text go to right side and right text will come to left side.At that time Text to Speech converter will tell you what is
         converted.\n\n
-        when You click Down Arrow icon (i.e. Image 3), then all currencies name activity will appear. You can select any of them. And also you can search
-        any countries currency by entering that country name at the search bar present in app toolbar.About 175 countries currency is present in this application.
-        After selecting currency you will redirect to the Home Activity.\n\n
+        when You click Down Arrow icon (shown in Image 3), then all currencies name activity will appear. You can select any of them. And also you can search
+        any countries currency by entering that country name at the search bar present at the top of this app .About 175 countries currency is present in this application.
+        After selecting currency you will redirect to the previous Activity.\n\n
         After selecting the currency you have to put how much amount of money you want to convert in the Edit Text field. After Entering the amount you simply
-        click Convert Button to get result. After a short moment it gives you result\n\n
-        By clicking History Button you will see all the previous converted result.You can delete that result by clicking Delete icon of result tag. Also you can listen the result by pressing
-        volume icon of that result tag.
+        click Convert Button to get result. After a short moment it will give you result\n\n
+        By clicking History Button you can see all the previous converted result.You can delete that result by clicking Delete icon of result tag. Also you can listen the result by pressing
+        sound volume icon of that result tag.
     </string>
 
 
     <string name="unit_converter_description">
         Total 10 Unit converters are present in current version of this application i.e. Length,Area,Volume,Pressure,Angle,Weight,Temperature,Speed,Time,Frequency Converter. The user interface and icon style are almost same like Currency Converter.
-        The main difference is that if you click on Down Arrow icon (Image 3) of any Unit Converter Activity, then you see a pop up menu contains different items.
-        You can select any of them. And rest of the things just like Currency Converter.\n\n
+        The main difference is that if you click on Down Arrow icon (Image 3) of any Unit Converter Activity, then you see a pop up menu i.e. a spinner , contains different items.
+        You can select any of them. And to get result press convert button. And rest of the things are same like Currency Converter.\n\n
         In future version we will added more Unit Converters.
 
     </string>
 
     <string name="number_system_converter_description">
-        The Number System Converter User Interface is almost same like Currency Converter. In this activity you can perform different mathematics number system convertion
+        The Number System Converter User Interface is almost same like Currency Converter. In this activity you can perform different mathematics number system conversion
         like binary number to decimal number, binary to octal, binary to hexadecimal, decimal to others, octal to others and hexadecimal to others.\n
         The most important feature of this converter is that you can convert floating binary number,floating decimal number,floating octal number and floating
         hexadecimal number. Except decimal number system , there is no number limits of other converter.\n
@@ -907,5 +907,6 @@
     <string name="conclusion">
         We hope you will enjoy this application very well. Thank You For Installing our Application.
     </string>
+
 
 </resources>

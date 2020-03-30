@@ -53,9 +53,9 @@ public class GeneralHistoryActivity extends AppCompatActivity implements General
                 finish();
             }
         });
-
+        textSpeaker = new TextSpeaker(getApplicationContext());
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -65,7 +65,6 @@ public class GeneralHistoryActivity extends AppCompatActivity implements General
             adapter = new GeneralHistoryRecyclerViewAdapter(this,this,noItemTextView,toolbarSoundIconImageView,dbCursor);
             recyclerView.setAdapter(adapter);
         }
-        textSpeaker = new TextSpeaker(getApplicationContext());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
 
         //To show Banner Ad

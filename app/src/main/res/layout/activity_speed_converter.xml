@@ -163,7 +163,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textColor="@color/colorAccent"
                         />
 
@@ -204,7 +204,7 @@
                         android:id="@+id/small_banner_ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="25dp"
                         ads:adSize="BANNER"
                         ads:adUnitId="@string/s_banner_ad_unit_speed">
                     </com.google.android.gms.ads.AdView>
@@ -215,7 +215,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         ads:adSize="LARGE_BANNER"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="25dp"
                         ads:adUnitId="@string/l_banner_ad_unit_speed">
                     </com.google.android.gms.ads.AdView>
                 </LinearLayout>

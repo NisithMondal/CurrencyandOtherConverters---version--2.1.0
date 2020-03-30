@@ -64,7 +64,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         clickedCurrencyLayoutId = requestIntent.getIntExtra("clicked_currency_layout_id",-1);
         textSpeaker = new TextSpeaker(getApplicationContext());
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Banner Ad

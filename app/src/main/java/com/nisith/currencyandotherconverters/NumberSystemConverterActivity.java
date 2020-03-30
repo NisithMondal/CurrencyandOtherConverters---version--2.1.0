@@ -79,9 +79,9 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
                 finish();
             }
         });
-
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -92,7 +92,6 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         numberSystemHistoryButton.setOnClickListener(new MyNumberSystemHistoryButtonClick());
         numberSystemValueEditText.addTextChangedListener(new MyTextWatcher());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //The following code is for different number System keypad handeling
         BinaryNumberSystemKeypadHandeler binaryNumberSystemKeypadHandeler = new BinaryNumberSystemKeypadHandeler(this,numberSystemValueEditText);
@@ -500,15 +499,26 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
 
 
     private void performNumberSystemConvertion(){
-        if (numberSystemValueEditText.getText().toString().length()>0){
-            String leftNumberSystemTextViewValue = leftNumberSystemTextView.getText().toString();
-            String rightNumberSystemTextViewValue = rightNumberSystemTextView.getText().toString();
-//            double userInputData = Double.parseDouble(numberSystemValueEditText.getText().toString());
-            String userInputData = numberSystemValueEditText.getText().toString();
-            NumberSystemConverter numberSystemConverter = new NumberSystemConverter();
-            String result = numberSystemConverter.getNumberSystemConvertResult(leftNumberSystemTextViewValue,rightNumberSystemTextViewValue,userInputData);
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(userInputData+" in "+leftNumberSystemTextViewValue+"  =  "+result+" in "+rightNumberSystemTextViewValue);
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (numberSystemValueEditText.getText().toString().length() > 0) {
+                String leftNumberSystemTextViewValue = leftNumberSystemTextView.getText().toString();
+                String rightNumberSystemTextViewValue = rightNumberSystemTextView.getText().toString();
+                String userInputData = numberSystemValueEditText.getText().toString();
+                NumberSystemConverter numberSystemConverter = new NumberSystemConverter();
+                String result = numberSystemConverter.getNumberSystemConvertResult(leftNumberSystemTextViewValue, rightNumberSystemTextViewValue, userInputData);
+                ////
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(userInputData + "    in " + leftNumberSystemTextViewValue + "  =  " + result + "    in " + rightNumberSystemTextViewValue);
+            }
+        } else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

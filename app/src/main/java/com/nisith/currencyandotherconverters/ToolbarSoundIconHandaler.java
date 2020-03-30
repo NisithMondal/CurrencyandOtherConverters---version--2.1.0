@@ -1,6 +1,7 @@
 package com.nisith.currencyandotherconverters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -8,10 +9,12 @@ public class ToolbarSoundIconHandaler implements View.OnClickListener {
 
     private SoundStateSharedPreference soundStateSharedPreference;
     private Context context;
+    private TextSpeaker textSpeaker;
 
-    public ToolbarSoundIconHandaler(Context context){
+    public ToolbarSoundIconHandaler(Context context,TextSpeaker textSpeaker){
         soundStateSharedPreference = new SoundStateSharedPreference(context);
         this.context = context;
+        this.textSpeaker = textSpeaker;
     }
 
     @Override
@@ -20,11 +23,20 @@ public class ToolbarSoundIconHandaler implements View.OnClickListener {
         if (soundState.equalsIgnoreCase(context.getString(R.string.enable))){
             v.setBackground(context.getDrawable(R.drawable.ic_volume_off));
             soundStateSharedPreference.setSoundState(context.getString(R.string.dissable));
-            Toast.makeText(context, "Sound Dissable", Toast.LENGTH_SHORT).show();
+            if (textSpeaker != null) {
+                textSpeaker.speak("sound disable");
+                Log.d("ABVD"," textSpeaker is not NULL");
+            }else {
+                Log.d("ABVD"," textSpeaker is NULL");
+            }
+            Toast.makeText(context, "Sound Disable", Toast.LENGTH_SHORT).show();
 
         }else if (soundState.equalsIgnoreCase(context.getString(R.string.dissable))){
             v.setBackground(context.getDrawable(R.drawable.ic_volume_on));
             soundStateSharedPreference.setSoundState(context.getString(R.string.enable));
+            if (textSpeaker != null) {
+                textSpeaker.speak("sound enable");
+            }
             Toast.makeText(context, "Sound Enable", Toast.LENGTH_SHORT).show();
         }
     }

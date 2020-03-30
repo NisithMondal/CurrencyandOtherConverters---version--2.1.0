@@ -70,8 +70,9 @@ public class SpeedConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -80,10 +81,8 @@ public class SpeedConverterActivity extends AppCompatActivity {
         marqueTextView.setText("Speed   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
         speedConvertButton.setOnClickListener(new MySpeedConvertButtonClick());
         speedValueEditText.addTextChangedListener(new MyTextWatcher());
-
         speedHistoryButton.setOnClickListener(new MySpeedHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -169,7 +168,7 @@ public class SpeedConverterActivity extends AppCompatActivity {
                         .playOn(rightSpeedLayout);
 
                 rightSpeedTextView.setText(leftFrequencyTextViewValue);
-                marqueTextView.setText("Frequency   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Speed   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
                 performSpeedConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -359,20 +358,26 @@ public class SpeedConverterActivity extends AppCompatActivity {
 
 
     private void performSpeedConvertion(){
-        if (speedValueEditText.getText().toString().length()>0){
-            String leftSpeedTextViewValue = leftSpeedTextView.getText().toString();
-            String rightSpeedTextViewValue = rightSpeedTextView.getText().toString();
-            String editTextSting = speedValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            SpeedConverter speedConverter = new SpeedConverter();
-            double resultInDouble = speedConverter.getWeightConvertResult(leftSpeedTextViewValue,rightSpeedTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (speedValueEditText.getText().toString().length() > 0) {
+                String leftSpeedTextViewValue = leftSpeedTextView.getText().toString();
+                String rightSpeedTextViewValue = rightSpeedTextView.getText().toString();
+                String editTextSting = speedValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                SpeedConverter speedConverter = new SpeedConverter();
+                double resultInDouble = speedConverter.getWeightConvertResult(leftSpeedTextViewValue, rightSpeedTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftSpeedTextViewValue + "  =  " + result + "  " + rightSpeedTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftSpeedTextViewValue+"  =  "+result+"  "+rightSpeedTextViewValue);
+        } else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }

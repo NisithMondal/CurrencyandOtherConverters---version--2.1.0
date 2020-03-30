@@ -76,7 +76,6 @@
                                 android:id="@+id/left_number_system_text_view"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="HexaDecimal"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorPrimary"
                                 android:textSize="16sp"
@@ -116,7 +115,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="center"
-                                android:text="Decimal"
                                 android:textSize="16sp"
                                 android:textColor="@color/colorPrimary"
                                 android:textStyle="bold"
@@ -167,7 +165,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:textStyle="normal"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:textColor="#ee00aa"
                         />
 
@@ -216,7 +214,7 @@
                         android:id="@+id/small_banner_ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="30dp"
                         ads:adSize="BANNER"
                         ads:adUnitId="@string/s_banner_ad_unit_number_system"
 
@@ -231,7 +229,7 @@
                         android:layout_height="wrap_content"
                         ads:adSize="LARGE_BANNER"
                         ads:adUnitId="@string/l_banner_ad_unit_number_system"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="30dp">
                     </com.google.android.gms.ads.AdView>
 
                 </LinearLayout>

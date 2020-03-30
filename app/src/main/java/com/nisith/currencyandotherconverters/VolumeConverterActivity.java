@@ -68,8 +68,9 @@ public class VolumeConverterActivity extends AppCompatActivity {
                 finish();
             }
         });
+        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
-        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this);
+        toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         attachAnimationToViews();
         setAdapterOnSpinner();
@@ -80,7 +81,6 @@ public class VolumeConverterActivity extends AppCompatActivity {
         volumeValueEditText.addTextChangedListener(new MyTextWatcher());
         volumeHistoryButton.setOnClickListener(new MyVolumeHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
-        textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
         showSmallBannerAd();
@@ -195,7 +195,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftVolumeTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Time   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Volume   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
             performVolumeConvertion();
             volumeValueEditText.setHint("Enter Value ("+leftVolumeTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -214,7 +214,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightVolumeTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Time   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Volume   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
             performVolumeConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -360,20 +360,26 @@ public class VolumeConverterActivity extends AppCompatActivity {
 
 
     private void performVolumeConvertion(){
-        if (volumeValueEditText.getText().toString().length()>0){
-            String leftVolumeTextViewValue = leftVolumeTextView.getText().toString();
-            String rightVolumeTextViewValue = rightVolumeTextView.getText().toString();
-            String editTextSting = volumeValueEditText.getText().toString();
-            double userInputData = Double.parseDouble(editTextSting);
-            VolumeConverter volumeConverter = new VolumeConverter();
-            double resultInDouble = volumeConverter.getVolumeConvertResult(leftVolumeTextViewValue,rightVolumeTextViewValue,userInputData);
-            String result = String.valueOf(resultInDouble);
-            if (result.endsWith(".0")){
-                //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
-                result = result.substring(0,(result.length()-2));
+        //Check internet is Available or not
+        if (isInternetAvailable()) {
+            if (volumeValueEditText.getText().toString().length() > 0) {
+                String leftVolumeTextViewValue = leftVolumeTextView.getText().toString();
+                String rightVolumeTextViewValue = rightVolumeTextView.getText().toString();
+                String editTextSting = volumeValueEditText.getText().toString();
+                double userInputData = Double.parseDouble(editTextSting);
+                VolumeConverter volumeConverter = new VolumeConverter();
+                double resultInDouble = volumeConverter.getVolumeConvertResult(leftVolumeTextViewValue, rightVolumeTextViewValue, userInputData);
+                String result = String.valueOf(resultInDouble);
+                if (result.endsWith(".0")) {
+                    //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
+                    result = result.substring(0, (result.length() - 2));
+                }
+                resultTextView.setVisibility(View.VISIBLE);
+                resultTextView.setText(editTextSting + "  " + leftVolumeTextViewValue + "  =  " + result + "  " + rightVolumeTextViewValue);
             }
-            resultTextView.setVisibility(View.VISIBLE);
-            resultTextView.setText(editTextSting+"  "+leftVolumeTextViewValue+"  =  "+result+"  "+rightVolumeTextViewValue);
+        }else {
+            //Internet is not available then,
+            resultTextView.setVisibility(View.INVISIBLE);
         }
 
     }
