@@ -360,6 +360,10 @@ public class PressureConverterActivity extends AppCompatActivity {
                 String leftPressureTextViewValue = leftPressureTextView.getText().toString();
                 String rightPressureTextViewValue = rightPressureTextView.getText().toString();
                 String editTextSting = pressureValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 PressureConverter pressureConverter = new PressureConverter();
                 double resultInDouble = pressureConverter.getLengthConvertResult(leftPressureTextViewValue, rightPressureTextViewValue, userInputData);

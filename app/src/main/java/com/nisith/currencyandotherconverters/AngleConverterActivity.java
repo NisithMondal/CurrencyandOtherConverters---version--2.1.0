@@ -367,6 +367,10 @@ public class AngleConverterActivity extends AppCompatActivity {
                 String leftAngleTextViewValue = leftAngleTextView.getText().toString();
                 String rightAngleTextViewValue = rightAngleTextView.getText().toString();
                 String editTextSting = angleValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 AngleConverter angleConverter = new AngleConverter();
                 double resultInDouble = angleConverter.getLengthConvertResult(leftAngleTextViewValue, rightAngleTextViewValue, userInputData);

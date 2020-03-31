@@ -364,6 +364,10 @@ public class SpeedConverterActivity extends AppCompatActivity {
                 String leftSpeedTextViewValue = leftSpeedTextView.getText().toString();
                 String rightSpeedTextViewValue = rightSpeedTextView.getText().toString();
                 String editTextSting = speedValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 SpeedConverter speedConverter = new SpeedConverter();
                 double resultInDouble = speedConverter.getWeightConvertResult(leftSpeedTextViewValue, rightSpeedTextViewValue, userInputData);

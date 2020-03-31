@@ -358,6 +358,10 @@ public class TimeConverterActivity extends AppCompatActivity {
                 String leftTimeTextViewValue = leftTimeTextView.getText().toString();
                 String rightTimeTextViewValue = rightTimeTextView.getText().toString();
                 String editTextSting = timeValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 TimeConverter timeConverter = new TimeConverter();
                 double resultInDouble = timeConverter.getWeightConvertResult(leftTimeTextViewValue, rightTimeTextViewValue, userInputData);

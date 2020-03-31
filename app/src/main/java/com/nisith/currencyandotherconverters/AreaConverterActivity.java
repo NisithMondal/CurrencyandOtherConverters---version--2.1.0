@@ -366,6 +366,10 @@ public class AreaConverterActivity extends AppCompatActivity {
                 String leftAngleTextViewValue = leftAreaTextView.getText().toString();
                 String rightAngleTextViewValue = rightArearTextView.getText().toString();
                 String editTextSting = areaValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 AreaConverter areaConverter = new AreaConverter();
                 double resultInDouble = areaConverter.getAreaConvertResult(leftAngleTextViewValue, rightAngleTextViewValue, userInputData);

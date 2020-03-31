@@ -505,6 +505,10 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
                 String leftNumberSystemTextViewValue = leftNumberSystemTextView.getText().toString();
                 String rightNumberSystemTextViewValue = rightNumberSystemTextView.getText().toString();
                 String userInputData = numberSystemValueEditText.getText().toString();
+                if (userInputData.length() == 1 && userInputData.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 NumberSystemConverter numberSystemConverter = new NumberSystemConverter();
                 String result = numberSystemConverter.getNumberSystemConvertResult(leftNumberSystemTextViewValue, rightNumberSystemTextViewValue, userInputData);
                 ////

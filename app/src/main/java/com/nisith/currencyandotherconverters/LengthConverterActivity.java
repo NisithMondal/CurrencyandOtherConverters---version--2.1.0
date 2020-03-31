@@ -360,6 +360,10 @@ public class LengthConverterActivity extends AppCompatActivity {
                 String leftLengthTextViewValue = leftLengthTextView.getText().toString();
                 String rightLengthTextViewValue = rightLengthTextView.getText().toString();
                 String editTextSting = lengthValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 LengthConverter lengthConverter = new LengthConverter();
                 double resultInDouble = lengthConverter.getLengthConvertResult(leftLengthTextViewValue, rightLengthTextViewValue, userInputData);

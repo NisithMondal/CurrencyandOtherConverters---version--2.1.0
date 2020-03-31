@@ -1,26 +1,26 @@
 package com.nisith.currencyandotherconverters;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.SystemClock;
+
+
 import android.util.Log;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class MyInterstitialAd {
 
-    private boolean isStopThread = false;
     private InterstitialAd mInterstitialAd;
-    private AppCompatActivity appCompatActivity;
+    private int clickedConverterId;
+    private OnInterstitialAdCloseListener onInterstitialAdCloseListener;
 
-    public MyInterstitialAd(AppCompatActivity appCompatActivity) {
-        this.appCompatActivity = appCompatActivity;
-        preparedInterstitialAd(appCompatActivity);
+    public interface OnInterstitialAdCloseListener{
+        void onInterstitialAdClose(int clickedConverterId);
+    }
+
+    public MyInterstitialAd(CurrencyActivity currencyActivity) {
+        this.onInterstitialAdCloseListener = currencyActivity;
+        preparedInterstitialAd(currencyActivity);
         mInterstitialAd.setAdListener(new AdListener(){
             @Override
             public void onAdClicked() {
@@ -31,51 +31,49 @@ public class MyInterstitialAd {
             public void onAdClosed() {
                 super.onAdClosed();
                 if (mInterstitialAd != null) {
-                    if (! mInterstitialAd.isLoaded()) {
+                    /*When ad is closed ,then onInterstitialAdClose() method is called by passing clicking converter Id.
+                      Currency Converter activity class override this method. */
+                        onInterstitialAdCloseListener.onInterstitialAdClose(clickedConverterId);
+                        //Load Interstitial Ad
                         mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                    }
+
                 }
             }
         });
 
     }
 
-    private void preparedInterstitialAd(Context context){
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+    private void preparedInterstitialAd(CurrencyActivity currencyActivity){
+        mInterstitialAd = new InterstitialAd(currencyActivity);
+        mInterstitialAd.setAdUnitId(currencyActivity.getResources().getString(R.string.app_interstitial_ad));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
-    public void showInterstitialAd(final long adDelay){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (! isStopThread) {
-                    appCompatActivity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (mInterstitialAd != null) {
-                                if (mInterstitialAd.isLoaded()) {
-                                    //if ad is Loaded then show the Ads
-                                    mInterstitialAd.show();
-                                } else {
-                                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                                }
-                            }
-                        }
-                    });
-                    SystemClock.sleep(adDelay);
-                }
+    public void showInterstitialAd(int clickedConverterId){
+
+        if (mInterstitialAd != null) {
+            if (mInterstitialAd.isLoaded()) {
+                //if ad is Loaded then show the Ads
+                mInterstitialAd.show();
+                this.clickedConverterId = clickedConverterId;
             }
-        }).start();
-
-
+        }
     }
 
-
-    public void stopThread(){
-        //This method is used to stop the Thread
-        isStopThread = true;
+    public void loadInterstitialAd(){
+        //Load Interstitial Ad
+        if (mInterstitialAd != null) {
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        }
     }
+
+    public boolean isAdLoaded(){
+        boolean isLoaded = false;
+        if (mInterstitialAd != null) {
+            isLoaded = mInterstitialAd.isLoaded();
+        }
+        return isLoaded;
+    }
+
 
 }

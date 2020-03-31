@@ -366,6 +366,10 @@ public class VolumeConverterActivity extends AppCompatActivity {
                 String leftVolumeTextViewValue = leftVolumeTextView.getText().toString();
                 String rightVolumeTextViewValue = rightVolumeTextView.getText().toString();
                 String editTextSting = volumeValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 VolumeConverter volumeConverter = new VolumeConverter();
                 double resultInDouble = volumeConverter.getVolumeConvertResult(leftVolumeTextViewValue, rightVolumeTextViewValue, userInputData);

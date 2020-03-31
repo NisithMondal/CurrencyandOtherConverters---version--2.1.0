@@ -1,5 +1,7 @@
 package com.nisith.currencyandotherconverters;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class NumberSystemConverter {
@@ -175,7 +177,14 @@ public class NumberSystemConverter {
 
     private String hexaDecimalToOctal(String hexaDecimalNumber){
         //Maximum digits no Limit
-        return binaryToOctal(hexaDecimalToBinary(hexaDecimalNumber));
+        String binaryNumber = hexaDecimalToBinary(hexaDecimalNumber);
+        //To remove zero from zero index of binaryNumber String
+        char zeroIndexCharacter = binaryNumber.charAt(0);
+            while (zeroIndexCharacter == '0' && binaryNumber.length()>1) {
+                binaryNumber = binaryNumber.substring(1);
+                zeroIndexCharacter = binaryNumber.charAt(0);
+            }
+        return binaryToOctal(binaryNumber);
     }
 
 
@@ -213,6 +222,12 @@ public class NumberSystemConverter {
         }
 
         result = resultBeforePointDigits + resultAfterPointDigits;
+        //To remove zero from zero index of result String
+        char zeroIndexCharacter = result.charAt(0);
+        while (zeroIndexCharacter == '0' && result.length()>1) {
+            result = result.substring(1);
+            zeroIndexCharacter = result.charAt(0);
+        }
         return result;
 
 

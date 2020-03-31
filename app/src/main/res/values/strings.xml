@@ -5,6 +5,11 @@
     <string name="enable">enable</string>
     <string name="dissable">dissable</string>
 
+
+
+    <string name="app_id_for_admob">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="app_interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
+
     <string name="small_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
     <string name="large_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
 

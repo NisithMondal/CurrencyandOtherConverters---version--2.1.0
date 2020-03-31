@@ -361,6 +361,10 @@ public class TemperatureConverterActivity extends AppCompatActivity {
                 String leftTemperatureTextViewValue = leftTemperatureTextView.getText().toString();
                 String rightTemperatureTextViewValue = rightTemperatureTextView.getText().toString();
                 String editTextSting = temperatureValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 TemperatureConverter temperatureConverter = new TemperatureConverter();
                 double resultInDouble = temperatureConverter.getTemperatureConvertResult(leftTemperatureTextViewValue, rightTemperatureTextViewValue, userInputData);

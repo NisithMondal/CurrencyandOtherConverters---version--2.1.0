@@ -358,6 +358,10 @@ public class WeightConverterActivity extends AppCompatActivity {
                 String leftWeightTextViewValue = leftWeightTextView.getText().toString();
                 String rightWeightTextViewValue = rightWeightTextView.getText().toString();
                 String editTextSting = weightValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 WeightConvert weightConvert = new WeightConvert();
                 double resultInDouble = weightConvert.getWeightConvertResult(leftWeightTextViewValue, rightWeightTextViewValue, userInputData);

@@ -344,6 +344,10 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                 String rightFrequencyTextViewValue = rightFrequencyTextView.getText().toString();
                 //whatever Inserted by User in Edit Text Field
                 String editTextSting = frequencyValueEditText.getText().toString();
+                if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
+                    Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double userInputData = Double.parseDouble(editTextSting);
                 //FrequencyConvert class's methods are responsible to perform frequency Convertion. For more Information Go to that class
                 FrequencyConverter frequencyConverter = new FrequencyConverter();
