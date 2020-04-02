@@ -347,7 +347,14 @@ public class NumberSystemConverter {
         //This method convert Octal number to HexaDecimal number
         //Maximum digits before point is no limit
         //Maximum digits after point is no limit
-        return binaryToHexaDecimal(octalToBinary(octalNumber));
+        String result = binaryToHexaDecimal(octalToBinary(octalNumber));
+        //To remove zero from zero index of result String
+        char zeroIndexCharacter = result.charAt(0);
+        while (zeroIndexCharacter == '0' && result.length()>1) {
+            result = result.substring(1);
+            zeroIndexCharacter = result.charAt(0);
+        }
+        return result;
     }
 
 
@@ -387,6 +394,12 @@ public class NumberSystemConverter {
         }
 
         result = resultBeforePointDigits + resultAfterPointDigits;
+        //To remove zero from zero index of result String
+        char zeroIndexCharacter = result.charAt(0);
+        while (zeroIndexCharacter == '0' && result.length()>1) {
+            result = result.substring(1);
+            zeroIndexCharacter = result.charAt(0);
+        }
         return result;
 
 

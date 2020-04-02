@@ -572,12 +572,12 @@
 
 
     <string-array name="length_units_left">
+        <item>foot</item>
         <item>m</item>
         <item>cm</item>
         <item>km</item>
         <item>mm</item>
         <item>inch</item>
-        <item>foot</item>
         <item>micrometer</item>
         <item>nanometer</item>
         <item>mile</item>
@@ -585,11 +585,11 @@
     </string-array>
 
     <string-array name="length_units_right">
+        <item>inch</item>
         <item>cm</item>
         <item>km</item>
         <item>m</item>
         <item>mm</item>
-        <item>inch</item>
         <item>foot</item>
         <item>micrometer</item>
         <item>nanometer</item>
@@ -844,7 +844,7 @@
     </string-array>
 
 
-    <string name="app_title">UNITS, NUMBERS AND CURRENCY CONVERTER</string>
+    <string name="app_title">UNIT, NUMBER and CURRENCY CONVERTER</string>
 
     <string name="app_description">
         This application is a Currency, Numbers and Units Converter. About 175 countries Currency is available in this application. This application also perform units conversion and Number System Conversion like (Binary to Decimal),(decimal to Octal),(binary to Hexadecimal) and so on.
