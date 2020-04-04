@@ -84,7 +84,6 @@ public class AngleConverterActivity extends AppCompatActivity {
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
-        showSmallBannerAd();
         showLargeBannerAd();
 
 
@@ -92,13 +91,6 @@ public class AngleConverterActivity extends AppCompatActivity {
 
 
 
-    private void showSmallBannerAd(){
-        //For showing Small Banner Ads
-        //For AdMob Ads
-        //For Banner Ads
-        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
-        smallBannedAdView.loadAd(new AdRequest.Builder().build());
-    }
 
 
     private void showLargeBannerAd(){

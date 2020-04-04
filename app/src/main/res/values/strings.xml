@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Currency and Other Converters</string>
+    <string name="app_name">Unit,Number and Currency Converter</string>
     <string name="open_drawer">open drawer</string>
     <string name="close_drawer">close drawer</string>
     <string name="enable">enable</string>
@@ -10,53 +10,40 @@
     <string name="app_id_for_admob">ca-app-pub-3940256099942544~3347511713</string>
     <string name="app_interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
 
-    <string name="small_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
     <string name="large_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_frequency">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_frequency">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_length">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_length">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_area">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_area">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_volume">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_volume">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_pressure">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_pressure">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_temperature">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_temperature">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_weight">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_weight">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_number_system">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_number_system">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_time">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_time">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_angle">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_angle">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="s_banner_ad_unit_speed">ca-app-pub-3940256099942544/6300978111</string>
     <string name="l_banner_ad_unit_speed">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="small_banner_ad_unit_general_history_activity">ca-app-pub-3940256099942544/6300978111</string>
+
     <string name="small_banner_ad_unit_all_currency_name_activity">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="small_top_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
     <string name="large_middle_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="small_bottom_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
 
     <string name="small_top_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
     <string name="large_middle_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="small_middle_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="small_bottom_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
+
 
 
 
@@ -844,10 +831,10 @@
     </string-array>
 
 
-    <string name="app_title">UNIT, NUMBER and CURRENCY CONVERTER</string>
+    <string name="app_title">Unit, Number and Currency Converter</string>
 
     <string name="app_description">
-        This application is a Currency, Numbers and Units Converter. About 175 countries Currency is available in this application. This application also perform units conversion and Number System Conversion like (Binary to Decimal),(decimal to Octal),(binary to Hexadecimal) and so on.
+        This application is a Currency, Number and Unit Converters. About 175 countries Currency is available in this application. This application also perform units conversion and Number System Conversion like (Binary to Decimal),(decimal to Octal),(binary to Hexadecimal) and so on.
        \n
     </string>
     <string name="unit_converter_tag">The available Unit converters are :- </string>
@@ -855,62 +842,62 @@
     <string name="number_system_converter_tag">The available Number System Converters are :-</string>
 
     <string name="note">
-       This application needs Internet connection to work.
+       This application needs Internet connection to perform conversion operation.
     </string>
 
     <string name="currency_text">
-        You can convert any country currency to another country currency. About 175 country currencies is available in this application. You can search any country
+        You can convert any country currency to another country currency. About 175 country currencies are available in this application. You can search any country
         currency by entering that country name.
     </string>
 
     <string name="important_feature">
-         The most interesting feature in this application is Text To Speech Option. When you type something in keypad of this application at that time text speaker will tell you whatever you type in keypad. Also you can enable or disable text speaker sound.
+         The most interesting feature in this application is Text To Speech Assistant. When you type something in keypad of this application at that time text speaker assistant will tell you whatever you type in keypad. Also you can enable or disable text speaker sound.
     </string>
 
     <string name="store_data_database_text">
-        This application stores any type of convertion result history in its  Database.This result history stores in database permanently.You can delete
-        the result history and also you can listen the result by pressing the speaker icon of result tag.
+        This application stores any type of conversion result in its application Database.This result history stores in database permanently.You can delete
+        the result history and also you can listen the result by pressing the volume icon of result tag.
     </string>
 
     <string name="currency_converter_description_above_image">
         Currency Converter Activity is the Home Activity of this application.In the top left corner of this activity you will see three horizontal lines icon (Image 2). When you
         click that icon a nevigation drawer will open and you will see a list of converters (like currency,length,volume,area,number system converter,frequency converter etc.) option available in that list.
         If you click any one of that converter you will go to that converter activity.By default currency converter is selected in that list.\n\n
-        At top app bar you will see converter name i.e. (Currency Converter) and a sound volume icon. You can click volume icon (shown in bellow image) to enable or disable the sound of text to speech converter.
+        At top app bar you will see converter name i.e. (Currency Converter) and a sound volume icon. You can click volume icon (shown in bellow image) to enable or disable the sound of text to speech converter assistant.
     </string>
 
     <string name="currency_converter_description_bellow_image">
-        When You click on circular arrow icon (shown in Image 1), then an animation will shown and the left ,right text of that arrow icon will interchange
-        to each other. That is left text go to right side and right text will come to left side.At that time Text to Speech converter will tell you what is
-        converted.\n\n
-        when You click Down Arrow icon (shown in Image 3), then all currencies name activity will appear. You can select any of them. And also you can search
+        When You click on circular arrow icon (as shown in Image 1), then an animation will shown and the left ,right text of that arrow icon will interchange
+        to each other. That is left text go to right side and right text will come to left side.At that time Text to Speech converter assistant will tell you that Currency is
+        converted from source currency (like USD) to destination currency (like EUR).\n\n
+        when You click Down Arrow icon (as shown in Image 3), then all currencies name activity will appear. You can select any of them. And also you can search
         any countries currency by entering that country name at the search bar present at the top of this app .About 175 countries currency is present in this application.
-        After selecting currency you will redirect to the previous Activity.\n\n
-        After selecting the currency you have to put how much amount of money you want to convert in the Edit Text field. After Entering the amount you simply
-        click Convert Button to get result. After a short moment it will give you result\n\n
-        By clicking History Button you can see all the previous converted result.You can delete that result by clicking Delete icon of result tag. Also you can listen the result by pressing
+        After selecting currency you will redirect to the previous Activity i.e. Currency Activity.\n\n
+        After selecting the currency you have to put how much amount of money you want to convert in the Edit Text field. After Entering the amount, you simply
+        click on Convert Button to get the result. After a short moment it will give you result.\n\n
+        By clicking History Button you can see all the previous converted result.You can delete that result by clicking Delete icon of result tag. Also you can listen the result by clicking on
         sound volume icon of that result tag.
     </string>
 
 
     <string name="unit_converter_description">
-        Total 10 Unit converters are present in current version of this application i.e. Length,Area,Volume,Pressure,Angle,Weight,Temperature,Speed,Time,Frequency Converter. The user interface and icon style are almost same like Currency Converter.
-        The main difference is that if you click on Down Arrow icon (Image 3) of any Unit Converter Activity, then you see a pop up menu i.e. a spinner , contains different items.
+        Total 10 Unit converters are present in current version of this application i.e. Length,Area,Volume,Pressure,Angle,Weight,Temperature,Speed,Time,Frequency Converter. The design and icon style are almost same like Currency Converter.
+        The main difference is that if you click on Down Arrow icon (Image 3) of any Unit Converter Activity, then you wiil see a pop up menu i.e. a spinner , contains different unit items.
         You can select any of them. And to get result press convert button. And rest of the things are same like Currency Converter.\n\n
-        In future version we will added more Unit Converters.
+        In future version of this application, we will add more Unit Converters.
 
     </string>
 
     <string name="number_system_converter_description">
-        The Number System Converter User Interface is almost same like Currency Converter. In this activity you can perform different mathematics number system conversion
+        The Number System Converter design is almost same like Currency Converter. In this converter you can perform different mathematics number system conversion
         like binary number to decimal number, binary to octal, binary to hexadecimal, decimal to others, octal to others and hexadecimal to others.\n
         The most important feature of this converter is that you can convert floating binary number,floating decimal number,floating octal number and floating
-        hexadecimal number. Except decimal number system , there is no number limits of other converter.\n
-        Custom Key Board is also present for each number system. This will help you for entering number in Edit Text.\n
-        The rest of the feature just like Currency Converter.
+        hexadecimal number.\n
+        Custom Keypad is also present for each number system. This will help you for entering number in Edit Text.\n
+        The rest of the features just like Currency Converter.
     </string>
     <string name="conclusion">
-        We hope you will enjoy this application very well. Thank You For Installing our Application.
+        Hope you will enjoy this application. Thank You For Installing our Application.
     </string>
 
 

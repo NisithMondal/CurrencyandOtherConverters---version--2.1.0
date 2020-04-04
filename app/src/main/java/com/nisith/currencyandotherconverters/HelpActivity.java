@@ -49,10 +49,8 @@ public class HelpActivity extends AppCompatActivity {
         //For Banner Ads
         AdView smallTopBannedAdView = findViewById(R.id.small_top_banner_ad);
         AdView smallMiddleBannerAdView = findViewById(R.id.large_middle_banner_ad);
-        AdView smallBottomBannerAdView = findViewById(R.id.small_bottom_banner_ad);
         smallTopBannedAdView.loadAd(new AdRequest.Builder().build());
         smallMiddleBannerAdView.loadAd(new AdRequest.Builder().build());
-        smallBottomBannerAdView.loadAd(new AdRequest.Builder().build());
     }
 
 }

@@ -267,20 +267,11 @@
 
 
 
-                 <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                     android:id="@+id/small_bottom_banner_ad"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_below="@+id/unit_converter_description"
-                     android:layout_marginTop="10dp"
-                     ads:adSize="BANNER"
-                     ads:adUnitId="@string/small_bottom_banner_ad_unit_help_activity">
-                 </com.google.android.gms.ads.AdView>
 
 
                  <TextView
                      android:id="@+id/number_system_converter_tag"
-                     android:layout_below="@+id/small_bottom_banner_ad"
+                     android:layout_below="@+id/unit_converter_description"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="Number System Converter"

@@ -53,14 +53,22 @@ public class AboutAppActivity extends AppCompatActivity {
 
 
 
-
+    private void showSmallBannerAd(){
+        //For showing Small Banner Ads
+        //For AdMob Ads
+        //For Banner Ads
+        AdView smallTopBannedAdView = findViewById(R.id.small_top_banner_ad);
+        AdView smallMiddleBannerAdView1 = findViewById(R.id.small_middle_banner_ad1);
+        smallTopBannedAdView.loadAd(new AdRequest.Builder().build());
+        smallMiddleBannerAdView1.loadAd(new AdRequest.Builder().build());
+    }
 
 
     private void clickableTextForPlayStoreAppRating(){
         //To create a short clickable text of a large text
         //This method create a clickable text.When you click that clickable text, then this link open google play store app to gige rating this application
         TextView clickableRankTextView = findViewById(R.id.rank_text_view);
-        String text = "click here to give rank this application";
+        String text = "Click here to Give Rating This Application";
         SpannableString spannableString = new SpannableString(text);
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
@@ -85,15 +93,15 @@ public class AboutAppActivity extends AppCompatActivity {
         //This Method open Google Play Store to give rating this Application
         try{
             //If play store app is installed in that device, then do the following
-            Intent playStroreIntent = new Intent();
-            playStroreIntent.setAction(Intent.ACTION_VIEW);
-            playStroreIntent.setData(Uri.parse("market://details?id="+"com.android.chrome"));
-            startActivity(playStroreIntent);
+            Intent playStoreIntent = new Intent();
+            playStoreIntent.setAction(Intent.ACTION_VIEW);
+            playStoreIntent.setData(Uri.parse("market://details?id="+getPackageName()));
+            startActivity(playStoreIntent);
         }catch (ActivityNotFoundException e){
             //If play store app is not installed in that device, then the following code open play store app in web browser.
             Intent playStoreIntent1 = new Intent();
             playStoreIntent1.setAction(Intent.ACTION_VIEW);
-            playStoreIntent1.setData(Uri.parse("http://play.google.com/store/apps/details?id="+"com.android.chrome"));
+            playStoreIntent1.setData(Uri.parse("http://play.google.com/store/apps/details?id="+getPackageName()));
             startActivity(playStoreIntent1);
         }
 
@@ -101,19 +109,7 @@ public class AboutAppActivity extends AppCompatActivity {
 
 
 
-    private void showSmallBannerAd(){
-        //For showing Small Banner Ads
-        //For AdMob Ads
-        //For Banner Ads
-        AdView smallTopBannedAdView = findViewById(R.id.small_top_banner_ad);
-        AdView smallMiddleBannerAdView1 = findViewById(R.id.small_middle_banner_ad1);
-        AdView smallMiddleBannerAdView2 = findViewById(R.id.small_middle_banner_ad2);
-        AdView smallBottomBannerAdView = findViewById(R.id.small_bottom_banner_ad);
-        smallTopBannedAdView.loadAd(new AdRequest.Builder().build());
-        smallMiddleBannerAdView1.loadAd(new AdRequest.Builder().build());
-        smallMiddleBannerAdView2.loadAd(new AdRequest.Builder().build());
-        smallBottomBannerAdView.loadAd(new AdRequest.Builder().build());
-    }
+
 
 
 }

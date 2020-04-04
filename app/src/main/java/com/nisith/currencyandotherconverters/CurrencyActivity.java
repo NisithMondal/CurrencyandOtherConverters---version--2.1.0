@@ -72,7 +72,7 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
     private int interstitialAdStartingTime = 0;
     private boolean isInterstitialAdAlreadyShown = false;
     private MyInterstitialAd myInterstitialAd;
-    private final int twoInterstitialAdsIntervalTime = 2; //In Minute
+    private final int twoInterstitialAdsIntervalTime = 3; //In Minute
 
 
 
@@ -121,7 +121,6 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
 
         //To show Ads
-        showSmallBannerAd();
         showLargeBannerAd();
         myInterstitialAd = new MyInterstitialAd(this);
 
@@ -130,13 +129,6 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
     }
 
 
-    private void showSmallBannerAd(){
-        //For showing Small Banner Ads
-        //For AdMob Ads
-        //For Banner Ads
-        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
-        smallBannedAdView.loadAd(new AdRequest.Builder().build());
-    }
 
 
     private void showLargeBannerAd(){
@@ -814,15 +806,15 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
         //This Method open Google Play Store to give rating this Application ///////////////////baki
         try{
             //If play store app is installed in that device, then do the following
-            Intent playStroreIntent = new Intent();
-            playStroreIntent.setAction(Intent.ACTION_VIEW);
-            playStroreIntent.setData(Uri.parse("market://details?id="+"com.android.chrome"));
-            startActivity(playStroreIntent);
+            Intent playStoreIntent = new Intent();
+            playStoreIntent.setAction(Intent.ACTION_VIEW);
+            playStoreIntent.setData(Uri.parse("market://details?id="+getPackageName()));
+            startActivity(playStoreIntent);
         }catch (ActivityNotFoundException e){
             //If play store app is not installed in that device, then the following code open play store app in web browser.
             Intent playStoreIntent1 = new Intent();
             playStoreIntent1.setAction(Intent.ACTION_VIEW);
-            playStoreIntent1.setData(Uri.parse("http://play.google.com/store/apps/details?id="+"com.android.chrome"));
+            playStoreIntent1.setData(Uri.parse("http://play.google.com/store/apps/details?id="+getPackageName()));
             startActivity(playStoreIntent1);
         }
 

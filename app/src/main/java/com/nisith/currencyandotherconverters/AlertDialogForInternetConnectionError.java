@@ -14,7 +14,7 @@ public class AlertDialogForInternetConnectionError extends AppCompatDialogFragme
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext())
                 .setTitle("You are Offline")
-                .setMessage("Please Check Your Internet Connection Turn on Mobile Data. This App needs Internet Connection To Work.")
+                .setMessage("Please Check Your Internet Connection. Turn on Mobile Data or Wi-Fi. This App needs Internet Connection To Work.")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

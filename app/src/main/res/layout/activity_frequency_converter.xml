@@ -205,22 +205,11 @@
 
                     <com.google.android.gms.ads.AdView
                         xmlns:ads="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/small_banner_ad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        ads:adSize="BANNER"
-                        ads:adUnitId="@string/s_banner_ad_unit_frequency"
-                        >
-                    </com.google.android.gms.ads.AdView>
-
-                    <com.google.android.gms.ads.AdView
-                        xmlns:ads="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/large_banner_ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         ads:adSize="LARGE_BANNER"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="35dp"
                         ads:adUnitId="@string/l_banner_ad_unit_frequency"
                         >
                     </com.google.android.gms.ads.AdView>

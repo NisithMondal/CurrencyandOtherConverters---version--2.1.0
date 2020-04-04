@@ -131,11 +131,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_view"
-                    android:text="Click Here To Give Rank This Application"
+                    android:text="Click here to Give Rating This Application"
                     android:layout_marginStart="15dp"
                     android:textSize="18dp"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#01019E"
 
                     />
 
@@ -276,7 +276,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Text To Speech Converter"
+                    android:text="Text To Speech Assistant"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="18sp"
                     android:textStyle="italic" />
@@ -302,7 +302,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Store Data In Database"
+                    android:text="Store Result In Database"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="18sp"
                     android:textStyle="italic" />
@@ -925,15 +925,7 @@
 
 
 
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/small_middle_banner_ad2"
-                android:layout_below="@+id/linear_layout_l"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/small_middle_banner_ad_unit_about_app_activity">
-            </com.google.android.gms.ads.AdView>
+
 
 
 
@@ -941,7 +933,7 @@
                 android:id="@+id/card_view6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/small_middle_banner_ad2"
+                android:layout_below="@+id/linear_layout_l"
                 android:background="@drawable/text_background_shape_style2"
                 android:layout_marginTop="8dp"
                 android:elevation="14dp"
@@ -997,7 +989,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_background_shape_style2"
                     android:padding="10dp"
-                    android:text="Available Text To Speech Converter"
+                    android:text="Text To Speech Assistant"
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
@@ -1011,13 +1003,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card_view7"
 
-                >
+                android:layout_marginTop="0dp">
+
                 <TextView
                     android:id="@+id/text_to_speech_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
                     android:layout_marginTop="5dp"
+                    android:padding="10dp"
                     android:text="@string/important_feature"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -1035,7 +1028,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linear_layout_27"
                 android:background="@drawable/text_background_shape_style2"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="25dp"
                 android:elevation="14dp"
                 app:cardCornerRadius="8dp">
 
@@ -1044,7 +1037,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_background_shape_style2"
                     android:padding="10dp"
-                    android:text="Store Data in Database"
+                    android:text="Store Result in Database"
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
@@ -1074,16 +1067,6 @@
             </LinearLayout>
 
 
-
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/small_bottom_banner_ad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linear_layout_28"
-                android:layout_marginTop="10dp"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/small_bottom_banner_ad_unit_about_app_activity">
-            </com.google.android.gms.ads.AdView>
 
 
 
