@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="UNIT,  NUMBER  AND  CURRENCY  CONVERTER"
+        android:text="UNIT  NUMBER  AND  CURRENCY  All  CONVERTER"
         android:textSize="18sp"
         android:padding="5dp"
         android:textAlignment="center"

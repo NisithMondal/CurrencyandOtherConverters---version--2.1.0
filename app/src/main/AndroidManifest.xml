@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nisith.currencyandotherconverters">
+    package="com.nisithmondaltechnology.unitnumberandcurrencyallconverter">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,69 +19,69 @@
             android:value="@string/app_id_for_admob" />
 
         <activity
-            android:name=".HelpActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.HelpActivity"
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".AboutAppActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.AboutAppActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GeneralHistoryActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.GeneralHistoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PressureConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.PressureConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".FrequencyConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.FrequencyConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".TimeConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.TimeConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".SpeedConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.SpeedConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".NumberSystemConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.NumberSystemConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".WeightConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.WeightConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".AngleConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.AngleConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".TemperatureConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.TemperatureConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".VolumeConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.VolumeConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".AreaConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.AreaConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".LengthConverterActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.LengthConverterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".AllCurrencyNameActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.AllCurrencyNameActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".CurrencyActivity"
+            android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.CurrencyActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
 
-        <activity android:name=".StartingActivity"
+        <activity android:name="com.nisithmondaltechnology.unitnumberandcurrencyallconverter.StartingActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

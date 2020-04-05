@@ -223,7 +223,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         ads:adSize="LARGE_BANNER"
-                        android:layout_marginTop="35dp"
+                        android:layout_marginTop="70dp"
                         ads:adUnitId="@string/large_banner_ad_unit_currency_activity"
                         >
                     </com.google.android.gms.ads.AdView>

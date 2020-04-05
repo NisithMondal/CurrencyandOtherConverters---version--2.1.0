@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Unit,Number and Currency Converter</string>
+    <string name="app_name">Unit Number and Currency All Converter</string>
     <string name="open_drawer">open drawer</string>
     <string name="close_drawer">close drawer</string>
     <string name="enable">enable</string>
@@ -831,7 +831,7 @@
     </string-array>
 
 
-    <string name="app_title">Unit, Number and Currency Converter</string>
+    <string name="app_title">Unit Number and Currency All Converter</string>
 
     <string name="app_description">
         This application is a Currency, Number and Unit Converters. About 175 countries Currency is available in this application. This application also perform units conversion and Number System Conversion like (Binary to Decimal),(decimal to Octal),(binary to Hexadecimal) and so on.

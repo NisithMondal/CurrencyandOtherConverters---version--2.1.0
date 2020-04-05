@@ -104,9 +104,9 @@
                 android:icon="@drawable/ic_information"/>
 
             <item
-                android:id="@+id/app_rating"
-                android:title="Rate This App"
-                android:icon="@drawable/ic_star_black_24dp"/>
+                android:id="@+id/privacy_policy"
+                android:title="Privacy Policy"
+                android:icon="@drawable/ic_person"/>
 
         </menu>
     </item>
