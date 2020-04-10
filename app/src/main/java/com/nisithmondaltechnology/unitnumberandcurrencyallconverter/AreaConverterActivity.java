@@ -87,7 +87,7 @@ public class AreaConverterActivity extends AppCompatActivity {
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         //To show Ads
-        showLargeBannerAd();
+//        showLargeBannerAd();
     }
 
 
@@ -96,8 +96,8 @@ public class AreaConverterActivity extends AppCompatActivity {
 
     private void showLargeBannerAd(){
         //For showing Large Banner Ads
-        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
-        largeBannerAdView.loadAd(new AdRequest.Builder().build());
+//        AdView largeBannerAdView = findViewById(R.id.small_banner_ad);
+//        largeBannerAdView.loadAd(new AdRequest.Builder().build());
     }
 
 

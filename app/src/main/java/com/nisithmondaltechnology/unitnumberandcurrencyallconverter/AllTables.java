@@ -17,6 +17,7 @@ public class AllTables {
         public static final String time = "time";
         public static final String volume = "volume";
         public static final String weight = "weight";
+        public static final String bits_bytes = "bits_bytes";
 
     }
 

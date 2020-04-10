@@ -198,25 +198,13 @@
                      />
 
 
-                 <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                     android:id="@+id/small_top_banner_ad"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_below="@+id/image_text"
-                     android:layout_marginTop="14dp"
-                     ads:adSize="BANNER"
-                     ads:adUnitId="@string/small_top_banner_ad_unit_help_activity">
-                 </com.google.android.gms.ads.AdView>
-
-
-
 
                  <TextView
                      android:id="@+id/currency_converter_description_bellow_image"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:layout_below="@+id/small_top_banner_ad"
-                     android:layout_marginTop="14dp"
+                     android:layout_below="@+id/image_text"
+                     android:layout_marginTop="28dp"
                      android:padding="14dp"
                      android:text="@string/currency_converter_description_bellow_image"
                      android:textColor="@android:color/black"
@@ -226,19 +214,10 @@
                      />
 
 
-                 <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                     android:id="@+id/large_middle_banner_ad"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_below="@+id/currency_converter_description_bellow_image"
-                     android:layout_marginTop="6dp"
-                     ads:adSize="LARGE_BANNER"
-                     ads:adUnitId="@string/large_middle_banner_ad_unit_help_activity">
-                 </com.google.android.gms.ads.AdView>
 
                  <TextView
                      android:id="@+id/unit_converter_tag"
-                     android:layout_below="@+id/large_middle_banner_ad"
+                     android:layout_below="@+id/currency_converter_description_bellow_image"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="Unit Converter  "

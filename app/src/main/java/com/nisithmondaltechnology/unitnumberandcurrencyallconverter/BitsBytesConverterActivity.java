@@ -1,13 +1,13 @@
 package com.nisithmondaltechnology.unitnumberandcurrencyallconverter;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -24,51 +24,52 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AngleConverterActivity extends AppCompatActivity {
+public class BitsBytesConverterActivity extends AppCompatActivity {
 
     private ImageView arrowImageView;
-    private TextView leftAngleTextView,rightAngleTextView;
-    private LinearLayout leftAngleLayout,rightAngleLayout;
+    private TextView leftBitsBytesTextView,rightBitsBytesTextView;
+    private LinearLayout leftBitsBytesLayout,rightBitsBytesLayout;
     private TextView marqueTextView;
     private TextView resultTextView;
-    private EditText angleValueEditText;
+    private EditText bitsBytesValueEditText;
     private Spinner leftSpinner,rightSpinner;
-    private Button angleConvertButton;
-    private Button angleHistoryButton;
+    private Button bitsBytesConvertButton;
+    private Button bitsBytesHistoryButton;
+    private TextSpeaker textSpeaker;
     // I used sharedPreference to store sound icon state (enable or dissable) instead of using database
     private SoundStateSharedPreference soundStateSharedPreference;
     private ToolbarSoundIconHandaler toolbarSoundIconHandaler;
-    private TextSpeaker textSpeaker;
     private ImageView toolbarSoundIconImageView;
     private Toolbar appToolbar;
     private TextView toolbarTitle;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_angle_converter);
-        setConvertionFromXmlToJavaObject();
+        setContentView(R.layout.activity_bits_bytes_converter);
+        setConvertionFromXmlToJavaObject();//initalized objects
         marqueTextView.setSelected(true);
         setSupportActionBar(appToolbar);
         setTitle("");
-        toolbarTitle.setText("Angle Converter");
+        toolbarTitle.setText("Bits-Bytes Converter");
         appToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         appToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                closeKeyBoard();
                 finish();
+                closeKeyBoard();
             }
         });
+
+
         textSpeaker = new TextSpeaker(getApplicationContext());// initalization of textSpeaker
         soundStateSharedPreference = new SoundStateSharedPreference(this);
         toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
@@ -77,14 +78,15 @@ public class AngleConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
-        angleConvertButton.setOnClickListener(new MyAngleConvertButtonClick());
-        angleValueEditText.addTextChangedListener(new MyTextWatcher());
-        angleHistoryButton.setOnClickListener(new MyAngleHistoryButtonClick());
+        marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+        bitsBytesConvertButton.setOnClickListener(new MyBitsBytesButtonClick());
+        bitsBytesHistoryButton.setOnClickListener(new MyBitsBytesHistoryButtonClick());
+        bitsBytesValueEditText.addTextChangedListener(new MyTextWatcher());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
-        //To show Ads
-//        showLargeBannerAd();
+
+
+
 
 
     }
@@ -93,11 +95,6 @@ public class AngleConverterActivity extends AppCompatActivity {
 
 
 
-    private void showLargeBannerAd(){
-        //For showing Large Banner Ads
-//        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
-//        largeBannerAdView.loadAd(new AdRequest.Builder().build());
-    }
 
 
     private void closeKeyBoard(){
@@ -109,28 +106,24 @@ public class AngleConverterActivity extends AppCompatActivity {
     }
 
 
-    private void setConvertionFromXmlToJavaObject(){
 
+    private void setConvertionFromXmlToJavaObject(){
         appToolbar = findViewById(R.id.app_toolbar);
         toolbarTitle = findViewById(R.id.app_toolbar_title);
         toolbarSoundIconImageView = appToolbar.findViewById(R.id.audio_enable_image_view);
         arrowImageView = findViewById(R.id.arrow_image_view);
-        leftAngleLayout = findViewById(R.id.left_angle_layout);
-        rightAngleLayout = findViewById(R.id.right_angle_layout);
-        leftAngleTextView = findViewById(R.id.left_angle_text_view);
-        rightAngleTextView = findViewById(R.id.right_angle_text_view);
+        leftBitsBytesLayout = findViewById(R.id.left_bits_bytes_layout);
+        rightBitsBytesLayout = findViewById(R.id.right_bits_bytes_layout);
+        leftBitsBytesTextView = findViewById(R.id.left_bits_bytes_text_view);
+        rightBitsBytesTextView = findViewById(R.id.right_bits_bytes_text_view);
         marqueTextView = findViewById(R.id.marque_text_view);
         resultTextView = findViewById(R.id.result_text_view);
-        angleValueEditText = findViewById(R.id.edit_text);
+        bitsBytesValueEditText = findViewById(R.id.edit_text);
         leftSpinner = findViewById(R.id.left_spinner);
         rightSpinner = findViewById(R.id.right_spinner);
-        angleConvertButton = findViewById(R.id.angle_convert_button);
-        angleHistoryButton = findViewById(R.id.angle_history_button);
-
-
+        bitsBytesConvertButton = findViewById(R.id.bits_bytes_convert_button);
+        bitsBytesHistoryButton = findViewById(R.id.bits_bytes_history_button);
     }
-
-
 
 
 
@@ -141,8 +134,8 @@ public class AngleConverterActivity extends AppCompatActivity {
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String leftAngleTextViewValue = leftAngleTextView.getText().toString();
-                String rightAngleTextViewValue = rightAngleTextView.getText().toString();
+                String leftCurrencyTextViewValue = leftBitsBytesTextView.getText().toString();
+                String rightCurrencyTextViewValue = rightBitsBytesTextView.getText().toString();
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
@@ -151,19 +144,19 @@ public class AngleConverterActivity extends AppCompatActivity {
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
-                        .playOn(leftAngleLayout);
-                leftAngleTextView.setText(rightAngleTextViewValue);
-                angleValueEditText.setHint("Enter Value ("+leftAngleTextView.getText().toString()+")");
+                        .playOn(leftBitsBytesLayout);
+                leftBitsBytesTextView.setText(rightCurrencyTextViewValue);
+                bitsBytesValueEditText.setHint("Enter Value ("+leftBitsBytesTextView.getText().toString()+")");
 
 
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
-                        .playOn(rightAngleLayout);
+                        .playOn(rightBitsBytesLayout);
 
-                rightAngleTextView.setText(leftAngleTextViewValue);
-                marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
-                performAngleConvertion();
+                rightBitsBytesTextView.setText(leftCurrencyTextViewValue);
+                marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+                performBitsBytesConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
 
@@ -173,9 +166,10 @@ public class AngleConverterActivity extends AppCompatActivity {
 
 
 
+
     private void setAdapterOnSpinner(){
-        ArrayAdapter<CharSequence> spinnerLeftArrayAdapter = ArrayAdapter.createFromResource(this,R.array.angle_units_left,R.layout.spinner_item);
-        ArrayAdapter<CharSequence> spinnerRightArrayAdapter = ArrayAdapter.createFromResource(this,R.array.angle_units_right,R.layout.spinner_item);
+        ArrayAdapter<CharSequence> spinnerLeftArrayAdapter = ArrayAdapter.createFromResource(this,R.array.bits_bytes_units_left,R.layout.spinner_item);
+        ArrayAdapter<CharSequence> spinnerRightArrayAdapter = ArrayAdapter.createFromResource(this,R.array.bits_bytes_units_right,R.layout.spinner_item);
         spinnerLeftArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerRightArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         leftSpinner.setAdapter(spinnerLeftArrayAdapter);
@@ -183,17 +177,15 @@ public class AngleConverterActivity extends AppCompatActivity {
     }
 
 
-
-
     private class MyLeftSpinnerItemSelected implements AdapterView.OnItemSelectedListener{
 
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            leftAngleTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
-            performAngleConvertion();
-            angleValueEditText.setHint("Enter Value ("+leftAngleTextView.getText().toString()+")");
+            leftBitsBytesTextView.setText(parent.getItemAtPosition(position).toString());
+            marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+            performBitsBytesConvertion();
+            bitsBytesValueEditText.setHint("Enter Value ("+leftBitsBytesTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
             playAudioSound();
         }
@@ -209,11 +201,12 @@ public class AngleConverterActivity extends AppCompatActivity {
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            rightAngleTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
-            performAngleConvertion();
+            rightBitsBytesTextView.setText(parent.getItemAtPosition(position).toString());
+            marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+            performBitsBytesConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
+
         }
 
         @Override
@@ -223,27 +216,29 @@ public class AngleConverterActivity extends AppCompatActivity {
     }
 
 
-    private class MyAngleConvertButtonClick implements View.OnClickListener{
+
+
+    private class MyBitsBytesButtonClick implements View.OnClickListener{
 
         @Override
         public void onClick(View v) {
-            //I call perform angleConvertion() method here because I want to perform angle Convertion when angleConvertButton is selected
+            //I call perform temperatureConvertion() method here because I want to perform temperature Convertion when temperatureConvertButton is selected
             //Check if Internet is Available or Not
             if (isInternetAvailable()) {
                 //Check if Edit text field is empty or not
-                if (angleValueEditText.getText().toString().length()>0){
+                if (bitsBytesValueEditText.getText().toString().length()>0){
                     //Some Value in edit text
-                    performAngleConvertion();
+                    performBitsBytesConvertion();
                     closeKeyBoard();
 
                 }else {
                     //if Empty
-                    Toast.makeText(AngleConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BitsBytesConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
                 }
             }else {
                 //Internet not Available
                 AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
-                dialog.show(getSupportFragmentManager(),"angle");
+                dialog.show(getSupportFragmentManager(),"bits-bytes");
             }
         }
     }
@@ -262,15 +257,14 @@ public class AngleConverterActivity extends AppCompatActivity {
     }
 
 
-
-    private class MyAngleHistoryButtonClick implements View.OnClickListener{
+    private class MyBitsBytesHistoryButtonClick implements View.OnClickListener{
         public void onClick(View view){
             //This method is called when frequencyHistoryButton is clicked
             final String activityName = "activity_name";
-            final String convertionType = "convertion_type";
-            Intent historyIntent = new Intent(AngleConverterActivity.this, GeneralHistoryActivity.class);
-            historyIntent.putExtra(activityName,"Angle History");
-            historyIntent.putExtra(convertionType,AllTables.ConvertionType.angle);
+            final String conversionType = "convertion_type";
+            Intent historyIntent = new Intent(BitsBytesConverterActivity.this, GeneralHistoryActivity.class);
+            historyIntent.putExtra(activityName,"Bits-Bytes History");
+            historyIntent.putExtra(conversionType,AllTables.ConvertionType.bits_bytes);
             startActivity(historyIntent);
 
         }
@@ -300,7 +294,8 @@ public class AngleConverterActivity extends AppCompatActivity {
                     textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
                 }
             }
-            if (angleValueEditText.getText().toString().length()==0){
+            if (bitsBytesValueEditText.getText().toString().length()==0){
+                //If the edit text has no number i.e. empty then hide result text view
                 resultTextView.setVisibility(View.INVISIBLE);
             }
         }
@@ -310,7 +305,6 @@ public class AngleConverterActivity extends AppCompatActivity {
 
         }
     }
-
 
 
 
@@ -347,34 +341,34 @@ public class AngleConverterActivity extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("hh:mm aa");
         Date date = new Date();
         String currentTime = format.format(date);
-
-        myDatabaseHelper.insertDataToDatabase(convertionText,currentDate,currentTime,AllTables.ConvertionType.angle);
+        myDatabaseHelper.insertDataToDatabase(convertionText,currentDate,currentTime,AllTables.ConvertionType.bits_bytes);
     }
 
 
-    private void performAngleConvertion(){
+
+    private void performBitsBytesConvertion(){
         //Check internet is Available or not
         if (isInternetAvailable()) {
-            if (angleValueEditText.getText().toString().length() > 0) {
-                String leftAngleTextViewValue = leftAngleTextView.getText().toString();
-                String rightAngleTextViewValue = rightAngleTextView.getText().toString();
-                String editTextSting = angleValueEditText.getText().toString();
+            if (bitsBytesValueEditText.getText().toString().length() > 0) {
+                String leftBitsBytesTextViewValue = leftBitsBytesTextView.getText().toString();
+                String rightBitsBytesTextViewValue = rightBitsBytesTextView.getText().toString();
+                String editTextSting = bitsBytesValueEditText.getText().toString();
                 if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
                     Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 double userInputData = Double.parseDouble(editTextSting);
-                AngleConverter angleConverter = new AngleConverter();
-                double resultInDouble = angleConverter.getLengthConvertResult(leftAngleTextViewValue, rightAngleTextViewValue, userInputData);
+                BitsBytesConverter bitsBytesConverter = new BitsBytesConverter();
+                double resultInDouble = bitsBytesConverter.getBitsBytesConvertResult(leftBitsBytesTextViewValue, rightBitsBytesTextViewValue, userInputData);
                 String result = String.valueOf(resultInDouble);
                 if (result.endsWith(".0")) {
                     //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
                     result = result.substring(0, (result.length() - 2));
                 }
                 resultTextView.setVisibility(View.VISIBLE);
-                resultTextView.setText(editTextSting + "  " + leftAngleTextViewValue + "  =  " + result + "  " + rightAngleTextViewValue);
+                resultTextView.setText(editTextSting + "  " + leftBitsBytesTextViewValue + "  =  " + result + "  " + rightBitsBytesTextViewValue);
             }
-        } else {
+        }else {
             //Internet is not available then,
             resultTextView.setVisibility(View.INVISIBLE);
         }
@@ -382,14 +376,15 @@ public class AngleConverterActivity extends AppCompatActivity {
     }
 
 
+
     private void playAudioSound(){
         //this function convert text to audio sound
-        String leftTextViewValue = leftAngleTextView.getText().toString();
-        String rightTextViewValue = rightAngleTextView.getText().toString();
-        String text = "Angle is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String leftTextViewValue = leftBitsBytesTextView.getText().toString();
+        String rightTextViewValue = rightBitsBytesTextView.getText().toString();
+        String text = "Internet Data Unit is converted from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
+        //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
-            //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
             textSpeaker.speak(text);
         }
     }
@@ -414,6 +409,7 @@ public class AngleConverterActivity extends AppCompatActivity {
         super.onDestroy();
 
     }
+
 
 
 }

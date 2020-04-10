@@ -202,18 +202,6 @@
                 </LinearLayout>
 
 
-
-                    <com.google.android.gms.ads.AdView
-                        xmlns:ads="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/large_banner_ad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        ads:adSize="LARGE_BANNER"
-                        android:layout_marginTop="70dp"
-                        ads:adUnitId="@string/l_banner_ad_unit_frequency"
-                        >
-                    </com.google.android.gms.ads.AdView>
-
                 </LinearLayout>
             </RelativeLayout>
         </ScrollView>

@@ -6,60 +6,7 @@
     <string name="dissable">dissable</string>
 
 
-
     <string name="app_id_for_admob">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="app_interstitial_ad">ca-app-pub-3940256099942544/1033173712</string>
-
-    <string name="large_banner_ad_unit_currency_activity">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_frequency">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_length">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_area">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_volume">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_pressure">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_temperature">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_weight">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_number_system">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_time">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_angle">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="l_banner_ad_unit_speed">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="small_banner_ad_unit_general_history_activity">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="small_banner_ad_unit_all_currency_name_activity">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="small_top_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="large_middle_banner_ad_unit_help_activity">ca-app-pub-3940256099942544/6300978111</string>
-
-    <string name="small_top_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="large_middle_banner_ad_unit_about_app_activity">ca-app-pub-3940256099942544/6300978111</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <string-array name="countries_name">
@@ -828,6 +775,40 @@
         <item>Octal</item>
         <item>HexaDecimal</item>
 
+    </string-array>
+
+    <string-array name="bits_bytes_units_left">
+        <item>KiloBytes (KB)</item>
+        <item>Bits (b)</item>
+        <item>Bytes (B)</item>
+        <item>KiloBits (Kb)</item>
+        <item>MegaBits (Mb)</item>
+        <item>MegaBytes (MB)</item>
+        <item>GigaBits (Gb)</item>
+        <item>GigaBytes (GB)</item>
+        <item>TeraBits (Tb)</item>
+        <item>TeraBytes (TB)</item>
+        <item>PetaBits (Pb)</item>
+        <item>PetaBytes (PB)</item>
+        <item>ExaBits (Eb)</item>
+        <item>ExaBytes (EB)</item>
+    </string-array>
+
+    <string-array name="bits_bytes_units_right">
+        <item>Bytes (B)</item>
+        <item>Bits (b)</item>
+        <item>KiloBits (Kb)</item>
+        <item>KiloBytes (KB)</item>
+        <item>MegaBits (Mb)</item>
+        <item>MegaBytes (MB)</item>
+        <item>GigaBits (Gb)</item>
+        <item>GigaBytes (GB)</item>
+        <item>TeraBits (Tb)</item>
+        <item>TeraBytes (TB)</item>
+        <item>PetaBits (Pb)</item>
+        <item>PetaBytes (PB)</item>
+        <item>ExaBits (Eb)</item>
+        <item>ExaBytes (EB)</item>
     </string-array>
 
 

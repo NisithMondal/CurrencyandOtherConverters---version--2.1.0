@@ -36,7 +36,7 @@ public class HelpActivity extends AppCompatActivity {
 
 
         //show Banner Ads
-        showSmallBannerAd();
+//        showSmallBannerAd();
 
 
 
@@ -47,10 +47,8 @@ public class HelpActivity extends AppCompatActivity {
         //For showing Small Banner Ads
         //For AdMob Ads
         //For Banner Ads
-        AdView smallTopBannedAdView = findViewById(R.id.small_top_banner_ad);
-        AdView smallMiddleBannerAdView = findViewById(R.id.large_middle_banner_ad);
-        smallTopBannedAdView.loadAd(new AdRequest.Builder().build());
-        smallMiddleBannerAdView.loadAd(new AdRequest.Builder().build());
+//        AdView smallTopBannedAdView = findViewById(R.id.small_top_banner_ad);
+//        smallTopBannedAdView.loadAd(new AdRequest.Builder().build());
     }
 
 }

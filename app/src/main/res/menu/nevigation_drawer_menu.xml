@@ -84,6 +84,11 @@
             android:icon="@drawable/ic_frequency"
             />
 
+        <item
+            android:id="@+id/bits_bytes"
+            android:title="Bits-Bytes Converter"
+            android:icon="@drawable/ic_bits_bytes"
+            />
 
     </group>
 

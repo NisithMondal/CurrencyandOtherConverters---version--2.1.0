@@ -54,7 +54,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
     private Toolbar appToolbar;
     private TextView toolbarTitle;
     private FrameLayout frameLayoutForKeypad;
-    private View octalViewObjectForKeypad,binaryViewObjectForKeypad,hexaDecimalObjectForKeypad;
+    private View octalViewObjectForKeypad,binaryViewObjectForKeypad,hexaDecimalObjectForKeypad,decimalViewObjectForKeypad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,23 +96,20 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         BinaryNumberSystemKeypadHandeler binaryNumberSystemKeypadHandeler = new BinaryNumberSystemKeypadHandeler(this,numberSystemValueEditText);
         OctalNumberSystemKeypadHandeler octalNumberSystemKeypadHandeler = new OctalNumberSystemKeypadHandeler(this,numberSystemValueEditText);
         HexaDecimalNumberSystemKeypadHandeler hexaDecimalNumberSystemKeypadHandeler = new HexaDecimalNumberSystemKeypadHandeler(this,numberSystemValueEditText);
-         octalViewObjectForKeypad = octalNumberSystemKeypadHandeler.getView();
+        DecimalNumberSystemKeypadHandeler decimalNumberSystemKeypadHandeler = new DecimalNumberSystemKeypadHandeler(this,numberSystemValueEditText);
+        octalViewObjectForKeypad = octalNumberSystemKeypadHandeler.getView();
          binaryViewObjectForKeypad = binaryNumberSystemKeypadHandeler.getView();
          hexaDecimalObjectForKeypad = hexaDecimalNumberSystemKeypadHandeler.getView();
+        decimalViewObjectForKeypad = decimalNumberSystemKeypadHandeler.getView();
          numberSystemValueEditText.setOnClickListener(new MyNumberSystemEditTextClick());
-        //To show Ads
-        showLargeBannerAd();
+
     }
 
 
 
 
 
-    private void showLargeBannerAd(){
-        //For showing Large Banner Ads
-        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
-        largeBannerAdView.loadAd(new AdRequest.Builder().build());
-    }
+
 
 
     private void closeKeyBoard(){
@@ -563,15 +560,13 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
             frameLayoutForKeypad.removeView(hexaDecimalObjectForKeypad);
             frameLayoutForKeypad.addView(hexaDecimalObjectForKeypad);
 
-        }else {
+        }else if (text.equalsIgnoreCase("Decimal")) {
             numberSystemValueEditText.setInputType(EditorInfo.TYPE_NUMBER_FLAG_DECIMAL | EditorInfo.TYPE_CLASS_NUMBER);//////////////////////////////////////////debug////////
-            openKeyBoard();
-            //If left number system Text view is selected as Decimal then......
-            if (frameLayoutForKeypad.getVisibility() == View.VISIBLE)
-            {
-                //To hide Binary or Octal Number System Keypad on Back Pressed
-                frameLayoutForKeypad.setVisibility(View.GONE);
-            }
+            closeKeyBoard();
+            /*If the decimal view is already added to parent view i.e. frame Layout , then remove the view from parent layout and then again add the view
+             to frame Layout. Otherwise it throws an Exception. */
+            frameLayoutForKeypad.removeView(decimalViewObjectForKeypad);
+            frameLayoutForKeypad.addView(decimalViewObjectForKeypad);
         }
     }
 

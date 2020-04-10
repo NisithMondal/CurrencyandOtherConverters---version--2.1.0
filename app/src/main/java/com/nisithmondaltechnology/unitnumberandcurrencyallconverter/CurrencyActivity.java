@@ -20,6 +20,11 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -37,13 +42,14 @@ import android.widget.Toast;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CurrencyActivity extends AppCompatActivity implements MyInterstitialAd.OnInterstitialAdCloseListener,NavigationView.OnNavigationItemSelectedListener, CurrencyNetworkOperation.OnFinishServerOperationIListener {
+public class CurrencyActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, CurrencyNetworkOperation.OnFinishServerOperationIListener {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationDrawerView;
@@ -63,11 +69,7 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
     private ProgressBar progressBar;
     private Button currencyConvertButton,currencyHistoryButton;
     private ArrayList<CurrencyInfoHolder> allCurrencyInfoArrayList;
-    //For InterstitialAd
-    private int interstitialAdStartingTime = 0;
-    private boolean isInterstitialAdAlreadyShown = false;
-    private MyInterstitialAd myInterstitialAd;
-    private final int twoInterstitialAdsIntervalTime = 5; //In Minute
+
 
 
 
@@ -116,8 +118,7 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
 
         //To show Ads
-        showLargeBannerAd();
-        myInterstitialAd = new MyInterstitialAd(this);
+//        showLargeBannerAd();
 
 
 
@@ -128,8 +129,8 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
 
     private void showLargeBannerAd(){
         //For showing Large Banner Ads
-        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
-        largeBannerAdView.loadAd(new AdRequest.Builder().build());
+//        AdView largeBannerAdView = findViewById(R.id.large_banner_ad);
+//        largeBannerAdView.loadAd(new AdRequest.Builder().build());
     }
 
 
@@ -176,138 +177,62 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
 
             case R.id.length:
                 Intent lengthIntent = new Intent(CurrencyActivity.this,LengthConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    //If ad is Loaded
-                    int length_converter_id = 10001;
-                    showInterstitialAd(lengthIntent,length_converter_id);
-                }else {
-                    //If ad is not loaded
-                    startActivity(lengthIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(lengthIntent);
                 break;
 
             case R.id.area:
                 Intent areaIntent = new Intent(CurrencyActivity.this,AreaConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    //If ad is Loaded
-                    int area_converter_id = 10002;
-                    showInterstitialAd(areaIntent,area_converter_id);
-                }else {
-                    //If ad is not loaded
-                    startActivity(areaIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(areaIntent);
                 break;
 
             case R.id.volume:
                 Intent volumeIntent = new Intent(CurrencyActivity.this,VolumeConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int volume_converter_id = 10003;
-                    showInterstitialAd(volumeIntent,volume_converter_id);
-                }else {
-                    startActivity(volumeIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(volumeIntent);
                 break;
 
             case R.id.pressure:
                 Intent pressureIntent = new Intent(CurrencyActivity.this,PressureConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int pressure_converter_id = 10004;
-                    showInterstitialAd(pressureIntent,pressure_converter_id);
-                }else {
-                    startActivity(pressureIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(pressureIntent);
                 break;
 
             case R.id.weight:
                 Intent weightIntent = new Intent(CurrencyActivity.this,WeightConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int weight_converter_id = 10005;
-                    showInterstitialAd(weightIntent,weight_converter_id);
-                }else {
-                    startActivity(weightIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(weightIntent);
                 break;
 
             case R.id.angle:
                 Intent angleIntent = new Intent(CurrencyActivity.this,AngleConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int angle_converter_id = 10006;
-                    showInterstitialAd(angleIntent,angle_converter_id);
-                }else {
-                    startActivity(angleIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(angleIntent);
                 break;
 
             case R.id.temperature:
                 Intent temperatureIntent = new Intent(CurrencyActivity.this,TemperatureConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int temperature_converter_id = 10007;
-                    showInterstitialAd(temperatureIntent,temperature_converter_id);
-                }else {
-                    startActivity(temperatureIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(temperatureIntent);
                 break;
 
             case R.id.number_system:
                 Intent numberSystemIntent = new Intent(CurrencyActivity.this,NumberSystemConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int number_system_converter_id = 10008;
-                    showInterstitialAd(numberSystemIntent,number_system_converter_id);
-                }else {
-                    startActivity(numberSystemIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(numberSystemIntent);
                 break;
 
             case R.id.speed:
                 Intent speedIntent = new Intent(CurrencyActivity.this,SpeedConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int speed_converter_id = 10009;
-                    showInterstitialAd(speedIntent,speed_converter_id);
-                }else {
-                    startActivity(speedIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(speedIntent);
                 break;
 
             case R.id.time:
                 Intent timeIntent = new Intent(CurrencyActivity.this,TimeConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int time_converter_id = 100010;
-                    showInterstitialAd(timeIntent,time_converter_id);
-                }else {
-                    startActivity(timeIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(timeIntent);
                 break;
 
             case R.id.frequency:
                 Intent frequencyIntent = new Intent(CurrencyActivity.this,FrequencyConverterActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int frequency_converter_id = 100011;
-                    showInterstitialAd(frequencyIntent,frequency_converter_id);
-                }else {
-                    startActivity(frequencyIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(frequencyIntent);
+                break;
+
+            case R.id.bits_bytes:
+                Intent bitsBytesIntent = new Intent(CurrencyActivity.this,BitsBytesConverterActivity.class);
+                startActivity(bitsBytesIntent);
                 break;
 
             case R.id.help:
@@ -317,14 +242,7 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
 
             case R.id.about_app:
                 Intent aboutAppIntent = new Intent(CurrencyActivity.this,AboutAppActivity.class);
-                if (myInterstitialAd.isAdLoaded()){
-                    int about_app_converter_id = 100012;
-                    showInterstitialAd(aboutAppIntent,about_app_converter_id);
-                }else {
-                    startActivity(aboutAppIntent);
-                    //Load Interstitial Ad
-                    myInterstitialAd.loadInterstitialAd();
-                }
+                startActivity(aboutAppIntent);
                 break;
 
             case R.id.privacy_policy:
@@ -337,110 +255,6 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
     }
 
 
-
-    private void showInterstitialAd(Intent converterIntent,int converterId){
-        //This method shows Interstitial ad in the following condition
-        /*Lets take twoInterstitialAdsIntervalTime = 2. This method mainly do, if ad is not already shown, then it shows the ad.
-          If ad is already shown ,then after 2 minute later if anybody click on any converter option, then only it will show ad.
-          If anybody click on any converter option and time is less than 2 minute the ad will not shown. Only that converter activity will open.  */
-        if (isInterstitialAdAlreadyShown){
-            //If Interstitial ad is already shown, then do the following
-            //get System Current minute.
-            int currentMinute = getCurrentSystemMinute();
-            //If (currentMinute - interstitialAdStartingTime) >= twoInterstitialAdsIntervalTime, then only we want to show Interstitial ad.
-            if (currentMinute - interstitialAdStartingTime >= twoInterstitialAdsIntervalTime){
-                //From here we sent converter id like length_converter_id, area_converter_id etc.
-                myInterstitialAd.showInterstitialAd(converterId);
-                interstitialAdStartingTime = currentMinute;
-            }else {
-                //If above time is less than twoInterstitialAdsIntervalTime value, then do the following
-                startActivity(converterIntent);
-            }
-        }else {
-            //If Interstitial ad is already not shown, then do the following
-            //From here we sent converter id like length_converter_id, area_converter_id etc.
-            myInterstitialAd.showInterstitialAd(converterId);
-            interstitialAdStartingTime = getCurrentSystemMinute();
-            isInterstitialAdAlreadyShown = true;
-        }
-    }
-
-    @Override
-    public void onInterstitialAdClose(int clickedConverterId) {
-        //This method is belong to OnInterstitialAdCloseListener , which is present in MyInterstitialAd.java class
-        //This callback method is called when anyone close interstitial ad. So here we have to start new Activity.......
-        /*When anybody clicked length converter option of drawer ,then if all are right then ad will shown. After Closing that ad ,
-          length converter activity will open act. This method pass  clickedConverterId i.e. which converter is clicked. And this is same for other converters. */
-        switch (clickedConverterId){
-            case 10001:
-                //Open Length converter
-                startActivity(new Intent(CurrencyActivity.this,LengthConverterActivity.class));
-                break;
-
-            case 10002:
-                //Open Area converter
-                startActivity(new Intent(CurrencyActivity.this,AreaConverterActivity.class));
-                break;
-
-            case 10003:
-                //Open Volume converter
-                startActivity(new Intent(CurrencyActivity.this,VolumeConverterActivity.class));
-                break;
-
-            case 10004:
-                //Open Pressure converter
-                startActivity(new Intent(CurrencyActivity.this,PressureConverterActivity.class));
-                break;
-
-            case 10005:
-                //Open Weight converter
-                startActivity(new Intent(CurrencyActivity.this,WeightConverterActivity.class));
-                break;
-
-            case 10006:
-                //Open Angle converter
-                startActivity(new Intent(CurrencyActivity.this,AngleConverterActivity.class));
-                break;
-
-            case 10007:
-                //Open Temperature converter
-                startActivity(new Intent(CurrencyActivity.this,TemperatureConverterActivity.class));
-                break;
-
-            case 10008:
-                //Open Number System converter
-                startActivity(new Intent(CurrencyActivity.this,NumberSystemConverterActivity.class));
-                break;
-
-            case 10009:
-                //Open Speed converter
-                startActivity(new Intent(CurrencyActivity.this,SpeedConverterActivity.class));
-                break;
-
-            case 100010:
-                //Open Time converter
-                startActivity(new Intent(CurrencyActivity.this,TimeConverterActivity.class));
-                break;
-
-            case 100011:
-                //Open Frequency converter
-                startActivity(new Intent(CurrencyActivity.this,FrequencyConverterActivity.class));
-                break;
-
-            case 100012:
-                //Open About app converter
-                startActivity(new Intent(CurrencyActivity.this,AboutAppActivity.class));
-                break;
-        }
-    }
-
-
-
-
-    private int getCurrentSystemMinute(){
-        Calendar calendar = Calendar.getInstance();
-        return calendar.get(Calendar.MINUTE);
-    }
 
 
 
@@ -533,6 +347,12 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
                               from server.allCurrencyInfoArrayList will null in when this activity is Created. */
                             resultTextView.setVisibility(View.INVISIBLE);
                             if (allCurrencyInfoArrayList == null){
+                                String editTextString = enterAmountEditText.getText().toString();
+                                if (editTextString.length() == 1 && editTextString.equalsIgnoreCase(".")){
+                                    //If edit text only contains point, then show toast message and return.
+                                    Toast.makeText(CurrencyActivity.this, "Enter more Number", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
                                 CurrencyNetworkOperation currencyNetworkOperation = new CurrencyNetworkOperation(CurrencyActivity.this);
                                 currencyNetworkOperation.performCurrencyNetworkOperation();
                                 progressBar.setVisibility(View.VISIBLE);
@@ -542,7 +362,7 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
 
                             }else {
                                 /*Else allCurrencyInfoArrayList is not null means all currencies Information is present in that arrayList.
-                                  That's why simpley perform currency Convertion */
+                                  That's why simpley perform currency Conversion */
                                 performCurrencyConvertion(allCurrencyInfoArrayList);
                             }
                             closeKeyBoard();
@@ -596,23 +416,15 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
             });
 
         }else if (resultStatus.equalsIgnoreCase("not successful")){
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    resultTextView.setVisibility(View.VISIBLE);
-                    resultTextView.setText("Convertion Failed. Please Try Again");
-                    progressBar.setVisibility(View.GONE);
-                    currencyConvertButton.setEnabled(true);
-                    currencyHistoryButton.setEnabled(true);
-                    enterAmountEditText.setEnabled(true);
-                }
-            });
+                    // As first server failed ,so request to another server
+                    requestToAnotherServer(leftCurrencyTextView.getText().toString().toUpperCase(),rightCurrencyTextView.getText().toString().toUpperCase());
+
         }else if (resultStatus.equalsIgnoreCase("failed")){
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     resultTextView.setVisibility(View.VISIBLE);
-                    resultTextView.setText("Currency Convertion Failed. Check Your Internet Connection and Try Again.....");
+                    resultTextView.setText("Currency Conversion Failed. Check Your Internet Connection and Try Again.....");
                     progressBar.setVisibility(View.GONE);
                     currencyConvertButton.setEnabled(true);
                     currencyHistoryButton.setEnabled(true);
@@ -620,10 +432,86 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
                 }
             });
         }
-
-
-
     }
+
+
+
+
+
+    private void requestToAnotherServer(final String sourceCurrency,final String destinationCurrency){
+        //Send request to another server
+        OkHttpClient okHttpClient = new OkHttpClient();
+        final Request request = new Request.Builder()
+                .url("https://currency-exchange.p.rapidapi.com/exchange?q=1.0&from="+sourceCurrency+"&to="+destinationCurrency)
+                .get()
+                .addHeader("x-rapidapi-host", "currency-exchange.p.rapidapi.com")
+                .addHeader("x-rapidapi-key", "4cb9c3992cmsh8959d21ec207e07p1940fdjsnb047353be7d3")
+                .build();
+
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.GONE);
+                        currencyConvertButton.setEnabled(true);
+                        currencyHistoryButton.setEnabled(true);
+                        enterAmountEditText.setEnabled(true);
+                        resultTextView.setText("Currency Conversion Failed. Check Your Internet Connection and Try Again.....");
+                    }
+                });
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()){
+                    final String serverResult = response.body().string();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            resultTextView.setVisibility(View.VISIBLE);
+                            String leftCurrencyTextViewValue = leftCurrencyTextView.getText().toString();
+                            String rightCurrencyTextViewValue = rightCurrencyTextView.getText().toString();
+                            String editTextString = enterAmountEditText.getText().toString();
+                            if (serverResult.equalsIgnoreCase("null")||serverResult.equalsIgnoreCase("")){
+                                resultTextView.setText("Currency result Not Available");
+                            }else {
+                                double result = Double.parseDouble(serverResult);
+                                try {
+                                    result = result*Double.parseDouble(editTextString);
+                                }catch (Exception e){
+                                    Toast.makeText(CurrencyActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                }
+
+                                resultTextView.setText(editTextString + "  " + leftCurrencyTextViewValue + "  =  " + result + "  " + rightCurrencyTextViewValue);
+                            }
+                            progressBar.setVisibility(View.GONE);
+                            currencyConvertButton.setEnabled(true);
+                            currencyHistoryButton.setEnabled(true);
+                            enterAmountEditText.setEnabled(true);
+                        }
+                    });
+
+                }else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            resultTextView.setText("Conversion Failed. Server not responding");
+                            progressBar.setVisibility(View.GONE);
+                            currencyConvertButton.setEnabled(true);
+                            currencyHistoryButton.setEnabled(true);
+                            enterAmountEditText.setEnabled(true);
+                        }
+                    });
+
+                }
+            }
+        });
+    }
+
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -802,7 +690,7 @@ public class CurrencyActivity extends AppCompatActivity implements MyInterstitia
             //If play store app is not installed in that device, then the following code open play store app in web browser.
             Intent playStoreIntent1 = new Intent();
             playStoreIntent1.setAction(Intent.ACTION_VIEW);
-            playStoreIntent1.setData(Uri.parse("https://technisith.blogspot.com/p/privacy-policy-mr.html"));
+            playStoreIntent1.setData(Uri.parse("https://technisith.blogspot.com/p/privacy-policy.html"));
             try {
                 startActivity(playStoreIntent1);
             }catch (Exception e){

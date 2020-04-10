@@ -115,27 +115,15 @@
 
             </RelativeLayout>
 
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/small_top_banner_ad"
-                android:layout_below="@+id/relative_layout1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/small_top_banner_ad_unit_about_app_activity">
-            </com.google.android.gms.ads.AdView>
-
-
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/small_top_banner_ad"
+                android:layout_below="@+id/relative_layout1"
                 android:background="@color/colorPrimary"
                 android:elevation="14dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="35dp"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -559,22 +547,14 @@
             </LinearLayout>
 
 
-            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/small_middle_banner_ad1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linear_layout11"
-                android:layout_marginTop="5dp"
-                ads:adSize="LARGE_BANNER"
-                ads:adUnitId="@string/large_middle_banner_ad_unit_about_app_activity">
-            </com.google.android.gms.ads.AdView>
+
 
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/small_middle_banner_ad1"
+                android:layout_below="@+id/linear_layout11"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/text_background_shape_style2"
                 android:elevation="14dp"

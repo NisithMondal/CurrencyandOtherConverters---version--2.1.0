@@ -67,8 +67,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         toolbarSoundIconHandaler = new ToolbarSoundIconHandaler(this,textSpeaker);
         toolbarSoundIconHandaler.setToolbarSoundIconState(toolbarSoundIconImageView);//set toolbar sound icon state(voume off or volume on) at the begining of this activity
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
-        //To show Banner Ad
-        showSmallBannerAd();
+
 
 
     }
@@ -82,13 +81,6 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
     }
 
 
-    private void showSmallBannerAd(){
-        //For showing Small Banner Ads
-        //For AdMob Ads
-        //For Banner Ads
-        AdView smallBannedAdView = findViewById(R.id.small_banner_ad);
-        smallBannedAdView.loadAd(new AdRequest.Builder().build());
-    }
 
 
     @Override
