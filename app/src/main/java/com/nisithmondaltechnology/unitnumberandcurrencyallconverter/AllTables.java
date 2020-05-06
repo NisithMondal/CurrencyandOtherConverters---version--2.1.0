@@ -18,6 +18,8 @@ public class AllTables {
         public static final String volume = "volume";
         public static final String weight = "weight";
         public static final String bits_bytes = "bits_bytes";
+        public static final String current = "current";
+        public static final String resistance = "resistance";
 
     }
 

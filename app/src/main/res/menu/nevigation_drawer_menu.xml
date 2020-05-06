@@ -3,9 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
+
     <group
         android:checkableBehavior="single"
         >
+    <item android:title="Basic Converters">
+        <menu>
 
         <item
             android:id="@+id/currency"
@@ -44,19 +48,6 @@
             />
 
 
-        <item
-            android:id="@+id/weight"
-            android:title="Weight  Converter"
-            android:icon="@drawable/ic_weight"
-            />
-
-
-
-        <item
-            android:id="@+id/temperature"
-            android:title="Temperature  Converter"
-            android:icon="@drawable/ic_temperature"
-            />
 
         <item
             android:id="@+id/number_system"
@@ -65,35 +56,138 @@
             />
 
 
-        <item
-            android:id="@+id/speed"
-            android:title="Speed Converter"
-            android:icon="@drawable/ic_speed"
-            />
 
-
-        <item
-            android:id="@+id/time"
-            android:title="Time Converter"
-            android:icon="@drawable/ic_clock"
-            />
-
-        <item
-            android:id="@+id/frequency"
-            android:title="Frequency Converter"
-            android:icon="@drawable/ic_frequency"
-            />
-
-        <item
-            android:id="@+id/bits_bytes"
-            android:title="Bits-Bytes Converter"
-            android:icon="@drawable/ic_bits_bytes"
-            />
+  </menu>
+</item>
 
     </group>
 
+    <group
+        android:checkableBehavior="single"
+        >
+     <item
+         android:title="Physics Converters">
+         <menu>
+
+
+
+             <item
+                 android:id="@+id/weight"
+                 android:title="Weight  Converter"
+                 android:icon="@drawable/ic_weight"
+                 />
+
+
+
+             <item
+                 android:id="@+id/temperature"
+                 android:title="Temperature  Converter"
+                 android:icon="@drawable/ic_temperature"
+                 />
+
+             <item
+                 android:id="@+id/speed"
+                 android:title="Speed Converter"
+                 android:icon="@drawable/ic_speed"
+                 />
+
+
+
+             <item
+                 android:id="@+id/frequency"
+                 android:title="Frequency Converter"
+                 android:icon="@drawable/ic_frequency"
+                 />
+
+             <item
+                 android:id="@+id/time"
+                 android:title="Time Converter"
+                 android:icon="@drawable/ic_clock"
+                 />
+
+
+             <item
+                 android:id="@+id/energy"
+                 android:title="Energy Converter"
+                 android:icon="@drawable/ic_energy_icon"
+                 />
+
+
+
+             <item
+                 android:id="@+id/force"
+                 android:title="Force Converter"
+                 android:icon="@drawable/ic_force_icon"
+                 />
+
+
+             <item
+                 android:id="@+id/acceleration"
+                 android:title="Acceleration Converter"
+                 android:icon="@drawable/ic_acceleration_icon"
+                 />
+
+
+             <item
+                 android:id="@+id/bits_bytes"
+                 android:title="Bits-Bytes Converter"
+                 android:icon="@drawable/ic_bits_bytes"
+                 />
+         </menu>
+     </item>
+
+
+
+    </group>
+
+
+
+
+
+    <group
+        android:checkableBehavior="single"
+        >
+        <item
+            android:title="Electricity Converters">
+            <menu>
+
+                <item
+                    android:id="@+id/charge"
+                    android:title="Charge Converter"
+                    android:icon="@drawable/ic_charge_icon"
+                    />
+
+                <item
+                    android:id="@+id/current"
+                    android:title="Current Converter"
+                    android:icon="@drawable/ic_current_icon"
+                    />
+
+                <item
+                    android:id="@+id/resistance"
+                    android:title="Resistance Converter"
+                    android:icon="@drawable/ic_resistance_icon"
+                    />
+
+                <item
+                    android:id="@+id/capacitance"
+                    android:title="Capacitance Converter"
+                    android:icon="@drawable/ic_capacitance_icon"
+                    />
+
+                <item
+                    android:id="@+id/power"
+                    android:title="Power Converter"
+                    android:icon="@drawable/ic_power_icon"
+                    />
+             </menu>
+         </item>
+    </group>
+
+
+
     <item
-        android:title=""
+        android:title="Others"
         >
 
         <menu>

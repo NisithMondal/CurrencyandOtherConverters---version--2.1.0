@@ -235,6 +235,16 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                 startActivity(bitsBytesIntent);
                 break;
 
+            case R.id.current:
+                Intent currentIntent = new Intent(CurrencyActivity.this,CurrentConverterActivity.class);
+                startActivity(currentIntent);
+                break;
+
+            case R.id.resistance:
+                Intent resistanceIntent = new Intent(CurrencyActivity.this,ResistanceConverterActivity.class);
+                startActivity(resistanceIntent);
+                break;
+
             case R.id.help:
                 Intent helpIntent = new Intent(CurrencyActivity.this,HelpActivity.class);
                 startActivity(helpIntent);
@@ -696,9 +706,6 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
             }catch (Exception e){
                 Toast.makeText(this, "Not Open. Something Went Wrong", Toast.LENGTH_SHORT).show();
             }
-
-
-
     }
 
 

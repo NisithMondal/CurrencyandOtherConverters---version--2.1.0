@@ -18,9 +18,6 @@ import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import java.util.ArrayList;
 
 public class AllCurrencyNameActivity extends AppCompatActivity implements AllcurrencyRecyclerViewAdapter.OnCardViewClickListener {

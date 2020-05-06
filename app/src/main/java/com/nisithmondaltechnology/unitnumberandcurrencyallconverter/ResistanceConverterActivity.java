@@ -30,17 +30,17 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class BitsBytesConverterActivity extends AppCompatActivity {
+public class ResistanceConverterActivity extends AppCompatActivity {
 
     private ImageView arrowImageView;
-    private TextView leftBitsBytesTextView,rightBitsBytesTextView;
-    private LinearLayout leftBitsBytesLayout,rightBitsBytesLayout;
+    private TextView leftResistanceTextView, rightResistanceTextView;
+    private LinearLayout leftResistanceLayout, rightResistanceLayout;
     private TextView marqueTextView;
     private TextView resultTextView;
-    private EditText bitsBytesValueEditText;
+    private EditText resistanceValueEditText;
     private Spinner leftSpinner,rightSpinner;
-    private Button bitsBytesConvertButton;
-    private Button bitsBytesHistoryButton;
+    private Button resistanceConvertButton;
+    private Button resistanceHistoryButton;
     private TextSpeaker textSpeaker;
     // I used sharedPreference to store sound icon state (enable or dissable) instead of using database
     private SoundStateSharedPreference soundStateSharedPreference;
@@ -49,17 +49,15 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
     private Toolbar appToolbar;
     private TextView toolbarTitle;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bits_bytes_converter);
+        setContentView(R.layout.activity_resistance_converter);
         setConvertionFromXmlToJavaObject();//initalized objects
         marqueTextView.setSelected(true);
         setSupportActionBar(appToolbar);
         setTitle("");
-        toolbarTitle.setText("Bits-Bytes Converter");
+        toolbarTitle.setText("Resistance Converter");
         appToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         appToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,15 +76,15 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
-        bitsBytesConvertButton.setOnClickListener(new MyBitsBytesButtonClick());
-        bitsBytesHistoryButton.setOnClickListener(new MyBitsBytesHistoryButtonClick());
-        bitsBytesValueEditText.addTextChangedListener(new MyTextWatcher());
+        marqueTextView.setText("Resistance  is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+        resistanceConvertButton.setOnClickListener(new MyResistanceButtonClick());
+        resistanceHistoryButton.setOnClickListener(new MyResistanceHistoryButtonClick());
+        resistanceValueEditText.addTextChangedListener(new MyTextWatcher());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
-
-
     }
+
+
 
 
     private void closeKeyBoard(){
@@ -104,17 +102,17 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         toolbarTitle = findViewById(R.id.app_toolbar_title);
         toolbarSoundIconImageView = appToolbar.findViewById(R.id.audio_enable_image_view);
         arrowImageView = findViewById(R.id.arrow_image_view);
-        leftBitsBytesLayout = findViewById(R.id.left_bits_bytes_layout);
-        rightBitsBytesLayout = findViewById(R.id.right_bits_bytes_layout);
-        leftBitsBytesTextView = findViewById(R.id.left_bits_bytes_text_view);
-        rightBitsBytesTextView = findViewById(R.id.right_bits_bytes_text_view);
+        leftResistanceLayout = findViewById(R.id.left_resistance_layout);
+        rightResistanceLayout = findViewById(R.id.right_resistance_layout);
+        leftResistanceTextView = findViewById(R.id.left_resistance_text_view);
+        rightResistanceTextView = findViewById(R.id.right_resistance_text_view);
         marqueTextView = findViewById(R.id.marque_text_view);
         resultTextView = findViewById(R.id.result_text_view);
-        bitsBytesValueEditText = findViewById(R.id.edit_text);
+        resistanceValueEditText = findViewById(R.id.edit_text);
         leftSpinner = findViewById(R.id.left_spinner);
         rightSpinner = findViewById(R.id.right_spinner);
-        bitsBytesConvertButton = findViewById(R.id.bits_bytes_convert_button);
-        bitsBytesHistoryButton = findViewById(R.id.bits_bytes_history_button);
+        resistanceConvertButton = findViewById(R.id.resistance_convert_button);
+        resistanceHistoryButton = findViewById(R.id.resistance_history_button);
     }
 
 
@@ -126,8 +124,8 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         arrowImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String leftCurrencyTextViewValue = leftBitsBytesTextView.getText().toString();
-                String rightCurrencyTextViewValue = rightBitsBytesTextView.getText().toString();
+                String leftCurrencyTextViewValue = leftResistanceTextView.getText().toString();
+                String rightCurrencyTextViewValue = rightResistanceTextView.getText().toString();
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
@@ -136,19 +134,19 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
-                        .playOn(leftBitsBytesLayout);
-                leftBitsBytesTextView.setText(rightCurrencyTextViewValue);
-                bitsBytesValueEditText.setHint("Enter Value ("+leftBitsBytesTextView.getText().toString()+")");
+                        .playOn(leftResistanceLayout);
+                leftResistanceTextView.setText(rightCurrencyTextViewValue);
+                resistanceValueEditText.setHint("Enter Value ("+ leftResistanceTextView.getText().toString()+")");
 
 
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
-                        .playOn(rightBitsBytesLayout);
+                        .playOn(rightResistanceLayout);
 
-                rightBitsBytesTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
-                performBitsBytesConvertion();
+                rightResistanceTextView.setText(leftCurrencyTextViewValue);
+                marqueTextView.setText("Resistance   is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+                performResistanceConversion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
 
@@ -160,8 +158,8 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
 
 
     private void setAdapterOnSpinner(){
-        ArrayAdapter<CharSequence> spinnerLeftArrayAdapter = ArrayAdapter.createFromResource(this,R.array.bits_bytes_units_left,R.layout.spinner_item);
-        ArrayAdapter<CharSequence> spinnerRightArrayAdapter = ArrayAdapter.createFromResource(this,R.array.bits_bytes_units_right,R.layout.spinner_item);
+        ArrayAdapter<CharSequence> spinnerLeftArrayAdapter = ArrayAdapter.createFromResource(this,R.array.resistance_units_left,R.layout.spinner_item);
+        ArrayAdapter<CharSequence> spinnerRightArrayAdapter = ArrayAdapter.createFromResource(this,R.array.resistance_units_right,R.layout.spinner_item);
         spinnerLeftArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerRightArrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         leftSpinner.setAdapter(spinnerLeftArrayAdapter);
@@ -174,10 +172,10 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            leftBitsBytesTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
-            performBitsBytesConvertion();
-            bitsBytesValueEditText.setHint("Enter Value ("+leftBitsBytesTextView.getText().toString()+")");
+            leftResistanceTextView.setText(parent.getItemAtPosition(position).toString());
+            marqueTextView.setText("Resistance   is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+            performResistanceConversion();
+            resistanceValueEditText.setHint("Enter Value ("+ leftResistanceTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
             playAudioSound();
         }
@@ -193,9 +191,9 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            rightBitsBytesTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
-            performBitsBytesConvertion();
+            rightResistanceTextView.setText(parent.getItemAtPosition(position).toString());
+            marqueTextView.setText("Resistance   is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+            performResistanceConversion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
 
@@ -210,7 +208,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
 
 
 
-    private class MyBitsBytesButtonClick implements View.OnClickListener{
+    private class MyResistanceButtonClick implements View.OnClickListener{
 
         @Override
         public void onClick(View v) {
@@ -218,19 +216,19 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
             //Check if Internet is Available or Not
             if (isInternetAvailable()) {
                 //Check if Edit text field is empty or not
-                if (bitsBytesValueEditText.getText().toString().length()>0){
+                if (resistanceValueEditText.getText().toString().length()>0){
                     //Some Value in edit text
-                    performBitsBytesConvertion();
+                    performResistanceConversion();
                     closeKeyBoard();
 
                 }else {
                     //if Empty
-                    Toast.makeText(BitsBytesConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ResistanceConverterActivity.this, "Please Enter Value in Text Filed", Toast.LENGTH_SHORT).show();
                 }
             }else {
                 //Internet not Available
                 AlertDialogForInternetConnectionError dialog = new AlertDialogForInternetConnectionError();
-                dialog.show(getSupportFragmentManager(),"bits-bytes");
+                dialog.show(getSupportFragmentManager(),"resistance");
             }
         }
     }
@@ -249,14 +247,14 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
     }
 
 
-    private class MyBitsBytesHistoryButtonClick implements View.OnClickListener{
+    private class MyResistanceHistoryButtonClick implements View.OnClickListener{
         public void onClick(View view){
             //This method is called when frequencyHistoryButton is clicked
             final String activityName = "activity_name";
             final String conversionType = "convertion_type";
-            Intent historyIntent = new Intent(BitsBytesConverterActivity.this, GeneralHistoryActivity.class);
-            historyIntent.putExtra(activityName,"Bits-Bytes History");
-            historyIntent.putExtra(conversionType,AllTables.ConvertionType.bits_bytes);
+            Intent historyIntent = new Intent(ResistanceConverterActivity.this, GeneralHistoryActivity.class);
+            historyIntent.putExtra(activityName,"Resistance History");
+            historyIntent.putExtra(conversionType,AllTables.ConvertionType.resistance);
             startActivity(historyIntent);
 
         }
@@ -286,7 +284,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
                     textSpeaker.speakEditTextCharacter(String.valueOf(s.charAt(start)));
                 }
             }
-            if (bitsBytesValueEditText.getText().toString().length()==0){
+            if (resistanceValueEditText.getText().toString().length()==0){
                 //If the edit text has no number i.e. empty then hide result text view
                 resultTextView.setVisibility(View.INVISIBLE);
             }
@@ -333,32 +331,32 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("hh:mm aa");
         Date date = new Date();
         String currentTime = format.format(date);
-        myDatabaseHelper.insertDataToDatabase(convertionText,currentDate,currentTime,AllTables.ConvertionType.bits_bytes);
+        myDatabaseHelper.insertDataToDatabase(convertionText,currentDate,currentTime,AllTables.ConvertionType.resistance);
     }
 
 
 
-    private void performBitsBytesConvertion(){
+    private void performResistanceConversion(){
         //Check internet is Available or not
         if (isInternetAvailable()) {
-            if (bitsBytesValueEditText.getText().toString().length() > 0) {
-                String leftBitsBytesTextViewValue = leftBitsBytesTextView.getText().toString();
-                String rightBitsBytesTextViewValue = rightBitsBytesTextView.getText().toString();
-                String editTextSting = bitsBytesValueEditText.getText().toString();
+            if (resistanceValueEditText.getText().toString().length() > 0) {
+                String leftResistanceTextViewValue = leftResistanceTextView.getText().toString();
+                String rightResistanceTextViewValue = rightResistanceTextView.getText().toString();
+                String editTextSting = resistanceValueEditText.getText().toString();
                 if (editTextSting.length() == 1 && editTextSting.equalsIgnoreCase(".")){
                     Toast.makeText(this, "Enter more Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 double userInputData = Double.parseDouble(editTextSting);
-                BitsBytesConverter bitsBytesConverter = new BitsBytesConverter();
-                double resultInDouble = bitsBytesConverter.getBitsBytesConvertResult(leftBitsBytesTextViewValue, rightBitsBytesTextViewValue, userInputData);
+                ResistanceConverter resistanceConverter = new ResistanceConverter();
+                double resultInDouble = resistanceConverter.getResistanceConvertResult(leftResistanceTextViewValue, rightResistanceTextViewValue, userInputData);
                 String result = String.valueOf(resultInDouble);
                 if (result.endsWith(".0")) {
                     //This is because we want to remove .0 if the result contains .0 at last. For example if result is 12.0 ,then we only store 12 in result
                     result = result.substring(0, (result.length() - 2));
                 }
                 resultTextView.setVisibility(View.VISIBLE);
-                resultTextView.setText(editTextSting + "  " + leftBitsBytesTextViewValue + "  =  " + result + "  " + rightBitsBytesTextViewValue);
+                resultTextView.setText(editTextSting + "  " + leftResistanceTextViewValue + "  =  " + result + "  " + rightResistanceTextViewValue);
             }
         }else {
             //Internet is not available then,
@@ -371,9 +369,9 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
 
     private void playAudioSound(){
         //this function convert text to audio sound
-        String leftTextViewValue = leftBitsBytesTextView.getText().toString();
-        String rightTextViewValue = rightBitsBytesTextView.getText().toString();
-        String text = "Internet Data Unit is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String leftTextViewValue = leftResistanceTextView.getText().toString();
+        String rightTextViewValue = rightResistanceTextView.getText().toString();
+        String text = "Resistance is converted from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
@@ -401,7 +399,6 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         super.onDestroy();
 
     }
-
 
 
 }

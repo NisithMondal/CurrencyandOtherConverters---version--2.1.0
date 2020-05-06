@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BitsBytesConverterActivity">
+    tools:context=".ResistanceConverterActivity">
 
 
     <RelativeLayout
@@ -61,7 +61,7 @@
 
 
                         <LinearLayout
-                            android:id="@+id/left_bits_bytes_layout"
+                            android:id="@+id/left_resistance_layout"
                             android:layout_width="145dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
@@ -69,11 +69,11 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/left_bits_bytes_text_view"
+                                android:id="@+id/left_resistance_text_view"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="14sp"
+                                android:textSize="13sp"
                                 android:textStyle="bold" />
 
 
@@ -93,7 +93,7 @@
                             android:src="@drawable/ic_autorenew" />
 
                         <LinearLayout
-                            android:id="@+id/right_bits_bytes_layout"
+                            android:id="@+id/right_resistance_layout"
                             android:layout_width="145dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
@@ -101,12 +101,12 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/right_bits_bytes_text_view"
+                                android:id="@+id/right_resistance_text_view"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="14sp"
+                                android:textSize="13sp"
                                 android:textStyle="bold" />
 
                             <Spinner
@@ -158,7 +158,7 @@
                         android:gravity="center">
 
                         <Button
-                            android:id="@+id/bits_bytes_convert_button"
+                            android:id="@+id/resistance_convert_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="0dp"
@@ -169,7 +169,7 @@
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/bits_bytes_history_button"
+                            android:id="@+id/resistance_history_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"

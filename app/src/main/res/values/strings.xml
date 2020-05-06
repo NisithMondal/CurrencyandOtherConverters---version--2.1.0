@@ -811,6 +811,94 @@
         <item>ExaBytes (EB)</item>
     </string-array>
 
+    <string-array name="resistance_units_left">
+        <item>MegaOhm (MΩ)</item>
+        <item>Ohm (Ω)</item>
+        <item>AbOhm (abΩ)</item>
+        <item>KiloOhm (kΩ)</item>
+        <item>GigaOhm (GΩ)</item>
+        <item>MilliOhm (mΩ)</item>
+        <item>MicroOhm (µΩ)</item>
+        <item>NanoOhm (nΩ)</item>
+        <item>Volt/Ampere</item>
+    </string-array>
+
+
+    <string-array name="resistance_units_right">
+        <item>KiloOhm (kΩ)</item>
+        <item>Ohm (Ω)</item>
+        <item>AbOhm (abΩ)</item>
+        <item>MegaOhm (MΩ)</item>
+        <item>GigaOhm (GΩ)</item>
+        <item>MilliOhm (mΩ)</item>
+        <item>MicroOhm (µΩ)</item>
+        <item>NanoOhm (nΩ)</item>
+        <item>Volt/Ampere</item>
+    </string-array>
+
+
+    <string-array name="current_units_left">
+        <item>Ampere (A)</item>
+        <item>Biot (Bi)</item>
+        <item>AbAmpere (abA)</item>
+        <item>MilliAmpere (mA)</item>
+        <item>MicroAmpere (µA)</item>
+        <item>NanoAmpere (nA)</item>
+        <item>PicoAmpere (pA)</item>
+        <item>KiloAmpere (KA)</item>
+        <item>MegaAmpere (MA)</item>
+        <item>Coulomb/Second</item>
+    </string-array>
+
+    <string-array name="current_units_right">
+        <item>MilliAmpere (mA)</item>
+        <item>Ampere (A)</item>
+        <item>Biot (Bi)</item>
+        <item>AbAmpere (abA)</item>
+        <item>MicroAmpere (µA)</item>
+        <item>NanoAmpere (nA)</item>
+        <item>PicoAmpere (pA)</item>
+        <item>KiloAmpere (KA)</item>
+        <item>MegaAmpere (MA)</item>
+        <item>Coulomb/Second</item>
+    </string-array>
+
+    <string-array name="capacitance_units_left">
+        <item>NanoFarad (nF)</item>
+        <item>Farad (F)</item>
+        <item>ExaFarad (EF)</item>
+        <item>PetaFarad (PF)</item>
+        <item>TeraFarad (TF)</item>
+        <item>GigaFarad (GF)</item>
+        <item>MegaFarad (MF)</item>
+        <item>KiloFarad (KF)</item>
+        <item>CentiFarad (cF)</item>
+        <item>MilliFarad (mF)</item>
+        <item>MicroFarad (µF)</item>
+        <item>PicoFarad (pF)</item>
+        <item>FemtoFarad (fF)</item>
+        <item>AttoFarad (aF)</item>
+        <item>coulomb/volt</item>
+    </string-array>
+
+
+    <string-array name="capacitance_units_right">
+        <item>PicoFarad (pF)</item>
+        <item>Farad (F)</item>
+        <item>ExaFarad (EF)</item>
+        <item>PetaFarad (PF)</item>
+        <item>TeraFarad (TF)</item>
+        <item>GigaFarad (GF)</item>
+        <item>MegaFarad (MF)</item>
+        <item>KiloFarad (KF)</item>
+        <item>CentiFarad (cF)</item>
+        <item>MilliFarad (mF)</item>
+        <item>MicroFarad (µF)</item>
+        <item>NanoFarad (nF)</item>
+        <item>FemtoFarad (fF)</item>
+        <item>AttoFarad (aF)</item>
+        <item>coulomb/volt</item>
+    </string-array>
 
     <string name="app_title">Unit Number and Currency All Converter</string>
 
