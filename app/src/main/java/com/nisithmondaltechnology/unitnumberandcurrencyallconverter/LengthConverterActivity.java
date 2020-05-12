@@ -78,7 +78,7 @@ public class LengthConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Length   is   Converted    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Length   is   Converting    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
         lengthConvertButton.setOnClickListener(new MyLengthConvertButtonClick());
         lengthValueEditText.addTextChangedListener(new MyTextWatcher());
         lengthHistoryButton.setOnClickListener(new MyLengthHistoryButtonClick());
@@ -161,7 +161,7 @@ public class LengthConverterActivity extends AppCompatActivity {
                         .playOn(rightLengthLayout);
 
                 rightLengthTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Length   is   Converted    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Length   is   Converting    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
                 perFormLengthConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -184,7 +184,7 @@ public class LengthConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftLengthTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Length   is   Converted    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Length   is   Converting    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
             perFormLengthConvertion();
             lengthValueEditText.setHint("Enter Value ("+leftLengthTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -203,7 +203,7 @@ public class LengthConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightLengthTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Length   is   Converted    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Length   is   Converting    From   "+leftLengthTextView.getText().toString() +      "       To     "+ rightLengthTextView.getText().toString()+"                                  ");
             perFormLengthConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -399,7 +399,7 @@ public class LengthConverterActivity extends AppCompatActivity {
         }else if (rightTextViewValue.equalsIgnoreCase("mm")){
             rightTextViewValue = "milliMeter";
         }
-        String text = "Length is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Length is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

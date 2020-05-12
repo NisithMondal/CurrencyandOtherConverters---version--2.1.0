@@ -77,7 +77,7 @@ public class TimeConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Time   is   Converted    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Time   is   Converting    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
         timeConvertButton.setOnClickListener(new MyTimeConvertButtonClick());
         timeValueEditText.addTextChangedListener(new MyTextWatcher());
         timeHistoryButton.setOnClickListener(new MyTimeHistoryButtonClick());
@@ -156,7 +156,7 @@ public class TimeConverterActivity extends AppCompatActivity {
                         .playOn(rightTimeLayout);
 
                 rightTimeTextView.setText(leftTimeTextViewValue);
-                marqueTextView.setText("Time   is   Converted    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Time   is   Converting    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
                 performTimeConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -185,7 +185,7 @@ public class TimeConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftTimeTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Time   is   Converted    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Time   is   Converting    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
             performTimeConvertion();
             timeValueEditText.setHint("Enter Value ("+leftTimeTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -204,7 +204,7 @@ public class TimeConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightTimeTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Time   is   Converted    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Time   is   Converting    From   "+leftTimeTextView.getText().toString() +      "       To     "+ rightTimeTextView.getText().toString()+"                                  ");
             performTimeConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -376,7 +376,7 @@ public class TimeConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftTimeTextView.getText().toString();
         String rightTextViewValue = rightTimeTextView.getText().toString();
-        String text = "Time is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Time is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

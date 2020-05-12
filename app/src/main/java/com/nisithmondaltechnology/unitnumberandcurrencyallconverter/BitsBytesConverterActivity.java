@@ -78,7 +78,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Bits-Bytes   is   Converting    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
         bitsBytesConvertButton.setOnClickListener(new MyBitsBytesButtonClick());
         bitsBytesHistoryButton.setOnClickListener(new MyBitsBytesHistoryButtonClick());
         bitsBytesValueEditText.addTextChangedListener(new MyTextWatcher());
@@ -147,7 +147,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
                         .playOn(rightBitsBytesLayout);
 
                 rightBitsBytesTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Bits-Bytes   is   Converting    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
                 performBitsBytesConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -175,7 +175,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftBitsBytesTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Bits-Bytes   is   Converting    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
             performBitsBytesConvertion();
             bitsBytesValueEditText.setHint("Enter Value ("+leftBitsBytesTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -194,7 +194,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightBitsBytesTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Bits-Bytes   is   Converted    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Bits-Bytes   is   Converting    From   "+leftBitsBytesTextView.getText().toString() +      "       To     "+ rightBitsBytesTextView.getText().toString()+"                                  ");
             performBitsBytesConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -373,7 +373,7 @@ public class BitsBytesConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftBitsBytesTextView.getText().toString();
         String rightTextViewValue = rightBitsBytesTextView.getText().toString();
-        String text = "Internet Data Unit is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Internet Data Unit is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {

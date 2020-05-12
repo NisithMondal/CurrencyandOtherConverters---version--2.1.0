@@ -76,7 +76,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Volume   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Volume   is   Converting    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
         volumeConvertButton.setOnClickListener(new MyVolumeConvertButtonClick());
         volumeValueEditText.addTextChangedListener(new MyTextWatcher());
         volumeHistoryButton.setOnClickListener(new MyVolumeHistoryButtonClick());
@@ -157,7 +157,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
                         .playOn(rightVolumeLayout);
 
                 rightVolumeTextView.setText(leftVolumeTextViewValue);
-                marqueTextView.setText("Volume   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Volume   is   Converting    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
                 performVolumeConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -186,7 +186,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftVolumeTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Volume   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Volume   is   Converting    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
             performVolumeConvertion();
             volumeValueEditText.setHint("Enter Value ("+leftVolumeTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -205,7 +205,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightVolumeTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Volume   is   Converted    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Volume   is   Converting    From   "+leftVolumeTextView.getText().toString() +      "       To     "+ rightVolumeTextView.getText().toString()+"                                  ");
             performVolumeConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -387,7 +387,7 @@ public class VolumeConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftVolumeTextView.getText().toString();
         String rightTextViewValue = rightVolumeTextView.getText().toString();
-        String text = "Volume is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Volume is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

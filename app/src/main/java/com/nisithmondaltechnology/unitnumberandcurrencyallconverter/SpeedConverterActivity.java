@@ -78,7 +78,7 @@ public class SpeedConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Speed   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Speed   is   Converting    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
         speedConvertButton.setOnClickListener(new MySpeedConvertButtonClick());
         speedValueEditText.addTextChangedListener(new MyTextWatcher());
         speedHistoryButton.setOnClickListener(new MySpeedHistoryButtonClick());
@@ -157,7 +157,7 @@ public class SpeedConverterActivity extends AppCompatActivity {
                         .playOn(rightSpeedLayout);
 
                 rightSpeedTextView.setText(leftFrequencyTextViewValue);
-                marqueTextView.setText("Speed   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Speed   is   Converting    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
                 performSpeedConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -184,7 +184,7 @@ public class SpeedConverterActivity extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             leftSpeedTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Speed   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Speed   is   Converting    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
             performSpeedConvertion();
             speedValueEditText.setHint("Enter Value ("+leftSpeedTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -204,7 +204,7 @@ public class SpeedConverterActivity extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             rightSpeedTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Speed   is   Converted    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Speed   is   Converting    From   "+leftSpeedTextView.getText().toString() +      "       To     "+ rightSpeedTextView.getText().toString()+"                                  ");
             performSpeedConvertion();
 
             //this is for audio speech when one select rightSpinnerItem
@@ -385,7 +385,7 @@ public class SpeedConverterActivity extends AppCompatActivity {
 
         leftTextViewValue = leftTextViewValue.substring(0,leftTextViewValue.indexOf(" "));
         rightTextViewValue = rightTextViewValue.substring(0,rightTextViewValue.indexOf(" "));
-        String text = "Speed is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Speed is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
 
 

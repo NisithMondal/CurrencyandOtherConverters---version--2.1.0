@@ -106,110 +106,111 @@
                  />
 
 
-             <item
+         <!--    <item
                  android:id="@+id/energy"
                  android:title="Energy Converter"
                  android:icon="@drawable/ic_energy_icon"
                  />
 
+             -->
 
 
-             <item
+          <!--   <item
                  android:id="@+id/force"
                  android:title="Force Converter"
                  android:icon="@drawable/ic_force_icon"
-                 />
+                 />  -->
 
 
-             <item
-                 android:id="@+id/acceleration"
-                 android:title="Acceleration Converter"
-                 android:icon="@drawable/ic_acceleration_icon"
-                 />
+             <!--    <item
+                     android:id="@+id/acceleration"
+                     android:title="Acceleration Converter"
+                     android:icon="@drawable/ic_acceleration_icon"
+                     />  -->
 
 
-             <item
-                 android:id="@+id/bits_bytes"
-                 android:title="Bits-Bytes Converter"
-                 android:icon="@drawable/ic_bits_bytes"
-                 />
-         </menu>
-     </item>
-
-
-
-    </group>
-
-
-
-
-
-    <group
-        android:checkableBehavior="single"
-        >
-        <item
-            android:title="Electricity Converters">
-            <menu>
-
-                <item
-                    android:id="@+id/charge"
-                    android:title="Charge Converter"
-                    android:icon="@drawable/ic_charge_icon"
-                    />
-
-                <item
-                    android:id="@+id/current"
-                    android:title="Current Converter"
-                    android:icon="@drawable/ic_current_icon"
-                    />
-
-                <item
-                    android:id="@+id/resistance"
-                    android:title="Resistance Converter"
-                    android:icon="@drawable/ic_resistance_icon"
-                    />
-
-                <item
-                    android:id="@+id/capacitance"
-                    android:title="Capacitance Converter"
-                    android:icon="@drawable/ic_capacitance_icon"
-                    />
-
-                <item
-                    android:id="@+id/power"
-                    android:title="Power Converter"
-                    android:icon="@drawable/ic_power_icon"
-                    />
+                 <item
+                     android:id="@+id/bits_bytes"
+                     android:title="Bits-Bytes Converter"
+                     android:icon="@drawable/ic_bits_bytes"
+                     />
              </menu>
          </item>
-    </group>
 
 
 
-    <item
-        android:title="Others"
-        >
+        </group>
 
-        <menu>
 
+
+
+
+        <group
+            android:checkableBehavior="single"
+            >
             <item
-                android:id="@+id/help"
-                android:title="Help"
-                android:icon="@drawable/ic_help"/>
+                android:title="Electricity Converters">
+                <menu>
 
-            <item
-                android:id="@+id/about_app"
-                android:title="About App"
-                android:icon="@drawable/ic_information"/>
+                    <!--    <item
+                            android:id="@+id/charge"
+                            android:title="Charge Converter"
+                            android:icon="@drawable/ic_charge_icon"
+                            />   -->
 
-            <item
-                android:id="@+id/privacy_policy"
-                android:title="Privacy Policy"
-                android:icon="@drawable/ic_person"/>
+                        <item
+                            android:id="@+id/current"
+                            android:title="Current Converter"
+                            android:icon="@drawable/ic_current_icon"
+                            />
 
-        </menu>
-    </item>
+                        <item
+                            android:id="@+id/resistance"
+                            android:title="Resistance Converter"
+                            android:icon="@drawable/ic_resistance_icon"
+                            />
+
+                    <!--    <item
+                            android:id="@+id/capacitance"
+                            android:title="Capacitance Converter"
+                            android:icon="@drawable/ic_capacitance_icon"
+                            />   -->
+
+                    <!--   <item
+                           android:id="@+id/power"
+                           android:title="Power Converter"
+                           android:icon="@drawable/ic_power_icon"
+                           />   -->
+                    </menu>
+                </item>
+           </group>
 
 
 
-</menu>
+           <item
+               android:title="Others"
+               >
+
+               <menu>
+
+                   <item
+                       android:id="@+id/help"
+                       android:title="Help"
+                       android:icon="@drawable/ic_help"/>
+
+                   <item
+                       android:id="@+id/about_app"
+                       android:title="About App"
+                       android:icon="@drawable/ic_information"/>
+
+                   <item
+                       android:id="@+id/privacy_policy"
+                       android:title="Privacy Policy"
+                       android:icon="@drawable/ic_person"/>
+
+               </menu>
+           </item>
+
+
+
+       </menu>

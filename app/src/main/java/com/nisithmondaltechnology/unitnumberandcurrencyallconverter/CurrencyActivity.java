@@ -96,7 +96,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         arrowImageView = findViewById(R.id.arrow_image_view);
         marqueTextView = findViewById(R.id.marque_text_view);
         progressBar = findViewById(R.id.progressbar);
-        marqueTextView.setText("Currency   is   Converted   From   USD   To   EUR                                          ");
+        marqueTextView.setText("Currency   is   Converting   From   USD   To   EUR                                          ");
         marqueTextView.setSelected(true);
         soundStateSharedPreference = new SoundStateSharedPreference(this);
         if (soundStateSharedPreference.getSoundState().equalsIgnoreCase("empty")){
@@ -309,13 +309,14 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                 enterAmountEditText.setHint("Enter Amount ("+leftCurrencyTextView.getText().toString()+")");
 
 
+
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
                         .playOn(rightCurrencyLayout);
 
                 rightCurrencyTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Currency   is   Converted    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Currency   is   Converting    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                  ");
 
                 //I call performCurrencyConvertion() method here because I want to perform Currency Convertion when ArrowImageView is Clicked
                 performCurrencyConvertion(allCurrencyInfoArrayList);
@@ -545,7 +546,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                     rightCurrencyTextView.setText(selectedCurrencyName);
                     break;
             }
-            marqueTextView.setText("Currency   is   Converted    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                 ");
+            marqueTextView.setText("Currency   is   Converting    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                 ");
             //I call performCurrencyConvertion() method here because I want to perform Currency Convertion when leftSpinner or rightSpinner Item is selected
             performCurrencyConvertion(allCurrencyInfoArrayList);
             //this is for audio speech when one select leftSpinnerItem or right itemSpinner
@@ -687,7 +688,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         //this function convert text to audio sound
         String leftTextViewValue = leftCurrencyTextView.getText().toString();
         String rightTextViewValue = rightCurrencyTextView.getText().toString();
-        String text = "Currency is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Currency is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

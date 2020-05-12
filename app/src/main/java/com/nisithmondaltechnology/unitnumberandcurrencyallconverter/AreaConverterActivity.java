@@ -79,7 +79,7 @@ public class AreaConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Area   is   Converted    From   "+leftAreaTextView.getText().toString() +      "   To   "+ rightArearTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Area   is   Converting    From   "+leftAreaTextView.getText().toString() +      "   To   "+ rightArearTextView.getText().toString()+"                                  ");
         areaConvertButton.setOnClickListener(new MyAreaConvertButtonClick());
         areaValueEditText.addTextChangedListener(new MyTextWatcher());
 
@@ -161,7 +161,7 @@ public class AreaConverterActivity extends AppCompatActivity {
                         .playOn(rightAreaLayout);
 
                 rightArearTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Area   is   Converted    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Area   is   Converting    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
                 performAreaConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -192,7 +192,7 @@ public class AreaConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftAreaTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Area   is   Converted    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Area   is   Converting    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
             performAreaConvertion();
             areaValueEditText.setHint("Enter Value ("+leftAreaTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -211,7 +211,7 @@ public class AreaConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightArearTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Area   is   Converted    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Area   is   Converting    From   "+leftAreaTextView.getText().toString() +      "       To     "+ rightArearTextView.getText().toString()+"                                  ");
             performAreaConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -385,7 +385,7 @@ public class AreaConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftAreaTextView.getText().toString();
         String rightTextViewValue = rightArearTextView.getText().toString();
-        String text = "Area is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Area is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

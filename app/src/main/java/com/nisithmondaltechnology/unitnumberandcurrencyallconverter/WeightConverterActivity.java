@@ -79,7 +79,7 @@ public class WeightConverterActivity extends AppCompatActivity {
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
         weightConverterButton.setOnClickListener(new MyWeightConversionButtonClick());
         weightValueEditText.addTextChangedListener(new MyTextWatcher());
-        marqueTextView.setText("Weight   is   Converted    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Weight   is   Converting    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
         weightHistoryButton.setOnClickListener(new MyWeightHistoryButtonClick());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
@@ -157,7 +157,7 @@ public class WeightConverterActivity extends AppCompatActivity {
                         .playOn(rightWeightLayout);
 
                 rightWeightTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Weight   is   Converted    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Weight   is   Converting    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
                 performWeightConvertion();
 
                 //this is for audio speech when one click arrowImageView
@@ -184,7 +184,7 @@ public class WeightConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftWeightTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Weight   is   Converted    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Weight   is   Converting    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
             performWeightConvertion();
             weightValueEditText.setHint("Enter Value ("+leftWeightTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -203,7 +203,7 @@ public class WeightConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightWeightTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Weight   is   Converted    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Weight   is   Converting    From   "+leftWeightTextView.getText().toString() +      "       To     "+ rightWeightTextView.getText().toString()+"                                  ");
             performWeightConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -375,7 +375,7 @@ public class WeightConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftWeightTextView.getText().toString();
         String rightTextViewValue = rightWeightTextView.getText().toString();
-        String text = "Weight is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Weight is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

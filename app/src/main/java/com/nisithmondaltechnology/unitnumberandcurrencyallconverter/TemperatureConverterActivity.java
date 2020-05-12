@@ -77,7 +77,7 @@ public class TemperatureConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Temperature   is   Converted    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Temperature   is   Converting    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
         temperatureConvertButton.setOnClickListener(new MyTemperatureButtonClick());
         temperatureHistoryButton.setOnClickListener(new MyTemperatureHistoryButtonClick());
         temperatureValueEditText.addTextChangedListener(new MyTextWatcher());
@@ -156,7 +156,7 @@ public class TemperatureConverterActivity extends AppCompatActivity {
                         .playOn(rightTemperatureLayout);
 
                 rightTemperatureTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Temperature   is   Converted    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Temperature   is   Converting    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
                 performTemperatureConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -184,7 +184,7 @@ public class TemperatureConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftTemperatureTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Temperature   is   Converted    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Temperature   is   Converting    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
             performTemperatureConvertion();
             temperatureValueEditText.setHint("Enter Value ("+leftTemperatureTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -203,7 +203,7 @@ public class TemperatureConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightTemperatureTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Temperature   is   Converted    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Temperature   is   Converting    From   "+leftTemperatureTextView.getText().toString() +      "       To     "+ rightTemperatureTextView.getText().toString()+"                                  ");
             performTemperatureConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -384,7 +384,7 @@ public class TemperatureConverterActivity extends AppCompatActivity {
                   for Example Hertz (HZ). In this case i only want to get Unit Hertz Not (HZ) and that's why I do following two lines of code */
         leftTextViewValue = leftTextViewValue.substring(0,leftTextViewValue.indexOf(" "));
         rightTextViewValue = rightTextViewValue.substring(0,rightTextViewValue.indexOf(" "));
-        String text = "Temperature is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Temperature is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {

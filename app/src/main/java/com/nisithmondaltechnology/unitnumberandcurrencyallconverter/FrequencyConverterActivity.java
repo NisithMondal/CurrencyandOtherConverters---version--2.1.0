@@ -92,7 +92,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Frequency   is   Converted    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Frequency   is   Converting    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
         frequencyConvertButton.setOnClickListener(new MyFrequencyConvertButtonClick());
         frequencyHistoryButton.setOnClickListener(new MyFrequencyHistoryButtonClick());
         frequencyValueEditText.addTextChangedListener(new MyTextWatcher());
@@ -156,7 +156,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
                         .playOn(rightFrequencyLayout);
 
                 rightFrequencyTextView.setText(leftFrequencyTextViewValue);
-                marqueTextView.setText("Frequency   is   Converted    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Frequency   is   Converting    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
 
                 //I call performFrequencyConvertion() method here because I want to perform Frequency Convertion when ArrowImageView is Clicked
                 performFrequencyConvertion();
@@ -185,7 +185,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             // This method is Called when any left Spinner's Item is selected
             leftFrequencyTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Frequency   is   Converted    From   " + leftFrequencyTextView.getText().toString() + "       To     " + rightFrequencyTextView.getText().toString() + "                                  ");
+            marqueTextView.setText("Frequency   is   Converting    From   " + leftFrequencyTextView.getText().toString() + "       To     " + rightFrequencyTextView.getText().toString() + "                                  ");
             //I call performFrequencyConvertion() method here because I want to perform Frequency Convertion when leftSpinner Item is selected
             performFrequencyConvertion();
             //Here Edit text hint is hanged when left Spinner item is changed
@@ -207,7 +207,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
             // This method is Called when any right Spinner's Item is selected
 
             rightFrequencyTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Frequency   is   Converted    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Frequency   is   Converting    From   "+leftFrequencyTextView.getText().toString() +      "       To     "+ rightFrequencyTextView.getText().toString()+"                                  ");
             //I call performFrequencyConvertion() method here because I want to perform Frequency Convertion when rightSpinner Item is selected
             performFrequencyConvertion();
             //this is for audio speech when one select rightSpinnerItem
@@ -391,7 +391,7 @@ public class FrequencyConverterActivity extends AppCompatActivity {
           for Example Hertz (HZ). In this case i only want to get Unit Hertz Not (HZ) and that's why I do following two lines of code */
         leftTextViewValue = leftTextViewValue.substring(0,leftTextViewValue.indexOf(" "));
         rightTextViewValue = rightTextViewValue.substring(0,rightTextViewValue.indexOf(" "));
-        String text = "Frequency is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Frequency is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

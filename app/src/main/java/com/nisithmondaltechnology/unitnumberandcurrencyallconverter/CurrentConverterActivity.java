@@ -76,7 +76,7 @@ public class CurrentConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Electric Current   is   Converted    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Electric Current   is   Converting    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
         currentConvertButton.setOnClickListener(new MyCurrentButtonClick());
         currentHistoryButton.setOnClickListener(new MyCurrentHistoryButtonClick());
         currentValueEditText.addTextChangedListener(new MyTextWatcher());
@@ -144,7 +144,7 @@ public class CurrentConverterActivity extends AppCompatActivity {
                         .playOn(rightCurrentLayout);
 
                 rightCurrentTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Electric Current   is   Converted    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Electric Current   is   Converting    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
                 performCutrrentConversion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -172,7 +172,7 @@ public class CurrentConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftCurrentTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Electric Current    is   Converted    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Electric Current    is   Converting    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
             performCutrrentConversion();
             currentValueEditText.setHint("Enter Value ("+leftCurrentTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -191,7 +191,7 @@ public class CurrentConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightCurrentTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Electric Current    is   Converted    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Electric Current    is   Converting    From   "+leftCurrentTextView.getText().toString() +      "       To     "+ rightCurrentTextView.getText().toString()+"                                  ");
             performCutrrentConversion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -370,7 +370,7 @@ public class CurrentConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftCurrentTextView.getText().toString();
         String rightTextViewValue = rightCurrentTextView.getText().toString();
-        String text = "Electric Current  is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Electric Current  is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {

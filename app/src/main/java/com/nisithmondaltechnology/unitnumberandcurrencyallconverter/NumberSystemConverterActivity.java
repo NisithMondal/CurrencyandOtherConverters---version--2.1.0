@@ -86,7 +86,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Number System   is   Converted    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Number System   is   Converting    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
         numberSystemConvertButton.setOnClickListener(new MyNumberSystemConvertButtonClick());
         numberSystemHistoryButton.setOnClickListener(new MyNumberSystemHistoryButtonClick());
         numberSystemValueEditText.addTextChangedListener(new MyTextWatcher());
@@ -172,7 +172,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
                         .playOn(rightNumberSystemLayout);
 
                 rightNumberSystemTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Number System   is   Converted    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Number System   is   Converting    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
                 //The following code is because if anybody click arrow image view the both keypad will invisible
@@ -212,7 +212,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             leftNumberSystemTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Number System   is   Converted    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Number System   is   Converting    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
             numberSystemValueEditText.setHint("Enter Value ("+leftNumberSystemTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
             playAudioSound();
@@ -238,7 +238,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
             rightNumberSystemTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Number System   is   Converted    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Number System   is   Converting    From   "+leftNumberSystemTextView.getText().toString() +      "       To     "+ rightNumberSystemTextView.getText().toString()+"                                  ");
             performNumberSystemConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -520,7 +520,7 @@ public class NumberSystemConverterActivity extends AppCompatActivity implements 
         //this function convert text to audio sound
         String leftTextViewValue = leftNumberSystemTextView.getText().toString();
         String rightTextViewValue = rightNumberSystemTextView.getText().toString();
-        String text = "Number System is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Number System is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

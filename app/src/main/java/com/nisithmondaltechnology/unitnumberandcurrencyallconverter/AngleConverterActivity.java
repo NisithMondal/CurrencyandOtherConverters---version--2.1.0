@@ -77,7 +77,7 @@ public class AngleConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Angle   is   Converting    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
         angleConvertButton.setOnClickListener(new MyAngleConvertButtonClick());
         angleValueEditText.addTextChangedListener(new MyTextWatcher());
         angleHistoryButton.setOnClickListener(new MyAngleHistoryButtonClick());
@@ -162,7 +162,7 @@ public class AngleConverterActivity extends AppCompatActivity {
                         .playOn(rightAngleLayout);
 
                 rightAngleTextView.setText(leftAngleTextViewValue);
-                marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Angle   is   Converting    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
                 performAngleConvertion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -191,7 +191,7 @@ public class AngleConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftAngleTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Angle   is   Converting    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
             performAngleConvertion();
             angleValueEditText.setHint("Enter Value ("+leftAngleTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -210,7 +210,7 @@ public class AngleConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightAngleTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Angle   is   Converted    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Angle   is   Converting    From   "+leftAngleTextView.getText().toString() +      "       To     "+ rightAngleTextView.getText().toString()+"                                  ");
             performAngleConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -386,7 +386,7 @@ public class AngleConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftAngleTextView.getText().toString();
         String rightTextViewValue = rightAngleTextView.getText().toString();
-        String text = "Angle is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Angle is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

@@ -76,7 +76,7 @@ public class PressureConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Pressure   is   Converted    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Pressure   is   Converting    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
         pressureConvertButton.setOnClickListener(new MyPressureConvertButtonClick());
         pressureValueEditText.addTextChangedListener(new MyTextWatcher());
         pressureHistoryButton.setOnClickListener(new MySpeedHistoryButtonClick());
@@ -157,7 +157,7 @@ public class PressureConverterActivity extends AppCompatActivity {
                         .playOn(rightPressureLayout);
 
                 rightPressureTextView.setText(leftPressureTextViewValue);
-                marqueTextView.setText("Pressure   is   Converted    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Pressure   is   Converting    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
                 performPressureConvertion();
 
                 //this is for audio speech when one click arrowImageView
@@ -186,7 +186,7 @@ public class PressureConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftPressureTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Pressure   is   Converted    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Pressure   is   Converting    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
             performPressureConvertion();
             pressureValueEditText.setHint("Enter Value ("+leftPressureTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -205,7 +205,7 @@ public class PressureConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightPressureTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Pressure   is   Converted    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Pressure   is   Converting    From   "+leftPressureTextView.getText().toString() +      "       To     "+ rightPressureTextView.getText().toString()+"                                  ");
             performPressureConvertion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -377,7 +377,7 @@ public class PressureConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftPressureTextView.getText().toString();
         String rightTextViewValue = rightPressureTextView.getText().toString();
-        String text = "Pressure is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Pressure is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {
             //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

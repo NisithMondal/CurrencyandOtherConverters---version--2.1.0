@@ -76,7 +76,7 @@ public class ResistanceConverterActivity extends AppCompatActivity {
         setAdapterOnSpinner();
         leftSpinner.setOnItemSelectedListener(new MyLeftSpinnerItemSelected());
         rightSpinner.setOnItemSelectedListener(new MyRightSpinnerItemSelected());
-        marqueTextView.setText("Resistance  is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+        marqueTextView.setText("Resistance  is   Converting    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
         resistanceConvertButton.setOnClickListener(new MyResistanceButtonClick());
         resistanceHistoryButton.setOnClickListener(new MyResistanceHistoryButtonClick());
         resistanceValueEditText.addTextChangedListener(new MyTextWatcher());
@@ -145,7 +145,7 @@ public class ResistanceConverterActivity extends AppCompatActivity {
                         .playOn(rightResistanceLayout);
 
                 rightResistanceTextView.setText(leftCurrencyTextViewValue);
-                marqueTextView.setText("Resistance   is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+                marqueTextView.setText("Resistance   is   Converting    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
                 performResistanceConversion();
                 //this is for audio speech when one click arrowImageView
                 playAudioSound();
@@ -173,7 +173,7 @@ public class ResistanceConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             leftResistanceTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Resistance   is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Resistance   is   Converting    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
             performResistanceConversion();
             resistanceValueEditText.setHint("Enter Value ("+ leftResistanceTextView.getText().toString()+")");
             //this is for audio speech when one select leftSpinnerItem
@@ -192,7 +192,7 @@ public class ResistanceConverterActivity extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             rightResistanceTextView.setText(parent.getItemAtPosition(position).toString());
-            marqueTextView.setText("Resistance   is   Converted    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
+            marqueTextView.setText("Resistance   is   Converting    From   "+ leftResistanceTextView.getText().toString() +      "       To     "+ rightResistanceTextView.getText().toString()+"                                  ");
             performResistanceConversion();
             //this is for audio speech when one select rightSpinnerItem
             playAudioSound();
@@ -371,7 +371,7 @@ public class ResistanceConverterActivity extends AppCompatActivity {
         //this function convert text to audio sound
         String leftTextViewValue = leftResistanceTextView.getText().toString();
         String rightTextViewValue = rightResistanceTextView.getText().toString();
-        String text = "Resistance is converted from "+leftTextViewValue+" to "+rightTextViewValue;
+        String text = "Resistance is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed
         if(soundState.equalsIgnoreCase(getString(R.string.enable))) {

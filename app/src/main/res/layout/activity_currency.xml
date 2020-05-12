@@ -8,6 +8,7 @@
     tools:context=".CurrencyActivity"
     android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout"
+    tools:openDrawer="start"
     >
 
     <RelativeLayout
@@ -240,7 +241,7 @@
         android:layout_gravity="start"
         app:menu="@menu/nevigation_drawer_menu"
         app:headerLayout="@layout/nevigation_drawer_header"
-        app:itemIconTint="#CA0E58"
+        app:itemIconTint="#0463C0"
         >
 
 
