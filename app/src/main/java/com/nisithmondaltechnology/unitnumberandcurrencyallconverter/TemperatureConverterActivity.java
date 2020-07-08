@@ -382,8 +382,8 @@ public class TemperatureConverterActivity extends AppCompatActivity {
         String rightTextViewValue = rightTemperatureTextView.getText().toString();
               /*Here I do this because I want to only get units name not it's  short form
                   for Example Hertz (HZ). In this case i only want to get Unit Hertz Not (HZ) and that's why I do following two lines of code */
-        leftTextViewValue = leftTextViewValue.substring(0,leftTextViewValue.indexOf(" "));
-        rightTextViewValue = rightTextViewValue.substring(0,rightTextViewValue.indexOf(" "));
+//        leftTextViewValue = leftTextViewValue.substring(0,leftTextViewValue.indexOf(" "));
+//        rightTextViewValue = rightTextViewValue.substring(0,rightTextViewValue.indexOf(" "));
         String text = "Temperature is converting from "+leftTextViewValue+" to "+rightTextViewValue;
         String soundState = soundStateSharedPreference.getSoundState();
         //The soundState saved in sharedPreference  if enabled then only text to speech converTion is performed

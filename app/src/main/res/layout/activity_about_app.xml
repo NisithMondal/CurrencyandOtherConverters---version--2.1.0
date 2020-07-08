@@ -546,6 +546,31 @@
                     android:textStyle="italic" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linear_layout12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout10"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="7dp"
+                android:background="#ffffff"
+                android:gravity="start">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_star_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="And More Converters"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
 
 
 
@@ -554,7 +579,7 @@
                 android:id="@+id/card_view4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/linear_layout11"
+                android:layout_below="@+id/linear_layout12"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/text_background_shape_style2"
                 android:elevation="14dp"
