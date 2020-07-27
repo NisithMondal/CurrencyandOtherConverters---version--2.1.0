@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/user_image_view"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:src="@drawable/app_icon"
         android:layout_centerVertical="true"
-        android:layout_marginStart="86dp"
+        android:layout_marginStart="36dp"
         />
 
     <TextView

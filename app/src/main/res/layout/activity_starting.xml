@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/starting_activity_background_shape_style"
     tools:context=".StartingActivity">
 
     <ImageView
@@ -27,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/app_icon"
         android:layout_marginTop="30dp"
-        android:textColor="#F8530285"
+        android:textColor="#ee00aa"
         android:elevation="20dp"
         />
 
