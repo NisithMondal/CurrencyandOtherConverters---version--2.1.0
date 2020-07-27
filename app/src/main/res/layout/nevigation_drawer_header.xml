@@ -7,15 +7,13 @@
     android:id="@+id/drawer_header">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/user_image_view"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:civ_border_width="3dp"
-        android:src="@drawable/ic_flower1"
+        android:src="@drawable/app_icon"
         android:layout_centerVertical="true"
-        app:civ_border_color="@android:color/white"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="86dp"
         />
 
     <TextView
@@ -23,11 +21,11 @@
         android:layout_below="@+id/user_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello User "
-        android:textSize="16sp"
+        android:text="Converter Application"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
         />
 

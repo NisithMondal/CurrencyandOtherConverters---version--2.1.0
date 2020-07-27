@@ -3,12 +3,17 @@ package com.nisithmondaltechnology.unitnumberandcurrencyallconverter;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -17,15 +22,17 @@ public class AllcurrencyRecyclerViewAdapter extends RecyclerView.Adapter<Allcurr
     private ArrayList<CountryAndCurrency> allCountryAndCurrenciesArrayList;
     private ArrayList<CountryAndCurrency> anotherAllCountryAndCurrenciesArrayList;//this arraylist is for search the rows in recycler View
     private OnCardViewClickListener onCardViewClickListener;
+    private CountryFlags countryFlags;
 
     interface OnCardViewClickListener{
         void onCardViewClick(int position);
     }
 
-     AllcurrencyRecyclerViewAdapter(ArrayList<CountryAndCurrency> allCountryAndCurrenciesArrayList, OnCardViewClickListener onCardViewClickListener){
+     AllcurrencyRecyclerViewAdapter(Context context, ArrayList<CountryAndCurrency> allCountryAndCurrenciesArrayList, OnCardViewClickListener onCardViewClickListener){
         this.allCountryAndCurrenciesArrayList = allCountryAndCurrenciesArrayList;
         this.anotherAllCountryAndCurrenciesArrayList = new ArrayList<>(allCountryAndCurrenciesArrayList);
         this.onCardViewClickListener = onCardViewClickListener;
+        countryFlags = new CountryFlags(context);
 
     }
 
@@ -40,11 +47,19 @@ public class AllcurrencyRecyclerViewAdapter extends RecyclerView.Adapter<Allcurr
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
-
-        myViewHolder.countryName.setText(allCountryAndCurrenciesArrayList.get(position).getCountryName());
-        myViewHolder.currencyName.setText(allCountryAndCurrenciesArrayList.get(position).getCurrencyName());
         String countryName = allCountryAndCurrenciesArrayList.get(position).getCountryName();
+        myViewHolder.countryName.setText(countryName);
+        myViewHolder.currencyName.setText(allCountryAndCurrenciesArrayList.get(position).getCurrencyName());
+//        String countryName = allCountryAndCurrenciesArrayList.get(position).getCountryName();
         setImageThumbnailInRow(""+countryName.charAt(0),myViewHolder.imageThumbnailTextView);
+        int flagId = countryFlags.getCountryFlag(countryName);
+
+        if (flagId != -1){
+            Picasso.get().load(flagId).centerCrop().fit().into(myViewHolder.countryFlagImageView);
+        }else {
+            myViewHolder.countryFlagImageView.setImageResource(R.drawable.ic_defalt_flag);
+        }
+
 
     }
 
@@ -97,12 +112,14 @@ public class AllcurrencyRecyclerViewAdapter extends RecyclerView.Adapter<Allcurr
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView countryName,currencyName,imageThumbnailTextView;
+        ImageView countryFlagImageView;
 
         public MyViewHolder(@NonNull View itemView, final OnCardViewClickListener onCardViewClickListener) {
             super(itemView);
             countryName = itemView.findViewById(R.id.country_name_text_view);
             currencyName = itemView.findViewById(R.id.currency_name_text_view);
             imageThumbnailTextView = itemView.findViewById(R.id.image_thumbnail_text_view);
+            countryFlagImageView = itemView.findViewById(R.id.country_flag_image_view);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

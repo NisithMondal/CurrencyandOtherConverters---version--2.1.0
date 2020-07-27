@@ -55,7 +55,7 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
         String []allCountriesName = getResources().getStringArray(R.array.countries_name);
         String []allCurrenciesName = getResources().getStringArray(R.array.all_currencies);
         allCountryAndCurrenciesArrayList = setCountryAndCurrenciesArrayList(allCountriesName,allCurrenciesName);
-        allcurrencyRecyclerViewAdapter =new AllcurrencyRecyclerViewAdapter(allCountryAndCurrenciesArrayList,this);
+        allcurrencyRecyclerViewAdapter =new AllcurrencyRecyclerViewAdapter(getApplicationContext(),allCountryAndCurrenciesArrayList,this);
         allCurrencyRecyclerView.setAdapter(allcurrencyRecyclerViewAdapter);
         Intent requestIntent = getIntent();//this intent object came from CurrencyActivity
         clickedCurrencyLayoutId = requestIntent.getIntExtra("clicked_currency_layout_id",-1);
@@ -119,6 +119,8 @@ public class AllCurrencyNameActivity extends AppCompatActivity implements Allcur
     public void onCardViewClick(int position) {
         Intent resultIntent = new Intent();
         String selectedCurrencyName = allCountryAndCurrenciesArrayList.get(position).getCurrencyName();
+        String selectedCountryName = allCountryAndCurrenciesArrayList.get(position).getCountryName();
+        resultIntent.putExtra("country_name",selectedCountryName);
         resultIntent.putExtra("currency_name",selectedCurrencyName);
         resultIntent.putExtra("clicked_currency_layout_id",clickedCurrencyLayoutId);
         setResult(RESULT_OK,resultIntent);

@@ -41,6 +41,7 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -56,6 +57,8 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     private ImageView arrowImageView;
     private LinearLayout leftCurrencyLayout,rightCurrencyLayout;
     private TextView leftCurrencyTextView,rightCurrencyTextView;
+    private TextView leftCountryNameTextView, rightCountryNameTextView;
+    private ImageView leftCountryImageView, rightCountryImageView;
     private EditText enterAmountEditText;
     private TextView resultTextView;
     private Toolbar appToolbar;
@@ -69,6 +72,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
     private ProgressBar progressBar;
     private Button currencyConvertButton,currencyHistoryButton;
     private ArrayList<CurrencyInfoHolder> allCurrencyInfoArrayList;
+    private CountryFlags countryFlags;
 
 
 
@@ -91,6 +95,10 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         rightCurrencyLayout = findViewById(R.id.right_currency_layout);
         leftCurrencyTextView = findViewById(R.id.left_currency_text_view);
         rightCurrencyTextView = findViewById(R.id.right_currency_text_view);
+        leftCountryNameTextView = findViewById(R.id.left_country_name_tv);
+        leftCountryImageView = findViewById(R.id.left_country_image_view);
+        rightCountryNameTextView = findViewById(R.id.right_country_name_tv);
+        rightCountryImageView = findViewById(R.id.right_country_image_view);
         currencyConvertButton = findViewById(R.id.currency_convert_button);
         currencyHistoryButton = findViewById(R.id.currency_history_button);
         arrowImageView = findViewById(R.id.arrow_image_view);
@@ -116,6 +124,10 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         toolbarSoundIconImageView.setOnClickListener(toolbarSoundIconHandaler);
         enterAmountEditText.addTextChangedListener(new MyTextWatcher());
         resultTextView.addTextChangedListener(new MyResultTextViewTextWatcher());
+        countryFlags = new CountryFlags(getApplicationContext());
+        setCurrencyViews();
+
+
 
         //To show Ads
 //        showLargeBannerAd();
@@ -124,6 +136,26 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
 
     }
 
+
+    private void setCurrencyViews(){
+        leftCurrencyTextView.setText("USD");
+        leftCountryNameTextView.setText("United States");
+        rightCurrencyTextView.setText("INR");
+        rightCountryNameTextView.setText("India");
+        int leftFlagId = countryFlags.getCountryFlag("United States");
+        int rightFlagId = countryFlags.getCountryFlag("India");
+        if (leftFlagId != -1){
+            Picasso.get().load(leftFlagId).centerCrop().fit().into(leftCountryImageView);
+        }else {
+            leftCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+        }
+
+        if (rightFlagId != -1){
+            Picasso.get().load(rightFlagId).centerCrop().fit().into(rightCountryImageView);
+        }else {
+            rightCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+        }
+    }
 
 
 
@@ -296,6 +328,10 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
             public void onClick(View v) {
                  String leftCurrencyTextViewValue = leftCurrencyTextView.getText().toString();
                  String rightCurrencyTextViewValue = rightCurrencyTextView.getText().toString();
+                 String leftCountryTextViewValue = leftCountryNameTextView.getText().toString();
+                 String rightCountryTextViewValue = rightCountryNameTextView.getText().toString();
+                 int leftFlagId = countryFlags.getCountryFlag(leftCountryTextViewValue);
+                 int rightFlagId = countryFlags.getCountryFlag(rightCountryTextViewValue);
                 YoYo.with(Techniques.RotateIn)
                         .duration(500)
                         .repeat(0)
@@ -306,6 +342,12 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                         .repeat(0)
                         .playOn(leftCurrencyLayout);
                 leftCurrencyTextView.setText(rightCurrencyTextViewValue);
+                leftCountryNameTextView.setText(rightCountryTextViewValue);
+                if (rightFlagId != -1){
+                    Picasso.get().load(rightFlagId).centerCrop().fit().into(leftCountryImageView);
+                }else {
+                    leftCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+                }
                 enterAmountEditText.setHint("Enter Amount ("+leftCurrencyTextView.getText().toString()+")");
 
 
@@ -316,6 +358,12 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
                         .playOn(rightCurrencyLayout);
 
                 rightCurrencyTextView.setText(leftCurrencyTextViewValue);
+                rightCountryNameTextView.setText(leftCountryTextViewValue);
+                if (leftFlagId != -1){
+                    Picasso.get().load(leftFlagId).centerCrop().fit().into(rightCountryImageView);
+                }else {
+                    rightCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+                }
                 marqueTextView.setText("Currency   is   Converting    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                  ");
 
                 //I call performCurrencyConvertion() method here because I want to perform Currency Convertion when ArrowImageView is Clicked
@@ -529,19 +577,49 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == mRequestCode && resultCode == RESULT_OK && data !=null){
             String selectedCurrencyName = data.getStringExtra("currency_name");
+            String selectedCountryName = data.getStringExtra("country_name");
+            int flagId = countryFlags.getCountryFlag(selectedCountryName);
             int clickedCurrencyLayoutId = data.getIntExtra("clicked_currency_layout_id",-1);
             switch (clickedCurrencyLayoutId){
                 case R.id.left_currency_layout:
                     if (rightCurrencyTextView.getText().toString().equalsIgnoreCase(selectedCurrencyName)){
+                        int leftFlagId = countryFlags.getCountryFlag(leftCountryNameTextView.getText().toString());
+                        if (leftFlagId != -1){
+                            Picasso.get().load(leftFlagId).centerCrop().fit().into(rightCountryImageView);
+                        }else {
+                            rightCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+                        }
                         rightCurrencyTextView.setText(leftCurrencyTextView.getText().toString());
+                        rightCountryNameTextView.setText(leftCountryNameTextView.getText().toString());
+
                     }
                     leftCurrencyTextView.setText(selectedCurrencyName);
+                    leftCountryNameTextView.setText(selectedCountryName);
+                    if (flagId != -1){
+                        Picasso.get().load(flagId).centerCrop().fit().into(leftCountryImageView);
+                    }else {
+                        leftCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+                    }
                     enterAmountEditText.setHint("Enter Amount ("+leftCurrencyTextView.getText().toString()+")");
                     break;
 
                 case R.id.right_currency_layout:
                     if (leftCurrencyTextView.getText().toString().equalsIgnoreCase(selectedCurrencyName)){
+                        int rightFlagId = countryFlags.getCountryFlag(rightCountryNameTextView.getText().toString());
+                        if (rightFlagId != -1){
+                            Picasso.get().load(rightFlagId).centerCrop().fit().into(leftCountryImageView);
+                        }else {
+                            leftCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+                        }
                         leftCurrencyTextView.setText(rightCurrencyTextView.getText().toString());
+                        leftCountryNameTextView.setText(rightCountryNameTextView.getText().toString());
+
+                    }
+                    rightCountryNameTextView.setText(selectedCountryName);
+                    if (flagId != -1){
+                        Picasso.get().load(flagId).centerCrop().fit().into(rightCountryImageView);
+                    }else {
+                        leftCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
                     }
                     rightCurrencyTextView.setText(selectedCurrencyName);
                     break;

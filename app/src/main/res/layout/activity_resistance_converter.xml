@@ -138,7 +138,9 @@
                         android:imeOptions="actionDone"
                         android:inputType="numberDecimal"
                         android:textColor="@android:color/black"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        />
 
 
                     <TextView

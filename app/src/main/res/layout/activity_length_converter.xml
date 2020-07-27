@@ -159,6 +159,7 @@
                         android:inputType="numberDecimal"
                         android:textSize="20sp"
                         android:textColor="@android:color/black"
+                        android:textAlignment="center"
                         />
 
 
