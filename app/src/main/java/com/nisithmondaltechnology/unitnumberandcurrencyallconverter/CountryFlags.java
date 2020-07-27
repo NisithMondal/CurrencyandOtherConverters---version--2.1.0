@@ -71,6 +71,7 @@ public class CountryFlags {
     public CountryFlags(Context context){
         this.context = context;
         allCountryNamesList = Arrays.asList(context.getResources().getStringArray(R.array.countries_name_for_flags));
+        Log.d("ABCDE","ArrayList Size = "+allCountryNamesList.size());
 
 
     }
