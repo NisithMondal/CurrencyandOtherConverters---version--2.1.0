@@ -136,6 +136,8 @@
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:textStyle="italic" />
 
             </androidx.cardview.widget.CardView>
@@ -290,7 +292,10 @@
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="18sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    />
 
             </androidx.cardview.widget.CardView>
 
@@ -521,6 +526,8 @@
                     android:textStyle="italic" />
             </LinearLayout>
 
+
+
             <LinearLayout
                 android:id="@+id/linear_layout11"
                 android:layout_width="match_parent"
@@ -540,7 +547,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Frequency Converter"
+                    android:text="Bits-Bytes, Resistance, Frequency  Converter"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="italic" />
@@ -550,7 +557,7 @@
                 android:id="@+id/linear_layout12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/linear_layout10"
+                android:layout_below="@id/linear_layout11"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="7dp"
                 android:background="#ffffff"
@@ -595,7 +602,10 @@
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="18sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    />
 
             </androidx.cardview.widget.CardView>
 
@@ -927,7 +937,10 @@
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    />
 
             </androidx.cardview.widget.CardView>
 
@@ -971,7 +984,10 @@
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    />
 
             </androidx.cardview.widget.CardView>
 
@@ -1019,7 +1035,10 @@
                     android:textAlignment="textStart"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    />
 
             </androidx.cardview.widget.CardView>
 

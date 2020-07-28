@@ -104,7 +104,7 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
         arrowImageView = findViewById(R.id.arrow_image_view);
         marqueTextView = findViewById(R.id.marque_text_view);
         progressBar = findViewById(R.id.progressbar);
-        marqueTextView.setText("Currency   is   Converting   From   USD   To   EUR                                          ");
+        marqueTextView.setText("Currency   is   Converting   From   USD   To   INR                                          ");
         marqueTextView.setSelected(true);
         soundStateSharedPreference = new SoundStateSharedPreference(this);
         if (soundStateSharedPreference.getSoundState().equalsIgnoreCase("empty")){
@@ -616,12 +616,13 @@ public class CurrencyActivity extends AppCompatActivity implements NavigationVie
 
                     }
                     rightCountryNameTextView.setText(selectedCountryName);
+                    rightCurrencyTextView.setText(selectedCurrencyName);
                     if (flagId != -1){
                         Picasso.get().load(flagId).centerCrop().fit().into(rightCountryImageView);
                     }else {
-                        leftCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
+                        rightCountryImageView.setImageResource(R.drawable.ic_defalt_flag);
                     }
-                    rightCurrencyTextView.setText(selectedCurrencyName);
+
                     break;
             }
             marqueTextView.setText("Currency   is   Converting    From   "+leftCurrencyTextView.getText().toString() +      "       To     "+ rightCurrencyTextView.getText().toString()+"                                 ");
